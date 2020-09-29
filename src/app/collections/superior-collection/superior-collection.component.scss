@@ -1,0 +1,100 @@
+.project-tab {
+  padding: 10%;
+  margin-top: -8%;
+}
+
+.project-tab #tabs {
+  background: #007b5e;
+  color: #eee;
+}
+
+.project-tab #tabs h6.section-title {
+  color: #eee;
+}
+
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #0062cc;
+  background-color: transparent;
+  border-color: transparent transparent #f3f3f3;
+  border-bottom: 3px solid !important;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.project-tab .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  color: #0062cc;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.project-tab .nav-link:hover {
+  border: none;
+}
+
+.project-tab thead {
+  background: #f3f3f3;
+  color: #333;
+}
+
+.project-tab a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+.card-post__image {
+  align-self: center;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.card-text:last-child {
+    max-width: 100%;
+}
+
+@media(max-width: 760px){
+  .col-md-12{
+    padding: 0;
+  }
+
+  .project-tab{
+    padding: 0;
+    padding-top: 10%;
+  }
+}
+
+h3{
+  width: 100%;
+}
+
+.d-block{
+  height: fit-content !important;
+}
+
+a{
+  text-transform: uppercase;
+}
+
+.card-body{
+  max-width: 850px;
+}
+
+.card-text{
+  max-width: 100%;
+}
+
+@media(max-width: 480px){
+  .pagefirm img{
+        max-width: 220px ;
+  }
+}

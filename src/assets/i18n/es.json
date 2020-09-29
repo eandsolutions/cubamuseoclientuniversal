@@ -1,0 +1,84 @@
+{
+    "HOME": {
+        "TITLE": "Cuba Museo"
+    },
+    "About": {
+        "TITLE": "Quienes Somos",
+        "TEXT": " Este espacio ha sido concebido por un coleccionista cubano, el Ing. Luis Díaz Mijares, que ha dedicado décadas a reunir las piezas que se muestran en sus diferentes secciones temáticas y a confeccionar las páginas correspondientes. La totalidad de su contenido es de su entera responsabilidad y autoría.<br><br><b>Diseño y desarrollo del sitio:</b><br> Lic. Yoel de la Noval Denis <br>Ing. Sandy Cordoví González <br>Ing. Anabel Andrés Costa <br><br><b>Traducción Español/Inglés:</b><br> Lic. en Lengua Inglesa Mayen Vincench Pereira<br> <br>Si con nuestro trabajo llegamos a contribuir en algo a la difusión y conocimiento de la cultura e identidad cubana nos sentiremos satisfechos."
+    },
+    
+    "Contact": {
+        "TITLE": "Contáctenos",
+        "Questions": "¿Tiene usted alguna pregunta? Por favor no dude en contactarnos directamente. Nuestro equipo se pondrá en contacto con usted en cuestión de horas para ayudarlo.",
+        "NAME":"Nombre",
+        "EMAIL":"Correo",
+        "SUBJECT":"Asunto",
+        "TEXT":"Mensaje",
+        "SEND": " Enviar Mensaje",
+        "Direction":"La Habana,Cuba"
+    },
+    "News": {
+        "TITLE": "Noticias",
+        "TEXT": " Donde usted podrá conocer de las últimas informaciones de interés relativas al contenido de nuestro sitio, a las nuevas secciones que se le irán incorporando, a las adiciones que recibirán sus páginas, etc. También noticias relativas al mundo del coleccionismo cubano donde referiremos nuevos hallazgos, eventos, publicaciones, etc."
+    },
+    "RelatedSites": {
+        "TITLE": "Sitios Relacionados",
+        "TEXT": " Memorias es una tienda de antigüedades localizada en el corazón de la ciudad de la Habana, a una cuadra del Museo Nacional de Bellas Artes y colindante con el conocido bar Sloppy Joe's. Su principal objetivo es, además de comercializar una amplia gama de artículos destinados a los amantes de lo antiguo, crear un espacio que resulte agradable al visitante mediante la recreación del pasado cubano. En sus paredes además de viejas fotos, pinturas, carteles, grabados, etc., se mantienen generalmente exposiciones temporales relativas a nuestro patrimonio cultural en las cuales se muestran pequeñas colecciones acompañadas por sus correspondientes reseñas."
+    },
+    "Menu":{
+        "Menu":"Menú",
+        "MenuPagina":"Menú de Página",
+        "Colecciones":"Inicio",
+        "Estampas":"Estampas",
+        "Muestras":"Muestras",
+        "Postales":"Postales Virtuales",
+        "Tienda":"Tienda"
+    },
+    "Derechos":{
+        "Derechos":"Todos los derechos reservados | Diseño y desarrollo",
+        "PiePagina":"Texto e imágenes: Luis Días Mijares"
+    },
+    "AD":{
+        "Item":"Artículo",
+        "Precio":"Precio",
+        "Envio":"Envio dentro de EEUU (Gratis) ",
+        "EnvioPrecio":"Envio dentro de EEUU ",
+        "EnvioFuera":"Envio fuera de EEUU "
+    },
+    "V-Post":{
+        "Share":"Usted puede compartir esta imagen a traves de sus redes sociales libre de costo"
+    },
+    "TextComponent":{
+        "Texto":"Texto",
+        "SuperiorGallery":"Galería de Páginas",
+        "InferiorGallery":"Galería de Imágenes"
+    },
+    "GalleryComponent":{
+        "Title":"Todas las Páginas de la Sección",
+        "Emision":"Emisión",
+        "Color":"Color",
+        "Material":"Material",
+        "Impresion":"Impresión",
+        "Dimension":"Dimensión",
+        "Procedencia":"Procedencia",
+        "Precio":"Precio",
+        "Seleccionar":"Seleccionar",
+        "SigloXX":"Siglo XX",
+        "SigloXIX":"Siglo XIX",
+        "SeeMore":"Ver más",
+        "SeeLess":"Ver menos",
+        "Siguiente":"Siguiente",
+        "Anterior":"Anterior"
+    },
+    "Imagen":{
+        "Zoom":"Ver imagen ampliada"
+    },
+    "Search":{
+        "Placeholder":"Escriba aquí para buscar...",
+        "Results":" Artículos encontrados",
+        "Colecciones":"Colecciones"
+    },
+    "Category":{
+        "Tematica":"Temáticas"
+    }
+}

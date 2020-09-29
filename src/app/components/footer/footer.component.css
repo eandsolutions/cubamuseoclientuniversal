@@ -1,0 +1,37 @@
+.pull-left ul li {
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #2698da;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #26c6da;
+}
+
+@media(max-width: 1024px) {
+    .pull-right {
+        float: none;
+    }
+}
+
+.card-body p{
+    max-width:900px;
+}
+
+@media(max-width: 768px){
+.card {
+    width:150%;
+
+}
+.card-body {
+    width:100%;
+    
+}
+.card-body p {
+ width: 100%;
+}
+
+}

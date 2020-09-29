@@ -1,0 +1,8 @@
+.nav-link{
+    display: grid;
+    justify-items: center;
+}
+
+img {
+    max-width: 80px;
+}

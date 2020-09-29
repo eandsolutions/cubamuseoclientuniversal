@@ -1,0 +1,106 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" *ngIf="collection.nombre != ''">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-image">
+                        <img src="{{config.serverNodeLocation}}images/3/{{getCollectionName()}}/{{collection.imagen}}/collection/none"
+                            alt="">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="title">
+                            <a class="text-fiord-blue" href="#" [innerHTML]="collection.titulo"></a>
+                        </h5>
+                        <section id="tabs" class="project-tab">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <nav>
+                                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"
+                                                style="max-width: 350px; width: max-content;padding: 0;">
+                                                <a style="font-size: 15px;" class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                                                    href="#nav-home" role="tab" aria-controls="nav-home"
+                                                    aria-selected="true">{{'TextComponent.Texto'|translate}}</a>
+                                                <a style="font-size: 15px;" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                                    href="#nav-profile" role="tab" aria-controls="nav-profile"
+                                                    aria-selected="false">{{'TextComponent.SuperiorGallery'|translate}}</a>
+                                            </div>
+                                        </nav>
+
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                                aria-labelledby="nav-home-tab">
+
+                                                <p class="card-text d-inline-block mb-3"
+                                                    [innerHTML]="collection.descripcion"></p>
+                                                <div style="display: block; text-align: center;">
+                                                    <div>
+                                                        <label>{{'Derechos.PiePagina'|translate}}</label>
+                                                    </div>
+                                                    <div class="pagefirm">
+                                                        <img src="assets/img/Final.png" alt="">
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                                aria-labelledby="nav-profile-tab">
+                                                <div class="container" style="margin-top: 22px;">
+                                                    <div class="text-center">
+                                                        <div class="row justify-content-center" style="align-items: flex-start;"
+                                                            *ngIf="collection.nombre != ''">
+                                                            <h3 *ngIf="galleryXX.length > 0">
+                                                                {{'GalleryComponent.SigloXIX'|translate}}</h3>
+                                                            <div class="col-lg-3 col-md-4 col-6"
+                                                                *ngFor="let item of gallery">
+                                                                <a (click)='setBreadcrumb(item)' class="d-block mb-4 h-100"
+                                                                    [routerLink]="['/inferior-collection',item.idCategoria]"
+                                                                    style="margin-bottom: 2px !important;">
+                                                                    <img class="img-fluid img-thumbnail"
+                                                                        src="{{config.serverNodeLocation}}images/2/{{item.carpeta}}/{{item.imagenGaleria}}/collection/{{getSection()}}"
+                                                                        alt="">
+                                                                </a>
+                                                                <p [innerHTML]="item.nombre"
+                                                                    style="font-size: smaller; text-align: center;"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-center">
+                                                            <h3 *ngIf="galleryXX.length > 0">
+                                                                {{'GalleryComponent.SigloXX'|translate}}</h3>
+                                                            <div class="col-lg-3 col-md-4 col-6"
+                                                                *ngFor="let item of galleryXX">
+                                                                <a (click)='setBreadcrumb(item)' class="d-block mb-4 h-100"
+                                                                    [routerLink]="['/inferior-collection',item.idCategoria]"
+                                                                    style="margin-bottom: 2px !important;">
+                                                                    <img class="img-fluid img-thumbnail"
+                                                                        src="{{config.serverNodeLocation}}images/2/{{item.carpeta}}/{{item.imagenGaleria}}/collection/{{getSection()}}"
+                                                                        alt="">
+                                                                </a>
+                                                                <p [innerHTML]="item.nombre"
+                                                                    style="font-size: smaller; text-align: center;"></p>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+
+                                                </div>
+                                                <!-- /.container -->
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

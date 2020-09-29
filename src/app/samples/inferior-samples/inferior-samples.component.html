@@ -1,0 +1,241 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" *ngIf="samples.carpeta != '' && samples.cantImges != 0">
+                    <div class="card-header card-header-image">
+                        <img src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{samples.imagen}}/samples/none"
+                            alt="">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="title">
+                            <a class="text-fiord-blue" href="#" [innerHTML]="samples.titulo"></a>
+                        </h5>
+                        <section id="tabs" class="project-tab">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <nav>
+                                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"
+                                                style="max-width: 350px;width: max-content;padding: 0;">
+                                                <a style="font-size: 15px;" class="nav-item nav-link active"
+                                                    id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                                                    aria-controls="nav-home"
+                                                    aria-selected="true">{{'TextComponent.Texto'|translate}}</a>
+                                                <a style="font-size: 15px;" class="nav-item nav-link"
+                                                    id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                                                    role="tab" aria-controls="nav-profile"
+                                                    aria-selected="false">{{'TextComponent.InferiorGallery'|translate}}</a>
+                                            </div>
+                                        </nav>
+
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                                aria-labelledby="nav-home-tab">
+
+                                                <p class="card-text d-inline-block mb-3" style="margin-top: 22px;"
+                                                    [innerHTML]="samples.descripcion"></p>
+                                                <div style="display: block; text-align: center;">
+                                                    <div>
+                                                        <label>{{'Derechos.PiePagina'|translate}}</label>
+                                                    </div>
+                                                    <div class="pagefirm">
+                                                        <img src="assets/img/Final.png" alt="">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                                aria-labelledby="nav-profile-tab">
+                                                <div class="container" style="margin-top: 22px;">
+                                                    <div *ngIf="samples.carpeta != ''"
+                                                        class="row text-center justify-content-center"
+                                                        style="align-items: flex-end;">
+
+                                                        <div id="item" class="col-lg-2 col-md-4 col-6" style="padding: 5px;" [ngStyle]="{'max-width': 100/samples.cantImages+'%'}"
+                                                            *ngFor="let item of gallery">
+                                                            <a class="tooltiptext d-block mb-2 h-100"
+                                                                style="text-align: center;"
+                                                                (click)="openModal('custom-modal-1', item)">
+                                                                <img class="img-fluid img-thumbnail" [ngStyle]="{'max-height': getHeigth()+'px'}"
+                                                                    style="cursor: pointer;"
+                                                                    [title]="item.titulo"
+                                                                    src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{item.imagen}}/samples/none"
+                                                                    alt="">
+                                                                <p [innerHTML]="item.titulo"></p>
+                                                            </a>
+                                                            <p [innerHTML]="item.nombre"
+                                                                style="font-size: smaller; text-align: center;"></p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- /.container -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<jw-modal id="custom-modal-1">
+    <div class="main-content">
+        <div class="container-fluid center">
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <div class="card" *ngIf="samples.carpeta != ''"
+                        style="max-width: 630px; padding: 50px; margin-top: 0;">
+                        <button style="position: absolute; right: 3px; top: 0;z-index: 5;"
+                            class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
+                            <i class="material-icons">close</i>
+                        </button>
+
+                        <div class="card-title" style="font-weight: 800; height: 80px;"
+                            [innerHTML]="actualItem.nombre+' | '+ actualItem.titulo">
+
+                        </div>
+                        <div class="card-header card-header-image zoom-exterior">
+                            <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
+                                style="left: -12%; z-index: 4;  color: rgba(0, 0, 0, 0.733);"
+                                [title]="'GalleryComponent.Anterior'|translate">
+                                <i class="material-icons"
+                                    style="font-size: 50px; margin-right: auto;">keyboard_arrow_left</i>
+                            </a>
+                            <div (click)="openModal('custom-modal-zoom',actualItem)"
+                                style="cursor: pointer; text-align: center;display: flex;justify-content: center;"
+                                [title]="'Imagen.Zoom'|translate">
+                                <img class="img-fluid img-thumbnail"
+                                    style="align-self: center; max-height: 100%; width: auto; "
+                                    src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{actualItem.imagen}}/samples/none">
+                            </div>
+
+                            <a class="carousel-control-next" (click)="next()" role="button"
+                                style="right: -12%;z-index: 4; color: rgba(0, 0, 0, 0.733);" data-slide="next"
+                                [title]="'GalleryComponent.Siguiente'|translate">
+                                <i class="material-icons"
+                                    style="font-size: 50px; margin-left: auto;">keyboard_arrow_right</i>
+                            </a>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="cui_descr_nav" *ngIf="!checkLenght(actualItem.descripcion)">
+                                <p style="text-align:left; line-height:1.6em; color: black; "
+                                    [innerHTML]="actualItem.descripcion">
+                                </p>
+                            </div>
+                            <div class="cui_descr_nav" id="show_div" [class.hidden]="isHide"
+                                *ngIf="checkLenght(actualItem.descripcion)">
+                                <p style="text-align:left; line-height:1.6em; color: black; "
+                                    [innerHTML]="sliceDescription(actualItem.descripcion)">
+                                </p>
+                                <button class="more_text" (click)="see_more()"
+                                    style=" text-align: left; font-size: .9em; color:#5c84b5; background-color: transparent; border-style: hidden;">
+                                    ({{'GalleryComponent.SeeMore'|translate}})
+                                </button>
+                            </div>
+                            <div class="cui_descr_nav" id="hidden_div" [class.hidden]="!isHide"
+                                *ngIf="checkLenght(actualItem.descripcion)">
+                                <p style="text-align:left; line-height:1.6em; color: black; "
+                                    [innerHTML]="actualItem.descripcion">
+                                </p>
+                                <button class="more_text" (click)="see_more()"
+                                    style="text-align: left; font-size: .9em; color:#5c84b5; background-color: transparent; border-style: hidden;">
+                                    ({{'GalleryComponent.SeeLess'|translate}})
+                                </button>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.emision)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black; font-weight: bold;">{{'GalleryComponent.Emision'|translate}}:
+                                </span><span style="text-align:left; line-height:1.6em; color: black;"
+                                    [innerHTML]="actualItem.emision"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.color)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Color'|translate}}:
+                                </span><span style="text-align:left; line-height:1.6em; color: black;"
+                                    [innerHTML]="actualItem.color"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.material)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Material'|translate}}:</span><span
+                                    style="text-align:left; line-height:1.6em; color: black;"
+                                    [innerHTML]="actualItem.material"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.impresion)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Impresion'|translate}}:
+                                </span><span style="text-align:left; line-height:1.6em;  color: black;"
+                                    [innerHTML]="actualItem.impresion"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.dimension)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Dimension'|translate}}:
+                                </span><span style="text-align:left; line-height:1.6em;  color: black;"
+                                    [innerHTML]="actualItem.dimension"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.procedencia)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Procedencia'|translate}}:
+                                </span><span style="text-align:left; line-height:1.6em;  color: black;"
+                                    [innerHTML]="actualItem.procedencia"></span>
+                            </div>
+                            <!-- <div *ngIf="!checkIfIsEmpty(actualItem.precio)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold; ">{{'GalleryComponent.Precio'|translate}}:
+                                </span><span style="text-align:left; line-height:1.6em;  color: black;"
+                                    [innerHTML]="actualItem.precio"></span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</jw-modal>
+
+<jw-modal id="custom-modal-zoom">
+    <div class="container-fluid center" style="width: max-content;">
+        <div class="row" style="justify-content: center;">
+
+            <div class="card card-zoom-inferior" *ngIf="samples.carpeta != ''"
+                style="width: max-content; padding: 90px; align-items: center;">
+                <button style="position: absolute; right: 3px; top: 0; z-index: 2;"
+                    class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-zoom');">
+                    <i class="material-icons">close</i>
+                </button>
+                <div style="font-weight: 800; position: absolute; top: 17px; text-align: center;"
+                    [innerHTML]="actualItem.nombre+' | '+ actualItem.titulo">
+
+                </div>
+                <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
+                    style="z-index: 1;  color: rgba(0, 0, 0, 0.733);" [title]="'GalleryComponent.Anterior'|translate">
+                    <i class="material-icons" style="font-size: xx-large;margin-right: auto;">keyboard_arrow_left</i>
+                </a>
+                <div class="card-header card-header-image zoom-inferior" style="margin-top: 0;">
+
+                    <img class="img-fluid img-thumbnail"
+                        src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{actualItem.imagen}}/samples/none"
+                        alt="">
+
+                </div>
+                <a class="carousel-control-next" (click)="next()" role="button"
+                    style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next"
+                    [title]="'GalleryComponent.Siguiente'|translate">
+                    <i class="material-icons" style="font-size: xx-large; margin-left: auto;">keyboard_arrow_right</i>
+                </a>
+            </div>
+        </div>
+    </div>
+</jw-modal>

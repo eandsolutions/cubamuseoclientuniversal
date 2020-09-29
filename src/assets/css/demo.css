@@ -1,0 +1,150 @@
+/*!
+
+=========================================================
+* Material Dashboard Angular - v2.4.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard-angular2
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/material-dashboard-angular2/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
+
+.row{
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.main-content .container-fluid .row {
+  max-width: 900px;
+  width: inherit;
+}
+
+.container-fluid{
+  display: flex;
+  justify-content: center;
+}
+
+
+.col-md-12{
+  display: block;
+  justify-content: center;
+}
+
+.card {
+  max-width: 860px;
+}
+
+.card-body {
+  align-self: center;
+  width: inherit;
+}
+
+.project-tab{
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+
+.firm{
+  width: 100%;
+  text-align: center;
+}
+
+.tim-typo {
+  padding-left: 25%;
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.tim-typo .tim-note {
+  bottom: 5px;
+  color: #c0c1c2;
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  left: 0;
+  margin-left: 20px;
+  position: absolute;
+  width: 260px;
+}
+
+p span {
+  color: red;
+}
+
+@media (max-width: 768px) {
+  p>img {
+    width: 100% !important;
+    margin-left: 0px !important;
+  }
+  .container-fluid{
+    padding: 0;
+  }
+  .col-md-12{
+    padding: 0;
+  }
+
+  .main-content .container-fluid .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .card-body{
+    max-width: 750px;
+  }
+}
+
+p>img {
+  width: 100%;
+}
+
+.project-tab .nav-link {
+  color: #2CA8FF;
+}
+
+.card-header-info {
+  text-align: center;
+  font-size: x-large;
+}
+
+.card-header-success {
+  text-align: center;
+  font-size: x-large;
+}
+
+.card-footer {
+  padding-top: 0;
+  text-align: center;
+}
+
+.title {
+  font-size: x-large;
+  font-weight: 500;
+}
+
+.title a {
+  color: #66bb6a;
+}
+
+#nav-tab a {
+  color: #43a047;
+  font-weight: 500;
+}
+
+.card-text {
+  text-align: justify;
+}
+
+p em img{
+  max-width: 100%;
+}

@@ -1,0 +1,9 @@
+
+<div>
+    <ol class="breadcrumb">
+        <li *ngFor="let item of getBreadcrumb();let i = index"  class="breadcrumb-item">
+            <a *ngIf="item.name != 'collection' && i != b_length-1 " [routerLink]="[item.path]" [innerHTML]="item.name"></a>
+            <a *ngIf=" i == b_length-1 && item.name != 'collection' " [innerHTML]="item.name"></a>
+        </li>
+    </ol>
+</div>

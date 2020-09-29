@@ -1,0 +1,7 @@
+a{
+    color: #7ebb98;
+}
+ol li:last-child a{
+    color: black;
+
+}

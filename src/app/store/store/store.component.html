@@ -1,0 +1,21 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" *ngIf="homeData.imagen">
+                    <div class="card-header card-header-image">
+                        <img src="{{config.serverNodeLocation}}images/imageForText/{{homeData.imagen}}" alt="">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="title">
+                            <a class="text-fiord-blue" href="#" >{{homeData.nombre}}</a>
+                        </h5>
+                        <p class="card-text d-inline-block mb-3" [innerHTML]="homeData.descripcion"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

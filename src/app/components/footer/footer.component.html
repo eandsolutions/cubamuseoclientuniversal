@@ -1,0 +1,201 @@
+<footer class="footer " style="background-color: #fff;">
+    <div class="container-fluid" style="display: grid;">
+
+        
+        <nav class="pull-left">
+            <ul>
+                <li>
+                    <a (click)="openModal('custom-modal-contact')">
+                        {{'Contact.TITLE'|translate}}
+                    </a>
+                </li>
+                <li>
+                    <a (click)="openModal('custom-modal-company-description')">
+                        {{'About.TITLE'|translate}}
+                    </a>
+                </li>
+                <li>
+                    <a (click)="openModal('custom-modal-related-sites')">
+                        {{'RelatedSites.TITLE'|translate}}
+                    </a>
+                </li>
+                <li>
+                    <a (click)="openModal('custom-modal-news')">
+                        {{'News.TITLE'|translate}}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="copyright pull-right" style="font-size: 12px;">
+            &copy;
+            {{test | date: 'yyyy'}} {{'Derechos.Derechos'|translate}}
+            <a href="https://eandsolution.com" target="_blank">E&Solutions</a>
+        </div>
+    </div>
+</footer>
+
+<jw-modal id="custom-modal-contact" style="padding: 0;">
+    <div class="container-fluid center" style="padding: 0;">
+        <div class="row" style="justify-content: center;">
+            <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-contact');">
+                <i class="material-icons">close</i>
+            </button>
+            <div class="card" style="width: auto;">
+                <div class="card-header card-header-info">
+                    {{'Contact.TITLE'|translate}}
+                </div>
+                <div class="card-body">
+                    <section class="mb-4">
+                        <!--Section description-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-9 mb-md-0 mb-5">
+                                <div id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                                    <!--Grid row-->
+                                    <div class="row">
+
+                                        <!--Grid column-->
+                                        <div class="col-md-6">
+                                            <div class="md-form mb-0">
+                                                <input type="text" [(ngModel)]="mail.name" id="name" name="name"
+                                                    class="form-control">
+                                                <label for="name" class=""> {{'Contact.NAME'|translate}}</label>
+                                            </div>
+                                        </div>
+                                        <!--Grid column-->
+
+                                        <!--Grid column-->
+                                        <div class="col-md-6">
+                                            <div class="md-form mb-0">
+                                                <input type="text" [(ngModel)]="mail.from" id="email" name="email"
+                                                    class="form-control">
+                                                <label for="email" class="">{{'Contact.EMAIL'|translate}}</label>
+                                            </div>
+                                        </div>
+                                        <!--Grid column-->
+
+                                    </div>
+                                    <!--Grid row-->
+
+                                    <!--Grid row-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="md-form mb-0">
+                                                <input type="text" [(ngModel)]="mail.subject" id="subject"
+                                                    name="subject" class="form-control">
+                                                <label for="subject" class="">{{'Contact.SUBJECT'|translate}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Grid row-->
+
+                                    <!--Grid row-->
+                                    <div class="row">
+
+                                        <!--Grid column-->
+                                        <div class="col-md-12">
+
+                                            <div class="md-form">
+                                                <textarea type="text" [(ngModel)]="mail.text" id="message"
+                                                    name="message" rows="2" class="form-control md-textarea"></textarea>
+                                                <label for="message">{{'Contact.TEXT'|translate}}</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--Grid row-->
+
+                                </div>
+
+                                <div class="text-center text-md-left">
+                                    <a class="btn btn-primary" (click)="send()">{{'Contact.SEND'|translate}}</a>
+                                </div>
+                                <div class="status"></div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-3 text-center">
+                                <ul class="list-unstyled mb-0">
+                                    <li><i class="fa fa-map-marker fa-2x"></i>
+                                        <p>{{'Contact.Direction'|translate}}</p>
+                                    </li>
+
+                                    <li><i class="fa fa-envelope mt-4 fa-2x"></i>
+                                        <p>inf@cubamuseo.com</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>
+
+<jw-modal id="custom-modal-related-sites">
+    <div class="container-fluid center" >
+        <div class="row" style="justify-content: center;">
+            <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-related-sites');">
+                <i class="material-icons">close</i>
+            </button>
+            <div class="card">
+                <div class="card-header card-header-info">
+                    {{'RelatedSites.TITLE'|translate}}
+                </div>
+                <div class="card-body" style="width: auto;">
+                    <p [innerHTML]= "'RelatedSites.TEXT'|translate">
+                      
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>
+
+<jw-modal id="custom-modal-news">
+    <div class="container-fluid center" >
+        <div class="row" style="justify-content: center;">
+            <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-news');">
+                <i class="material-icons">close</i>
+            </button>
+            <div class="card">
+                <div class="card-header card-header-info">
+                    {{'News.TITLE'|translate}}
+                </div>
+                <div class="card-body" style="width: auto;">
+                    <p [innerHTML]="'News.TEXT'|translate">
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>
+
+<jw-modal id="custom-modal-company-description">
+    <div class="container-fluid center" >
+        <div class="row" style="justify-content: center;">
+            <button class="btn btn-white btn-round btn-just-icon"
+                (click)="closeModal('custom-modal-company-description');">
+                <i class="material-icons">close</i>
+            </button>
+            <div class="card">
+                <div class="card-header card-header-info">
+                    {{'About.TITLE'|translate}}
+                </div>
+                <div class="card-body" style="width: auto;">
+                    <p [innerHTML]="'About.TEXT'|translate">
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>

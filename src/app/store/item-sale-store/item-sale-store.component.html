@@ -1,0 +1,53 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header-info">
+                        <p [innerHTML]="item.titulo"></p>
+                    </div>
+                    <div class="row" style="margin-top: 22px; padding: 22px;">
+                        <div class="col-sm-8">
+                            <div class="card-img">
+                                <img class="img-fluid img-thumbnail"
+                                    src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{item.imagen}}/store/none"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div>
+                                <span style="text-align:left; line-height:1.6em; font-weight: bold; ">Identificador:
+                                </span><span style="text-align:left; line-height:1.6em;"
+                                    [innerHTML]="item.idItem"></span>
+                            </div>
+
+                            <div>
+                                <span style="text-align:left; line-height:1.6em; font-weight: bold; ">Precio: $
+                                </span><span style="text-align:left; line-height:1.6em;  "
+                                    [innerHTML]="item.precio"></span>
+                            </div>
+                            <div>
+                                <div class="radio" *ngIf="item.precio_envio">
+                                    <label><input type="radio" name="optradio" checked> Envio dentro de EE.UU
+                                        (${{item.precio_envio}})</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio">
+                                        Envio fuera de EE.UU: (${{item.precio_envio_fuera}})</label>
+                                </div>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p [innerHTML]="item.descripcion"></p>
+                        </div>
+                        <div class="card-footer">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

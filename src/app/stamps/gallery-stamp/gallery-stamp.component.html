@@ -1,0 +1,31 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info" style="text-align: center;">
+                        <h5 class="title  col text-center">
+                            <a *ngIf="section.nombre=== 'Todas' " class="text-fiord-blue" >
+                                {{'GalleryComponent.Title'|translate}}</a>
+                            <a *ngIf="section.nombre!= 'Todas' " class="text-fiord-blue"
+                                [innerHTML]="section.nombre"></a>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center justify-content-center" style="align-items: baseline;">
+                            <div class="col-lg-3 col-md-4 col-6" *ngFor="let item of gallery">
+                                <a (click)='setBreadcrumb(item)' class="d-block mb-2 h-100" [routerLink]="['/inferior-stamp',item.idEstampa]">
+                                    <img class="img-fluid img-thumbnail"
+                                        src="{{config.serverNodeLocation}}images/2/{{item.carpeta}}/{{item.imagenGaleria}}/stamps/none"
+                                        alt="">
+                                </a>
+                                <p [innerHTML]="item.nombre" style="font-size: smaller; text-align: center;"></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
