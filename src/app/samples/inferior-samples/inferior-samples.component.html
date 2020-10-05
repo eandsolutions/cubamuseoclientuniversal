@@ -36,7 +36,7 @@
                                                 <p class="card-text d-inline-block mb-3" style="margin-top: 22px;"
                                                     [innerHTML]="samples.descripcion"></p>
                                                 <div style="display: block; text-align: center;">
-                                                    <div>
+                                                    <div *ngIf="!(samples.nombre.includes('Alfabetizacion')|| samples.nombre.includes('Alfabetización'))">
                                                         <label>{{'Derechos.PiePagina'|translate}}</label>
                                                     </div>
                                                     <div class="pagefirm">

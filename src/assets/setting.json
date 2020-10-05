@@ -1,5 +1,5 @@
 {
     "settings": {
-        "ServerNodeLocation": "http://cubamuseo.net:3000/"
+        "ServerNodeLocation": "http://localhost:3000/"
     }
 }
