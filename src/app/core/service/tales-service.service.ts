@@ -27,7 +27,7 @@ export class TalesServiceService {
   }
 
   getTaleCategoryById(id) {
-    return this.http.get(this.config.serverNodeLocation + 'api/tale/getOneCategory/' + id);
+    return this.http.get(this.config.serverNodeLocation + 'category-stamp/' + id);
   }
 
   getTalesCategories() {

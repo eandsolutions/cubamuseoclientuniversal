@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SamplesServiceService } from 'src/app/core/service/samples-service.service';
 import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
 import { ModalService } from 'src/app/_modal';
+import { MetaService } from 'src/app/core/service/meta.service';
 
 @Component({
   selector: 'app-inferior-samples',
@@ -22,7 +23,8 @@ export class InferiorSamplesComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private samplesService: SamplesServiceService,
     public enviromentVariable: EnviromentVariableServiceService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private metaService:MetaService
   ) {
     this.isHide = false;
     this.gallery = [];
@@ -60,7 +62,11 @@ export class InferiorSamplesComponent implements OnInit {
                 id: data.idMuestra,
                 cantImages:data.cantImagenes
               }
-
+              this.metaService.setTitle(this.samples.titulo)
+              this.metaService.addTags([
+                { name: 'description', content: this.samples.descripcion.slice(0,500) },
+                { name: 'robots', content: 'index, follow' }
+              ])
               this.initGalery();
               this.enviromentVariable.actualPage = 'samples';
               this.enviromentVariable.sections = [];

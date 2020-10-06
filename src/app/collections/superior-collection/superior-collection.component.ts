@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConfigServiceService } from 'src/app/core/service/config-service.service';
 import { CollectionServiceService } from 'src/app/core/service/collection-service.service';
 import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
+import { MetaService } from 'src/app/core/service/meta.service';
 //import { CollectionServiceService } from 'src/app/core/service/collection-service.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class SuperiorCollectionComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     public enviromentVariable: EnviromentVariableServiceService,
     private collectionService: CollectionServiceService,
-    private router: Router
+    private router: Router,
+    private metaService: MetaService
   ) {
     this.collection = {
       descripcion: '',
@@ -49,6 +51,7 @@ export class SuperiorCollectionComponent implements OnInit {
                   nombre: data.nombre,
                   id: data.idSeccion
                 }
+                this.enviromentVariable.setSection(data)
               } else {
                 this.collection = {
                   descripcion: data[0].descripcion,
@@ -58,7 +61,24 @@ export class SuperiorCollectionComponent implements OnInit {
                   nombre_es:data[0].nombre_es,
                   id: data[0].idSeccion
                 }
+                this.enviromentVariable.setSection({
+                  descripcion:data[0].descripcion,
+                  titulo: data[0].titulo,
+                  imagen: data[0].imagen,
+                  imagenMenu: data[0].imagenMenu,
+                  nombre: data[0].nombre,
+                  nombre_es:data[0].nombre_es,
+                  orden: data[0].orden,
+                  idSeccion: data[0].idSeccion,
+                  publicada: data[0].publicada
+                })
               }
+              this.metaService.setTitle(this.collection.titulo);
+              this.metaService.addTags([
+                { name: 'description', content: this.collection.descripcion.slice(0,500) },
+                { name: 'robots', content: 'index, follow' }
+              ])
+              this.initBreadcrumb()
               this.initGalery()
             }, err => {
 
@@ -132,7 +152,6 @@ export class SuperiorCollectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'collection';
-    this.initBreadcrumb();
 
   }
 

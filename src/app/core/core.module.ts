@@ -8,14 +8,14 @@ import { StoreServiceService } from './service/store-service.service';
 import { ConfigServiceService } from './service/config-service.service';
 import { EnviromentVariableServiceService } from './service/enviroment-variable-service.service';
 import { LocalStorageService } from './service/local-storage.service'
-
+import { MetaService } from './service/meta.service'
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
   ],
-  providers:[
+  providers: [
     SamplesServiceService,
     TalesServiceService,
     CollectionServiceService,
@@ -23,7 +23,8 @@ import { LocalStorageService } from './service/local-storage.service'
     StoreServiceService,
     ConfigServiceService,
     EnviromentVariableServiceService,
-    LocalStorageService
+    LocalStorageService,
+    MetaService
   ]
 })
 export class CoreModule { }

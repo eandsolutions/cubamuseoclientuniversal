@@ -4,8 +4,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-info" style="text-align: center;">
-                        <h5 class="title  col text-center">
-                            <a *ngIf="section.nombre=== 'Todas' " class="text-fiord-blue" >
+                        <h5 *ngIf="section" class="title  col text-center">
+                            <a *ngIf="section.nombre === 'Todas' " class="text-fiord-blue" >
                                 {{'GalleryComponent.Title'|translate}}</a>
                             <a *ngIf="section.nombre!= 'Todas' " class="text-fiord-blue"
                                 [innerHTML]="section.nombre"></a>

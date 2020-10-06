@@ -3,6 +3,7 @@ import { CollectionServiceService } from 'src/app/core/service/collection-servic
 import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
 import { ConfigServiceService } from 'src/app/core/service/config-service.service';
 import { SamplesServiceService } from 'src/app/core/service/samples-service.service';
+import { MetaService } from 'src/app/core/service/meta.service';
 
 @Component({
   selector: 'app-samples',
@@ -17,8 +18,9 @@ export class SamplesComponent implements OnInit {
     private collectionService: CollectionServiceService,
     public enviromentVariable: EnviromentVariableServiceService,
     public config: ConfigServiceService,
-    private samplesService: SamplesServiceService
-  ) { 
+    private samplesService: SamplesServiceService,
+    private metaService: MetaService
+    ) { 
     this.allSamples=[];
     this.homeData = {
       titulo: '',
@@ -63,6 +65,7 @@ export class SamplesComponent implements OnInit {
             descripcion: data.descripcion,
             imagen: data.imagen
           }
+          
         }else{
            this.homeData={
             titulo: data[0].nombre,
@@ -70,6 +73,11 @@ export class SamplesComponent implements OnInit {
             imagen: data[0].imagen
            } 
         }
+        this.metaService.setTitle(this.homeData.nombre)
+        this.metaService.addTags([
+          { name: 'description', content: this.homeData.descripcion.slice(0,500) },
+          { name: 'robots', content: 'index, follow' }
+        ])
       }, err => {
 
       }

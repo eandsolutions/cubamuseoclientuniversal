@@ -5,6 +5,7 @@ import { EnviromentVariableServiceService } from 'src/app/core/service/enviromen
 import { CollectionServiceService } from 'src/app/core/service/collection-service.service';
 import { ModalService } from 'src/app/_modal/modal.service';
 import { decode } from 'punycode';
+import { MetaService } from 'src/app/core/service/meta.service';
 
 @Component({
   selector: 'app-inferior-collection',
@@ -15,6 +16,7 @@ export class InferiorCollectionComponent implements OnInit {
 
   collection: any;
   gallery: any[];
+  prevSection:any;
   actualItem: any;
   isHide: boolean;
   widht: string = '900px'
@@ -26,7 +28,8 @@ export class InferiorCollectionComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     public enviromentVariable: EnviromentVariableServiceService,
     private collectionService: CollectionServiceService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private metaService: MetaService
   ) {
         this.isHide = false;
     this.gallery = [];
@@ -74,6 +77,7 @@ export class InferiorCollectionComponent implements OnInit {
             id: data.idCategoria,
             cantImages: data.cantImagenesFila
           }
+          this.enviromentVariable.setSection(data)
         }else{
           this.collection = {
             descripcion: data[0].descripcion,
@@ -84,9 +88,24 @@ export class InferiorCollectionComponent implements OnInit {
             id: data[0].idCategoria,
             cantImages: data[0].cantImagenesFila
           }
+          this.enviromentVariable.setSection({
+            descripcion:data[0].descripcion,
+            titulo: data[0].titulo,
+            imagen: data[0].imagen,
+            imagenMenu: data[0].imagenMenu,
+            nombre: data[0].nombre,
+            nombre_es:data[0].nombre_es,
+            orden: data[0].orden,
+            idSeccion: data[0].idSeccion,
+            publicada: data[0].publicada
+          })
         }
       
-    
+        this.metaService.setTitle(this.collection.titulo);
+        this.metaService.addTags([
+          { name: 'description', content: this.collection.descripcion.slice(0,500) },
+          { name: 'robots', content: 'index, follow' }
+        ])
         this.initGalery()
       }, err => {
 
@@ -105,7 +124,13 @@ export class InferiorCollectionComponent implements OnInit {
   }
 
   initSections() {
+    this.collectionService.getSectionByCategory(this.id).subscribe(
+      (data)=>{
+        this.prevSection = data[0];
+      },err=>{
 
+      }
+    )
     this.collectionService.getCollectionsSections().subscribe(
       (data: any[]) => {
         this.enviromentVariable.sections = [];
@@ -117,6 +142,15 @@ export class InferiorCollectionComponent implements OnInit {
     )
   }
 
+  initBreadcrumb(data) {
+    this.enviromentVariable.breadcrumbList[1] = {
+      name: JSON.parse(data).nombre,
+      path: '/inferior-collection/' + JSON.parse(data).idSeccion
+    };
+    this.enviromentVariable.breadcrumbList.splice(2, 1);
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
+  }
+
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'collection'
     this.initCollection(this.id)
@@ -125,18 +159,7 @@ export class InferiorCollectionComponent implements OnInit {
   }
 
   getSection() {
-    let data: any = this.enviromentVariable.getSection()
-    if (data == 0) {
-      return 0
-    } else {
-      if (this.enviromentVariable.getLanguage() === 'es') {
-        return JSON.parse(data).nombre
-       
-      } else {
-        return JSON.parse(data).nombre_es
-      }
-    }
-
+    return this.prevSection.nombre
   }
 
   openModal(id: string, actual: any) {

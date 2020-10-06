@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card" *ngIf="collection.carpeta">
                     <div class="card-header card-header-image">
-                        <img src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{collection.imagen}}/collection/{{getSection()}}"
+                        <img *ngIf="prevSection" src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{collection.imagen}}/collection/{{getSection()}}"
                             alt="">
                     </div>
                     <div class="card-body">
@@ -57,7 +57,7 @@
                                                             <a class=" tooltiptext d-block mb-2 h-100"
                                                                 style="text-align: center;"
                                                                 (click)="openModal('custom-modal-1', item)">
-                                                                <img class="img-fluid img-thumbnail"
+                                                                <img *ngIf="prevSection" class="img-fluid img-thumbnail"
                                                                     style=" cursor: pointer;" [ngStyle]="{'max-height': getHeigth()+'px'}"
                                                                     src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{item.imagen}}/collection/{{getSection()}}"
                                                                     alt="">
@@ -113,7 +113,7 @@
                             <div (click)="openModal('custom-modal-zoom',actualItem)"
                                 style="cursor: pointer;text-align: center; display: flex;justify-content: center;"
                                 [title]="'Imagen.Zoom'|translate">
-                                <img class="img-fluid img-thumbnail"
+                                <img *ngIf="prevSection && actualItem.imagen != ''" class="img-fluid img-thumbnail"
                                     style="align-self: center; max-height: 100%; width: auto;"
                                     src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{actualItem.imagen}}/collection/{{getSection()}}">
                             </div>
@@ -222,7 +222,7 @@
                 </a>
                 <div class="card-header card-header-image zoom-inferior" style="margin-top: 0;">
 
-                    <img class="img-fluid img-thumbnail"
+                    <img *ngIf="prevSection && actualItem.imagen != ''" class="img-fluid img-thumbnail"
                         src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{actualItem.imagen}}/collection/{{getSection()}}"
                         alt="">
 

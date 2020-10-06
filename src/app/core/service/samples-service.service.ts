@@ -35,7 +35,7 @@ export class SamplesServiceService {
   }
 
   getSamplesGalleryById(id) {
-   return this.http.get(this.config.serverNodeLocation + 'api/sample/getOneGallery/' + id);
+   return this.http.get(this.config.serverNodeLocation + 'category-stamp/' + id);
  }
 
  getSamplesGalleries(id) {
@@ -43,7 +43,7 @@ export class SamplesServiceService {
  }
 
  getSamplesCategoryById(id) {
-   return this.http.get(this.config.serverNodeLocation + 'api/sample/getOneCategory/' + id);
+   return this.http.get(this.config.serverNodeLocation + 'category-stamp/' + id);
  }
 
  getSamplesCategories() {

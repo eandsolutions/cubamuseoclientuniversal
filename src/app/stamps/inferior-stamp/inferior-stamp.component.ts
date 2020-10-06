@@ -5,6 +5,7 @@ import { SamplesServiceService } from 'src/app/core/service/samples-service.serv
 import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
 import { ModalService } from 'src/app/_modal';
 import { TalesServiceService } from 'src/app/core/service/tales-service.service';
+import { MetaService } from 'src/app/core/service/meta.service';
 
 @Component({
   selector: 'app-inferior-stamp',
@@ -20,7 +21,8 @@ export class InferiorStampComponent implements OnInit {
     private samplesService: SamplesServiceService,
     public enviromentVariable: EnviromentVariableServiceService,
     private modalService: ModalService,
-    private stampService: TalesServiceService
+    private stampService: TalesServiceService,
+    private metaService: MetaService
   ) {
     this.stamp = {
       descripcion: '',
@@ -42,6 +44,11 @@ export class InferiorStampComponent implements OnInit {
                 carpeta: data.carpeta,
                 id: data.idEstampa
               }
+              this.metaService.setTitle(this.stamp.titulo);
+              this.metaService.addTags([
+                { name: 'description', content: this.stamp.descripcion.slice(0,500) },
+                { name: 'robots', content: 'index, follow' }
+              ])
             }, err => {
 
             }
