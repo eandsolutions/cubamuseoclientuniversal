@@ -16,12 +16,12 @@ export class InferiorCollectionComponent implements OnInit {
 
   collection: any;
   gallery: any[];
-  prevSection:any;
+  prevSection: any;
   actualItem: any;
   isHide: boolean;
   widht: string = '900px'
   maxheigth: number;
-  id:number;
+  id: number;
 
   constructor(
     public config: ConfigServiceService,
@@ -31,7 +31,7 @@ export class InferiorCollectionComponent implements OnInit {
     private modalService: ModalService,
     private metaService: MetaService
   ) {
-        this.isHide = false;
+    this.isHide = false;
     this.gallery = [];
     this.maxheigth = 0;
     this.actualItem = {
@@ -64,10 +64,10 @@ export class InferiorCollectionComponent implements OnInit {
     )
   }
 
-  initCollection(id:number){
+  initCollection(id: number) {
     this.collectionService.getCategoryById(id).subscribe(
       (data: any) => {
-        if(data.nombre){
+        if (data.nombre) {
           this.collection = {
             descripcion: data.descripcion,
             titulo: data.titulo,
@@ -78,7 +78,7 @@ export class InferiorCollectionComponent implements OnInit {
             cantImages: data.cantImagenesFila
           }
           this.enviromentVariable.setSection(data)
-        }else{
+        } else {
           this.collection = {
             descripcion: data[0].descripcion,
             titulo: data[0].titulo,
@@ -89,21 +89,21 @@ export class InferiorCollectionComponent implements OnInit {
             cantImages: data[0].cantImagenesFila
           }
           this.enviromentVariable.setSection({
-            descripcion:data[0].descripcion,
+            descripcion: data[0].descripcion,
             titulo: data[0].titulo,
             imagen: data[0].imagen,
             imagenMenu: data[0].imagenMenu,
             nombre: data[0].nombre,
-            nombre_es:data[0].nombre_es,
+            nombre_es: data[0].nombre_es,
             orden: data[0].orden,
             idSeccion: data[0].idSeccion,
             publicada: data[0].publicada
           })
         }
-      
+
         this.metaService.setTitle(this.collection.titulo);
         this.metaService.addTags([
-          { name: 'description', content: this.collection.descripcion.slice(0,500) },
+          { name: 'description', content: this.collection.descripcion.slice(0, 500) },
           { name: 'robots', content: 'index, follow' }
         ])
         this.initGalery()
@@ -125,9 +125,9 @@ export class InferiorCollectionComponent implements OnInit {
 
   initSections() {
     this.collectionService.getSectionByCategory(this.id).subscribe(
-      (data)=>{
+      (data) => {
         this.prevSection = data[0];
-      },err=>{
+      }, err => {
 
       }
     )
@@ -137,7 +137,7 @@ export class InferiorCollectionComponent implements OnInit {
         this.enviromentVariable.sections = data;
         this.enviromentVariable.link = { path: '/superior-collection' }
       }, err => {
-        
+
       }
     )
   }
@@ -155,10 +155,12 @@ export class InferiorCollectionComponent implements OnInit {
     this.enviromentVariable.actualPage = 'collection'
     this.initCollection(this.id)
     this.initSections()
-    
+
   }
 
   getSection() {
+    if (this.enviromentVariable.getLanguage() == 'en')
+      return this.prevSection.nombre_es
     return this.prevSection.nombre
   }
 
@@ -236,9 +238,9 @@ export class InferiorCollectionComponent implements OnInit {
     return this.isHide;
   }
 
-  getHeigth(){
+  getHeigth() {
     let value = document.getElementById('item').offsetWidth;
-    return value-10;
+    return value - 10;
   }
 
 }
