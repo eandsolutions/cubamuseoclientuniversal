@@ -19,6 +19,7 @@ export class InferiorCollectionComponent implements OnInit {
   prevSection: any;
   actualItem: any;
   isHide: boolean;
+  isHideTitle:boolean;
   widht: string = '900px'
   maxheigth: number;
   id: number;
@@ -32,6 +33,7 @@ export class InferiorCollectionComponent implements OnInit {
     private metaService: MetaService
   ) {
     this.isHide = false;
+    this.isHideTitle = false;
     this.gallery = [];
     this.maxheigth = 0;
     this.actualItem = {
@@ -218,6 +220,16 @@ export class InferiorCollectionComponent implements OnInit {
     this.modalService.close(id);
   }
 
+  checkLenghtTitle(title: string){
+    let isLarge: boolean;
+    isLarge = false;
+    title = title.trim()
+    if (title.length > 200) {
+      isLarge = true;
+    }
+    return isLarge;
+  }
+
   checkLenght(elementToCheck: string) {
     let isLarge: boolean;
     isLarge = false;
@@ -231,6 +243,16 @@ export class InferiorCollectionComponent implements OnInit {
   sliceDescription(description: string) {
     let res = description.slice(0, 500) + " ...";
     return res;
+  }
+
+  sliceTitle(title: string) {
+    let res = title.slice(0, 200) + " ...";
+    return res;
+  }
+
+  see_moreTitle() {
+    this.isHideTitle = !this.isHideTitle;
+    return this.isHideTitle;
   }
 
   see_more() {
