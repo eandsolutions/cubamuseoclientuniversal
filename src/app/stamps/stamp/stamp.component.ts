@@ -97,7 +97,7 @@ export class StampComponent implements OnInit {
     this.enviromentVariable.sections = [];
     this.enviromentVariable.sections.push({
       idCategoriaEstampa: 0,
-      nombre: 'Todas',
+      nombre: 'Todas las páginas de la sección',
       imagenMenu: 'todas.jpg',
       descripcion: '',
       publicada: 1,

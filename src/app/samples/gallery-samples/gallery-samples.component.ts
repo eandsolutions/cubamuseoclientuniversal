@@ -28,18 +28,30 @@ export class GallerySamplesComponent implements OnInit {
     activateRoute.params.subscribe(
       data => {
         if (data.id) {
-          if (data.id == 0)
-            this.enviromentVariable.setSection({
+          if (data.id == 0) {
+            this.section = {
               idCategoriaEstampa: 0,
-              nombre: 'Todas',
+              nombre: 'Todas las páginas de la sección',
               imagenMenu: 'todas.jpg',
-              descripcion: '',
-              publicada: 1,
-              orden: ''
-            });
+              publicada: { type: "Buffer", data: [1] },
+              orden: 0
+            }
+            this.enviromentVariable.setSection(this.section);
+          }
           this.id = data.id;
-          this.initGallery(data.id)
-          this.section = JSON.parse(window.localStorage.getItem('section'));
+          this.initGallery(+data.id)
+          this.enviromentVariable.actualPage = 'samples';
+          this.initBreadcrumb();
+          this.enviromentVariable.sections = [];
+          this.enviromentVariable.sections.push({
+            idCategoriaEstampa: 0,
+            nombre: 'Todas las páginas de la sección',
+            imagenMenu: 'todas.jpg',
+            descripcion: '',
+            publicada: 1,
+            orden: ''
+          });
+          this.initSections();
         }
       }
 
@@ -73,8 +85,9 @@ export class GallerySamplesComponent implements OnInit {
     let data: any = this.enviromentVariable.getSection();
 
     if (data != 0) {
-      this.section = JSON.stringify(data);
-      this.metaService.setTitle(JSON.stringify(data.nombre))
+      this.section = JSON.parse(data);
+      this.enviromentVariable.breadcrumbList.splice(3, 1);
+      this.metaService.setTitle(JSON.stringify(this.section.nombre))
       this.enviromentVariable.breadcrumbList[1] = {
         name: 'Muestras',
         path: '/samples'
@@ -88,6 +101,7 @@ export class GallerySamplesComponent implements OnInit {
     } else {
       this.samplesService.getSamplesCategoryById(this.id).subscribe(
         (data: any) => {
+          this.enviromentVariable.breadcrumbList.splice(3, 1);
           this.enviromentVariable.setSection(data);
           this.section = data;
           this.metaService.setTitle(data.nombre)
@@ -101,49 +115,36 @@ export class GallerySamplesComponent implements OnInit {
             path: '/gallery-stamp/' + data.idCategoriaEstampa
           };
           this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
-        },err=>{
+        }, err => {
 
         })
     }
   }
-  
 
-    initSections() {
-      this.samplesService.getSamplesCategories().subscribe(
-        (data: any[]) => {
-          data.forEach(element => {
-            this.enviromentVariable.sections.push(element);
-          });
-          this.enviromentVariable.link = { path: '/gallery-samples' }
-        }, err => {
-          console.log(err)
-        }
-      )
-    }
 
-    setBreadcrumb(item) {
-      this.enviromentVariable.breadcrumbList[3] = {
-        name: item.nombre,
-        path: '/inferior-samples/' + item.idMuestra
-      };
-      this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
-    }
+  initSections() {
+    this.samplesService.getSamplesCategories().subscribe(
+      (data: any[]) => {
+        data.forEach(element => {
+          this.enviromentVariable.sections.push(element);
+        });
+        this.enviromentVariable.link = { path: '/gallery-samples' }
+      }, err => {
+        console.log(err)
+      }
+    )
+  }
 
-    ngOnInit(): void {
-      this.enviromentVariable.actualPage = 'samples';
-      this.initBreadcrumb();
-      this.enviromentVariable.breadcrumbList.splice(3, 1);
-      this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
-      this.enviromentVariable.sections = [];
-      this.enviromentVariable.sections.push({
-        idCategoriaEstampa: 0,
-        nombre: 'Todas',
-        imagenMenu: 'todas.jpg',
-        descripcion: '',
-        publicada: 1,
-        orden: ''
-      });
-      this.initSections();
-    }
+  setBreadcrumb(item) {
+    this.enviromentVariable.breadcrumbList[3] = {
+      name: item.nombre,
+      path: '/inferior-samples/' + item.idMuestra
+    };
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
+  }
+
+  ngOnInit(): void {
 
   }
+
+}

@@ -55,6 +55,7 @@
     },
     "GalleryComponent":{
         "Title":"All Pages of this Section",
+        "SubTitle":"Pages by section",
         "Emision":"Emission",
         "Color":"Color",
         "Material":"Material",

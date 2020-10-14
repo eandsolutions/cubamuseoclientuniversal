@@ -30,16 +30,30 @@ export class GalleryStampComponent implements OnInit {
       data => {
         if (data.id) {
           this.id = +data.id;
-          if (this.id == 0)
-            this.enviromentVariable.setSection({
+          if (this.id == 0) {
+            this.section = {
               idCategoriaEstampa: 0,
-              nombre: 'Todas',
+              nombre: 'Todas las páginas de la sección',
               imagenMenu: 'todas.jpg',
-              descripcion: '',
-              publicada: 1,
-              orden: ''
-            });
+              publicada: { type: "Buffer", data: [1] },
+              orden: 0
+            }
+            this.enviromentVariable.setSection(this.section);
+          }
           this.initGallery(+data.id)
+          this.enviromentVariable.actualPage = 'stamps';
+          this.enviromentVariable.breadcrumbList.splice(3, 1);
+          this.enviromentVariable.sections = [];
+          this.enviromentVariable.sections.push({
+            idCategoriaEstampa: 0,
+            nombre: 'Todas las páginas de la sección',
+            imagenMenu: 'todas.jpg',
+            descripcion: '',
+            publicada: 1,
+            orden: ''
+          });
+          this.initBreadcrumb();
+          this.initSections();
           //this.section = JSON.parse(window.localStorage.getItem('section'));
         }
       }
@@ -134,19 +148,7 @@ export class GalleryStampComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.enviromentVariable.actualPage = 'stamps';
-    this.enviromentVariable.breadcrumbList.splice(3, 1);
-    this.enviromentVariable.sections = [];
-    this.enviromentVariable.sections.push({
-      idCategoriaEstampa: 0,
-      nombre: 'Todas',
-      imagenMenu: 'todas.jpg',
-      descripcion: '',
-      publicada: 1,
-      orden: ''
-    });
-    this.initBreadcrumb();
-    this.initSections();
+
   }
 
 }

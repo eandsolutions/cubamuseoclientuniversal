@@ -34,15 +34,19 @@
   </ul>
 
   <ul class="nav" *ngIf="enviromentVariables.actualPage == 'samples' || enviromentVariables.actualPage == 'stamps'">
-    <li  class="nav-item" *ngFor="let section of enviromentVariables.sections"
+    <li  class="nav-item" *ngFor="let section of enviromentVariables.sections; index as i"
       [ngClass]="{'nav-item active': getSection().idCategoriaEstampa === section.idCategoriaEstampa}">
+      
       <a class="nav-link" href="index.html" [routerLink]="[enviromentVariables.link.path,section.idCategoriaEstampa]"
         (click)='setSection(section)'>
         <img   (click)='setBreadcrumb(section)'
           src="{{config.serverNodeLocation}}images/imageForCategory/{{section.imagenMenu}}/{{enviromentVariables.actualPage}}"
           alt="">
-        <span [innerHTML]="section.nombre"></span>
+        <span [innerHTML]="section.nombre" style="text-align: center;"></span>
       </a>
+      <h6 *ngIf="i == 0" style="text-align: center; font-weight: bold; margin: 22px;">
+        {{('GalleryComponent.SubTitle'|translate).toUpperCase()}}
+      </h6>
     </li>
   </ul>
 

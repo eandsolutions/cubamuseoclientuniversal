@@ -55,6 +55,7 @@
     },
     "GalleryComponent":{
         "Title":"Todas las Páginas de la Sección",
+        "SubTitle":"Páginas por sección",
         "Emision":"Emisión",
         "Color":"Color",
         "Material":"Material",
