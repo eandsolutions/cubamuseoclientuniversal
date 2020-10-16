@@ -3,6 +3,9 @@ import { SearchServiceService } from './../../core/service/search-service.servic
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ConfigServiceService } from 'src/app/core/service/config-service.service';
+import { CollectionServiceService } from 'src/app/core/service/collection-service.service';
+import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -45,7 +48,10 @@ export class SearchComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
     private searchService: SearchServiceService,
-    public config: ConfigServiceService
+    public config: ConfigServiceService,
+    private collectionService: CollectionServiceService,
+    public enviromentVariable: EnviromentVariableServiceService,
+    private route: Router
   ) {
 
     this.isCollection = true;
@@ -68,7 +74,7 @@ export class SearchComponent implements OnInit {
     this.actualTab = 'collection';
 
     this.query = "";
-
+    this.initSections()
     this.activatedRoute.params.subscribe(val => {
       if (val.query) {
         this.query = val.query;
@@ -81,11 +87,29 @@ export class SearchComponent implements OnInit {
 
   }
 
+  initSections() {
+    this.collectionService.getCollectionsSections().subscribe(
+      (data: any[]) => {
+        this.enviromentVariable.sections = data;
+        this.enviromentVariable.link = { path: '/superior-collection' }
+      }, err => {
+        console.log(err)
+      }
+    )
+  }
+
+  toSearch(){
+    this.route.navigate(['search',this.query])
+  }
+
   search() {
-    this.searchInShop();
-    this.searchInStamp();
-    this.searchInModel();
-    this.searchIInCollectionsSection();
+    if(this.query != ''){
+      this.searchInShop();
+      this.searchInStamp();
+      this.searchInModel();
+      this.searchIInCollectionsSection();
+    }
+    
   }
 
   searchInShop() {
@@ -167,6 +191,25 @@ export class SearchComponent implements OnInit {
 
         }
       )
+  }
+
+  redirectCollection(item){
+    if(item.idSeccion){
+      this.route.navigate(['/superior-collection',item.idSeccion])
+    }
+
+    if(item.idCategoria){
+      this.route.navigate(['/inferior-collection',item.idCategoria])
+    }
+
+  }
+
+  redirectSamples(item){
+
+  }
+
+  redirectStamp(item){
+
   }
 
   cleanString(data: string) {

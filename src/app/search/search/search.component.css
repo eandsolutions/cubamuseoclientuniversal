@@ -1,3 +1,13 @@
+@media (max-width: 576){
+    .card-body{
+        padding: 0 !important;
+    }
+
+    .main-content{
+        padding: 0;
+    }
+}
+
 .product {
     padding-top: 80px;
     padding-bottom: 80px;

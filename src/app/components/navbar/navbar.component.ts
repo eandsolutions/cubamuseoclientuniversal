@@ -29,6 +29,7 @@ export class NavbarComponent implements OnInit {
         this.location = location;
         this.toggleButton = false;
         this.sidebarVisible = false;
+        this.query = ''
     }
 
     resize(){

@@ -1,12 +1,14 @@
-.nav-link{
-    display: grid;
-    justify-items: center;
+.nav-link {
+  display: grid;
+  justify-items: center;
 }
 
 img {
-    max-width: 80px;
+  max-width: 80px;
 }
 
-.sidebar-wrapper{
-    background: white;
+.sidebar-wrapper {
+  background: white;
 }
+
+

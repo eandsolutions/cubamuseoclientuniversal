@@ -8,8 +8,8 @@
                             <div class="search-content">
 
                                 <input type="search" class="search" [(ngModel)]="query"
-                                    placeholder="{{'Search.Placeholder'|translate}}" (keyup.enter)="search()">
-                                <i style="font-size: x-large;color: #f44336c7;" class="fa fa-search"></i>
+                                    placeholder="{{'Search.Placeholder'|translate}}" (keyup.enter)="toSearch()">
+                                <i style="font-size: x-large;color: #659970;" class="fa fa-search" (click)="toSearch()"></i>
 
                             </div>
                             <div class="row">
@@ -76,12 +76,9 @@
                                             alt="Card image cap">
                                     </div>
                                     <div class="card-body">
-                                        <h4 *ngIf="!item.idCategoria" class="card-title"
-                                            [routerLink]="['/text',item.idSeccion,3,'collection']"
+                                        <h4 class="card-title"
+                                            (click)="redirectCollection(item)"
                                             [innerHTML]="item.nombre"></h4>
-                                        <h4 *ngIf="item.idCategoria" class="card-title"
-                                            [routerLink]="['/text', item.idCategoria,2,'collection']"
-                                            [innerHTML]=" item.nombre "></h4>
                                         <p class="card-text " [innerHTML]='cleanString(item.descripcion) + "... "'>..
                                         </p>
                                     </div>
@@ -98,12 +95,12 @@
                                 <div class="card-group vgr-cards ">
                                     <div class="card " *ngFor="let item of stampList | slice:0:limitStamp ">
                                         <div class="card-img-body ">
-                                            <img class="card-img "
+                                            <img class="card-img"
                                                 src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/stamps/none "
                                                 alt="Card image cap ">
                                         </div>
                                         <div class="card-body ">
-                                            <h4 class="card-title " [routerLink]="['/tale', item.idEstampa]"
+                                            <h4 class="card-title " [routerLink]="['/inferior-stamp',item.idEstampa]"
                                                 [innerHTML]="item.nombre ">
                                             </h4>
                                             <p class="card-text " [innerHTML]="cleanString(item.texto) "></p>
@@ -127,7 +124,7 @@
                                                 alt="Card image cap ">
                                         </div>
                                         <div class="card-body ">
-                                            <h4 class="card-title " [routerLink]="['/text', item.idMuestra,2,'samples']"
+                                            <h4 class="card-title " [routerLink]="['/inferior-samples',item.idMuestra]"
                                                 [innerHTML]="item.nombre ">
                                             </h4>
                                             <p class="card-text " [innerHTML]='cleanString(item.descripcion) + "... "'>
