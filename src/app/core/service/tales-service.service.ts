@@ -14,17 +14,10 @@ export class TalesServiceService {
     this.taleList = [];
   }
 
-  getTalesHome(id) {
-    return this.http.get(this.config.serverNodeLocation + 'api/tale/getHome/' + id);
-  }
-
   getTaleById(id) {
     return this.http.get(this.config.serverNodeLocation + 'stamp/' + id);
   }
 
-  getTales(offset, id) {
-    return this.http.post(this.config.serverNodeLocation + 'api/tale/getWith', { id, offset });
-  }
 
   getTaleCategoryById(id) {
     return this.http.get(this.config.serverNodeLocation + 'category-stamp/' + id);

@@ -1,3 +1,5 @@
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
 //import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
@@ -18,7 +20,9 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     RouterModule,
     ModalModule,
     FormsModule,
-    TranslateModule
+    TranslateModule,
+    MatButtonModule,
+    MatTabsModule,
     //BreadcrumbModule
   ],
   declarations: [

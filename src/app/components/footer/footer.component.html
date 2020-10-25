@@ -1,7 +1,7 @@
 <footer class="footer " style="background-color: #fff;">
     <div class="container-fluid" style="display: grid;">
 
-        
+
         <nav class="pull-left">
             <ul>
                 <li>
@@ -124,7 +124,7 @@
                                     </li>
 
                                     <li><i class="fa fa-envelope mt-4 fa-2x"></i>
-                                        <p>inf@cubamuseo.com</p>
+                                        <p>info@cubamuseo.com</p>
                                     </li>
                                 </ul>
                             </div>
@@ -140,7 +140,7 @@
 </jw-modal>
 
 <jw-modal id="custom-modal-related-sites">
-    <div class="container-fluid center" >
+    <div class="container-fluid center">
         <div class="row" style="justify-content: center;">
             <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-related-sites');">
                 <i class="material-icons">close</i>
@@ -150,9 +150,28 @@
                     {{'RelatedSites.TITLE'|translate}}
                 </div>
                 <div class="card-body" style="width: auto;">
-                    <p [innerHTML]= "'RelatedSites.TEXT'|translate">
-                      
-                    </p>
+                    <mat-tab-group class="main-tab-group mt-2">
+                        <mat-tab *ngFor="let site of sites; let i = index">
+                            <ng-template mat-tab-label>{{site.nombre}}
+                            </ng-template>
+                            <div class="content" style="display: flex;">
+                                <div class="card-img-body" style="margin-top: 10px;">
+                                    <img class="card-img" style="width: 100px;"
+                                        src="{{config.serverNodeLocation}}images/imageInAllDirectory/{{site.imagen}}"
+                                        alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <h6>
+                                        <a class="card-title" href="{{site.url}}" [innerHTML]="site.nombre"
+                                            [title]="'RelatedSites.GO_SITE'|translate"></a>
+                                    </h6>
+                                    <p class="card-text " [innerHTML]="site.descripcion">
+                                    </p>
+                                </div>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+
                 </div>
             </div>
         </div>
@@ -160,7 +179,7 @@
 </jw-modal>
 
 <jw-modal id="custom-modal-news">
-    <div class="container-fluid center" >
+    <div class="container-fluid center">
         <div class="row" style="justify-content: center;">
             <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-news');">
                 <i class="material-icons">close</i>
@@ -171,16 +190,30 @@
                 </div>
                 <div class="card-body" style="width: auto;">
                     <p [innerHTML]="'News.TEXT'|translate">
-                        
                     </p>
                 </div>
+                    <div class="card" *ngFor="let item of news" style="margin: 2%; width: 95%;">
+                        <div class="content" style="display: flex;">
+                            <div class="card-img-body " style="margin-top: 10px; margin-left: 20px;">
+                                <img class="card-img" style="width: 100px;"
+                                    src="{{config.serverNodeLocation}}images/imageInAllDirectory/{{item.imagen}}"
+                                    alt="Card image cap">
+                            </div>
+                            <div class="card-body ">
+                                <h4 class="card-title" [innerHTML]='item.titulo'></h4>
+                                <p class="card-text " [innerHTML]='item.descripcion'>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
             </div>
+
         </div>
     </div>
 </jw-modal>
 
 <jw-modal id="custom-modal-company-description">
-    <div class="container-fluid center" >
+    <div class="container-fluid center">
         <div class="row" style="justify-content: center;">
             <button class="btn btn-white btn-round btn-just-icon"
                 (click)="closeModal('custom-modal-company-description');">
@@ -192,7 +225,7 @@
                 </div>
                 <div class="card-body" style="width: auto;">
                     <p [innerHTML]="'About.TEXT'|translate">
-                        
+
                     </p>
                 </div>
             </div>
