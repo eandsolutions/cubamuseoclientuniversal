@@ -17,9 +17,5 @@
     max-width: 60px;
   }
 
-  .scroll-to-top {
-    opacity: 0.8;
-    transition: all .2s ease-in-out;
-  }
 }
 

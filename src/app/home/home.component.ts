@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CollectionServiceService } from '../core/service/collection-service.service';
 //import { EnviromentVariableServiceService } from '../core/service/enviroment-variable-service.service';
 import { ConfigServiceService } from '../core/service/config-service.service';
@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
       imagen: ''
     }
     this.enviromentVariable.deleteSection();
+
   }
 
   initSections() {
@@ -66,10 +67,14 @@ export class HomeComponent implements OnInit {
   
 
   ngOnInit(): void {
+   
+
     this.enviromentVariable.actualPage = 'collection'
     this.initBreadcrumb();
     this.initSections();
     this.initComponent();
   }
+
+
 
 }

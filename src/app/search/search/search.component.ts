@@ -84,7 +84,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    window.addEventListener('scroll', this.scroll, true)
   }
 
   initSections() {
@@ -98,18 +98,18 @@ export class SearchComponent implements OnInit {
     )
   }
 
-  toSearch(){
-    this.route.navigate(['search',this.query])
+  toSearch() {
+    this.route.navigate(['search', this.query])
   }
 
   search() {
-    if(this.query != ''){
+    if (this.query != '') {
       this.searchInShop();
       this.searchInStamp();
       this.searchInModel();
       this.searchIInCollectionsSection();
     }
-    
+
   }
 
   searchInShop() {
@@ -193,22 +193,22 @@ export class SearchComponent implements OnInit {
       )
   }
 
-  redirectCollection(item){
-    if(item.idSeccion){
-      this.route.navigate(['/superior-collection',item.idSeccion])
+  redirectCollection(item) {
+    if (item.idSeccion) {
+      this.route.navigate(['/superior-collection', item.idSeccion])
     }
 
-    if(item.idCategoria){
-      this.route.navigate(['/inferior-collection',item.idCategoria])
+    if (item.idCategoria) {
+      this.route.navigate(['/inferior-collection', item.idCategoria])
     }
 
   }
 
-  redirectSamples(item){
+  redirectSamples(item) {
 
   }
 
-  redirectStamp(item){
+  redirectStamp(item) {
 
   }
 
@@ -222,15 +222,15 @@ export class SearchComponent implements OnInit {
         if (element.toLowerCase() == this.query[0].toLowerCase()) {
           let part = res.slice(i, i + this.query.length)
           if (part.toLowerCase() == this.query.toLowerCase()) {
-            if (i > 20) {              
-              let aux = res.slice(this.findWhiteSpaceAfter(i, res), i + 200).replace(part, '<span style="color: #ffda43">' + part + '</span>')             
+            if (i > 20) {
+              let aux = res.slice(this.findWhiteSpaceAfter(i, res), i + 200).replace(part, '<span style="color: #ffda43">' + part + '</span>')
               if (aux.slice(0, 4) == 'src') {
                 i += this.query.length
-              } else{
+              } else {
                 finded = true;
                 res = aux;
                 break;
-              }              
+              }
               //res = res.replace(part,'<span>' + part + '</span>')
             }
             else {
@@ -295,10 +295,11 @@ export class SearchComponent implements OnInit {
           this.limitShop += 10;
       }
     }
-
-
   }
 
+  scroll = (event: any): void => {
+    this.doSomethingOnWindowsScroll(event)
+  }
 
 
 }

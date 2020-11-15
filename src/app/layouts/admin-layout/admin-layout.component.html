@@ -1,7 +1,7 @@
-<div class="wrapper">
-    <app-scroll-top></app-scroll-top>
+<div class="wrapper" >
     <div class="sidebar" data-color="green" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
         <app-sidebar></app-sidebar>
+        
         <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
     </div>
     <div class="main-panel">
@@ -11,6 +11,7 @@
         <div style="margin-top: 70px;"> 
             <app-breadcrumb></app-breadcrumb>
         </div>
+        <app-scroll-top></app-scroll-top>
         <router-outlet></router-outlet>
         <div *ngIf="isMaps('maps')">
             <app-footer></app-footer>

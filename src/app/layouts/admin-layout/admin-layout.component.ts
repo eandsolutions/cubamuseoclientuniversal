@@ -1,6 +1,6 @@
 import { EnviromentVariableServiceService } from './../../core/service/enviroment-variable-service.service';
 import { TranslateService } from '@ngx-translate/core';
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
 import 'rxjs/add/operator/filter';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
@@ -19,7 +19,11 @@ export class AdminLayoutComponent implements OnInit {
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
 
-
+  @HostListener('window:scroll')
+  onScrollHost(e:Event) {
+      console.log('hello')
+  }
+  
   constructor( public translate: TranslateService, public location: Location, private router: Router) {
     translate.addLangs(['en', 'es']);
     if(window.localStorage.getItem('lang')){
