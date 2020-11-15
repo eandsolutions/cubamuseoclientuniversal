@@ -7,9 +7,9 @@ import { DOCUMENT } from "@angular/common";
 })
 export class ScrollTopComponent implements OnInit {
     windowScrolled: boolean;
-    constructor() {}
-    @HostListener("window:scroll", [])
-    onWindowScroll() {
+
+    @HostListener('window:scroll')
+    onScrollHost(e:Event) {
         if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
             this.windowScrolled = true;
         } 
@@ -17,6 +17,7 @@ export class ScrollTopComponent implements OnInit {
             this.windowScrolled = false;
         }
     }
+    
     scrollToTop() {
         (function smoothscroll() {
             var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -26,5 +27,12 @@ export class ScrollTopComponent implements OnInit {
             }
         })();
     }
+
+    example(){
+        console.log('asd')
+        window.scrollTo(0,0)
+    }
+
+    constructor() {}
     ngOnInit() {}
 }
