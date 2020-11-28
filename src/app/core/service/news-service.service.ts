@@ -20,7 +20,9 @@ export class NewsServiceService {
   getNewsById(id) {
     return this.http.get(this.config.serverNodeLocation + 'news/' + id);
   }
-
+  getLastNew(){
+    return this.http.get(this.config.serverNodeLocation + 'news/last');
+  }
 
   getAllNews() {
     return this.http.get(this.config.serverNodeLocation + 'news');

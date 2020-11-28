@@ -46,8 +46,8 @@ export class InferiorStampComponent implements OnInit {
               }
               this.metaService.setTitle(this.stamp.titulo);
               this.metaService.addTags([
-                { name: 'description', content: this.stamp.descripcion.slice(0,500) },
-                { name: 'robots', content: 'index, follow' }
+                { name: 'og:description', content: this.stamp.descripcion.slice(0,500) },
+                { name: 'og:robots', content: 'index, follow' }
               ])
             }, err => {
 

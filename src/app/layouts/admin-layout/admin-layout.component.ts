@@ -8,6 +8,9 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from "jquery";
+import { Http } from '@angular/http';
+import { NewsServiceService } from 'src/app/core/service/news-service.service';
+import { ToastService } from 'ng-uikit-pro-standard';
 
 @Component({
   selector: 'app-admin-layout',
@@ -18,13 +21,17 @@ export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
+  news: any;
 
   @HostListener('window:scroll')
   onScrollHost(e:Event) {
       console.log('hello')
   }
   
-  constructor( public translate: TranslateService, public location: Location, private router: Router) {
+  constructor( public enviromentVariable: EnviromentVariableServiceService, private toastrService: ToastService,
+    public newsService: NewsServiceService,
+     private http: Http,
+    public translate: TranslateService, public location: Location, private router: Router) {
     translate.addLangs(['en', 'es']);
     if(window.localStorage.getItem('lang')){
         this.translate.use(JSON.parse(window.localStorage.getItem('lang')));
@@ -33,6 +40,12 @@ export class AdminLayoutComponent implements OnInit {
         translate.setDefaultLang('es');
     }
     
+    this.news = {
+        id:'',
+        titulo: '',
+        descripcion: '',
+        imagen: ''
+      }
   }
 
   ngOnInit() {
@@ -144,6 +157,12 @@ export class AdminLayoutComponent implements OnInit {
           }
       });
       
+      let data: any = this.enviromentVariable.getNew()
+      if(!data)
+        this.initInfo();
+      else {
+          this.checkIfLast();
+      } 
   }
   ngAfterViewInit() {
       this.runOnRouteChange();
@@ -171,6 +190,50 @@ export class AdminLayoutComponent implements OnInit {
           bool = true;
       }
       return bool;
+  }
+  initInfo() {
+    this.newsService.getLastNew().subscribe(
+      (news_s: any) => {
+        if(news_s[0]){          
+          this.news = {
+            id: news_s[0].id,
+            titulo: news_s[0].titulo,
+            descripcion: news_s[0].descripcion,
+            imagen: news_s[0].imagen
+          }
+          this.toastrService.info(this.news.titulo); 
+          this.enviromentVariable.setNew(this.news)    
+        }
+      }, err => {
+
+      }
+    )
+  }
+
+  checkIfLast(){
+    let res = false;
+    this.newsService.getLastNew().subscribe(
+        (news_s: any) => {
+          if(news_s[0]){
+            let data: any = this.enviromentVariable.getNew()
+            if( data.id === news_s[0].id){
+               res = true;  
+            }
+            else{
+                this.news ={
+                    id: news_s[0].id,
+                    titulo: news_s[0].titulo,
+                    descripcion: news_s[0].descripcion,
+                    imagen: news_s[0].imagen
+                  }
+                this.enviromentVariable.setNew(this.news)
+                this.toastrService.info(this.news.titulo); 
+            }
+          }
+        }, err => { 
+        }
+      )  
+    return res;
   }
 
 }

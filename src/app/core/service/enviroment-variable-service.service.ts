@@ -11,6 +11,7 @@ export class EnviromentVariableServiceService {
   sections: any[];
   breadcrumbList:any[];
   lang:any;
+  news: any;
   link: any;
   actualPage: string;
   googlePlus: string = '';
@@ -106,7 +107,14 @@ export class EnviromentVariableServiceService {
       return JSON.parse(this.localStorage.getItem('lang'));
     return 0
   }
-
+  setNew(news:any){
+    this.localStorage.setItem('news', JSON.stringify(news));
+  }
+  getNew() {
+    if (this.localStorage.getItem('news'))
+      return JSON.parse(this.localStorage.getItem('news'));
+    return 0
+  }
 
   /* setLevel(fatherLevel, father, section) {
 

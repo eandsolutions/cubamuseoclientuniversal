@@ -75,8 +75,8 @@ export class SuperiorCollectionComponent implements OnInit {
               }
               this.metaService.setTitle(this.collection.titulo);
               this.metaService.addTags([
-                { name: 'description', content: this.collection.descripcion.slice(0,500) },
-                { name: 'robots', content: 'index, follow' }
+                { name: 'og:description', content: this.collection.descripcion.slice(0,500) },
+                { name: 'og:robots', content: 'index, follow' }
               ])
               this.initBreadcrumb()
               this.initGalery()

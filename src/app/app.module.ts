@@ -15,6 +15,7 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ModalModule } from './_modal/modal.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { ToastModule } from 'ng-uikit-pro-standard';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
@@ -31,6 +32,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    ToastModule.forRoot({
+      timeOut: 5000,
+      preventDuplicates: true
+    }),
     CoreModule,
     ModalModule,
     AgmCoreModule.forRoot({

@@ -64,8 +64,8 @@ export class InferiorSamplesComponent implements OnInit {
               }
               this.metaService.setTitle(this.samples.titulo)
               this.metaService.addTags([
-                { name: 'description', content: this.samples.descripcion.slice(0,500) },
-                { name: 'robots', content: 'index, follow' }
+                { name: 'og:description', content: this.samples.descripcion.slice(0,500) },
+                { name: 'og:robots', content: 'index, follow' }
               ])
               this.initGalery();
               this.enviromentVariable.actualPage = 'samples';
