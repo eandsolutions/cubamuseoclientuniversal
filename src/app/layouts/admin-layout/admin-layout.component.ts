@@ -49,6 +49,14 @@ export class AdminLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    let data: any = this.enviromentVariable.getNew()
+      if(!data)
+        this.initInfo();
+      else {
+          this.checkIfLast();
+      } 
+  
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
@@ -157,12 +165,7 @@ export class AdminLayoutComponent implements OnInit {
           }
       });
       
-      let data: any = this.enviromentVariable.getNew()
-      if(!data)
-        this.initInfo();
-      else {
-          this.checkIfLast();
-      } 
+      
   }
   ngAfterViewInit() {
       this.runOnRouteChange();
