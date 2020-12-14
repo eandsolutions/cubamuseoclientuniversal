@@ -1,91 +1,174 @@
 <div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- <a href="javascript:void(0)" onclick="javascript:genericSocialShare('http://www.facebook.com/sharer.php?u=cubamuseo.net')">[Social Media Share Text/Image]</a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <a href="javascript:void(0)" onclick="javascript:genericSocialShare('http://www.facebook.com/sharer.php?u=cubamuseo.net')">[Social Media Share Text/Image]</a>
                  -->
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="title  col text-center">
-                            <a class="text-fiord-blue" style="color: #66bb6a;" [innerHTML]="section.nombre"></a>
-                        </h5>
-                        <div class="row text-center justify-content-center" style="align-items: flex-end;">
-                            <div class="col-lg-2 col-md-4 col-6" *ngFor="let item of gallery">
-                                <a class="d-block mb-4 h-100" (click)="openModal('custom-modal-1', item)">
-                                    <img class="img-fluid img-thumbnail" style=" cursor: pointer; max-height: 80px;"
-                                        [title]="item.nombre"
-                                        src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{item.imagen}}/postcards/none"
-                                        alt="">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="title  col text-center">
+              <a class="text-fiord-blue" style="color: #66bb6a;" [innerHTML]="section.nombre"></a>
+            </h5>
+            <div class="row text-center justify-content-center" style="align-items: flex-end;">
+              <div class="col-lg-2 col-md-4 col-6" *ngFor="let item of gallery">
+                <a class="d-block mb-4 h-100" (click)="openModal('custom-modal-1', item)">
+                  <img class="img-fluid img-thumbnail" style=" cursor: pointer; max-height: 80px;" [title]="item.nombre"
+                    src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{item.imagen}}/postcards/none" alt="">
+                </a>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<jw-modal id="custom-modal-1">
-    <div class="container-fluid center ">
-        <div class="row justify-content-center">
+<jw-modal id="custom-modal-1" onmousedown='return false;' onselectstart='return false;'>
+  <div class="container-fluid center ">
+    <div class="row justify-content-center">
 
-            <div class="card" style="max-width: 630px;padding: 30px; margin-top: 0;">
-                <button style="position: absolute; right: 3px; top: 0;z-index: 4;"
-                    class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
-                    <i class="material-icons">close</i>
-                </button>
+      <div class="card" style="max-width: 630px;padding: 30px; margin-top: 0;">
+        <button style="position: absolute; right: 3px; top: 0;z-index: 4;" class="btn btn-white btn-round btn-just-icon"
+          (click)="closeModal('custom-modal-1');">
+          <i class="material-icons">close</i>
+        </button>
 
-                <div class="card-header card-header-image zoom-exterior">
-                    <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
-                        style="left: -12%; z-index: 1;  color: rgba(0, 0, 0, 0.733); cursor: pointer;">
-                        <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_left</i>
-                    </a>
-                    <img class="img-fluid img-thumbnail"
-                        src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{actualItem.imagen}}/postcards/none"
-                        alt="">
-                    <a class="carousel-control-next" (click)="next()" role="button"
-                        style="right: -12%; z-index: 1; color: rgba(0, 0, 0, 0.733);cursor: pointer;" data-slide="next">
-                        <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_right</i>
-                    </a>
+        <div class="card-header card-header-image zoom-exterior">
+          <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
+            style="left: -12%; z-index: 1;  color: rgba(0, 0, 0, 0.733); cursor: pointer;">
+            <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_left</i>
+          </a>
+          <img class="img-fluid img-thumbnail"
+            src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{actualItem.imagen}}/postcards/none" alt="">
+          <a class="carousel-control-next" (click)="next()" role="button"
+            style="right: -12%; z-index: 1; color: rgba(0, 0, 0, 0.733);cursor: pointer;" data-slide="next">
+            <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_right</i>
+          </a>
 
-                </div>
+        </div>
 
-                <div class="card-body" style="width: 100%;">
-                    <div class="social-btns">
-                        <a class="btn facebook"
-                            [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
-                            target="_blank">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a class="btn twitter"
-                            [href]="enviromentVariable.getTwitter('',config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
-                            target="_blank">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a class="btn google"
-                            [href]="enviromentVariable.getGooglePlus(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
-                            target="_blank">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a class="btn linkedin"
-                            [href]="enviromentVariable.getLinkedIn(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
-                            target="_blank">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                        <a class="btn pinteres"
-                            [href]="enviromentVariable.getPinterest(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none', '')"
-                            target="_blank">
-                            <i class="fa fa-pinterest"></i>
-                        </a>
+        <div class="card-body" style="width: 100%;">
+          <div class="social-btns">
+            <a class="btn facebook"
+              [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
+              target="_blank">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a class="btn twitter"
+              [href]="enviromentVariable.getTwitter('',config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
+              target="_blank">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a class="btn google"
+              [href]="enviromentVariable.getGooglePlus(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
+              target="_blank">
+              <i class="fa fa-google"></i>
+            </a>
+            <a class="btn linkedin"
+              [href]="enviromentVariable.getLinkedIn(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
+              target="_blank">
+              <i class="fa fa-linkedin"></i>
+            </a>
+            <a class="btn pinteres"
+              [href]="enviromentVariable.getPinterest(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none', '')"
+              target="_blank">
+              <i class="fa fa-pinterest"></i>
+            </a>
+            <!-- <a class="btn edit" target="_blank" (click)="openEditDialog('custom-modal-edition', actualItem)">
+              <i class="fa fa-edit"></i>
+            </a> -->
 
-                        <!-- <a class="btn envelope" [href]="enviromentVariable.getPinterest(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none', '')" target="_blank">
+            <!-- <a class="btn envelope" [href]="enviromentVariable.getPinterest(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none', '')" target="_blank">
                             <i class="fa fa-envelope"></i>
                         </a> -->
 
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="custom-modal-edition">
+  <div class="container-fluid center ">
+    <div class="row justify-content-center">
+
+      <div class="card" style="max-width: 630px;padding: 30px; margin-top: 0;">
+        <button style="position: absolute; right: 3px; top: 0;z-index: 4;" class="btn btn-white btn-round btn-just-icon"
+          (click)="closeModal('custom-modal-edition');">
+          <i class="material-icons">close</i>
+        </button>
+        <div class="card-body" style="width: 100%;">
+          <div class="container">
+            <div id="buttons" class="row">
+              <div class="col-2" style="align-self: center;">
+                <input #colorIinput id="color-input" (change)="onChange($event)" class="colorpicker-component"
+                  type="color" id="colorpicker" />
+              </div>
+              <div class="col-2">
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary dropdown-toggle" id="dropdownBasic1"
+                    ngbDropdownToggle style="background-position: center; background-repeat: no-repeat; background-image:url(../../../assets/img/bx+font+family-32.png);"></button>
+                  <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem class="dropdown-item button-1" (click)="fontType('Nerko_One')"
+                      style="font-style: Nerko_One; font-size: 15px;">Nerko One</button>
+                    <button ngbDropdownItem class="dropdown-item button-2" (click)="fontType('Times New Roman')"
+                      style="font-family: 'Times New Roman', Times, serif; font-size: 15px;">Times New Roman</button>
+                    <button ngbDropdownItem class="dropdown-item button-3" (click)="fontType('Dancing Script')"
+                      style="font-family: Dancing Script; font-size: 15px;">Dancing Script</button>
+                    <button ngbDropdownItem class="dropdown-item button-4" (click)="fontType('Open Sans')"
+                      style="font-family: Open Sans, sans-serif; font-size: 15px;">Open Sans</button>
+                    <button ngbDropdownItem class="dropdown-item button-5" (click)="fontType('East_Sea')"
+                      style="font-family: East_Sea; font-size: 20px;">East Sea</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div ngbDropdown class="d-inline-block" >
+                  <button class="btn btn-outline-primary dropdown-toggle" id="dropdownBasic2" ngbDropdownToggle  style="background-position: center; background-repeat: no-repeat; background-image:url(../../../assets/img/bx+font+size-32.png);"></button>
+                  <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownBasic2" >
+                    <button ngbDropdownItem (click)="fontSize('10')" class="dropdown-item">10pt</button>
+                    <button ngbDropdownItem (click)="fontSize('12')" class="dropdown-item">12pt</button>
+                    <button ngbDropdownItem (click)="fontSize('14')" class="dropdown-item">14pt</button>
+                    <button ngbDropdownItem (click)="fontSize('16')" class="dropdown-item">16pt</button>
+                    <button ngbDropdownItem (click)="fontSize('18')" class="dropdown-item">18pt</button>
+                    <button ngbDropdownItem (click)="fontSize('24')" class="dropdown-item">24pt</button>
+                    <button ngbDropdownItem (click)="fontSize('30')" class="dropdown-item">30pt</button>
+                    <button ngbDropdownItem (click)="fontSize('40')" class="dropdown-item">40pt</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <button (click)="reset()" class="btn btn-outline-primary "  style="background-position: center; background-repeat: no-repeat; background-image:url(../../../assets/img/refresh-32.png);"></button>
+              </div>
+              <div class="col-2">
+                <button (click)="send()" class="btn btn-outline-primary "  style="background-position: center; background-repeat: no-repeat; background-image:url(../../../assets/img/send+icon-32.png);"></button>
+              </div>
+              <div class="col-2">
+                <button (click)="preview('')" class="btn btn-outline-primary ">Preview</button>
+              </div>
+              <div>
+
+                <div class="img-fluid">
+                  <div id="moveable">
+                    <div id="moveable_header"></div>
+                    <textarea [(ngModel)]="text" autocomplete="off" id="textBox"></textarea>
+                  </div>
+                  <img class="img-fluid"
+                    src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{actualItem.imagen}}/postcards/none"
+                    alt="">
+                </div>
+                <canvas class="img-fluid" #canvasEl style="display: none;">
+                  <img *ngIf="downloadLink" [src]="downloadLink" />
+                </canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </jw-modal>

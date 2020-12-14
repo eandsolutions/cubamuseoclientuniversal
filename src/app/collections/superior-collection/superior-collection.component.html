@@ -34,8 +34,21 @@
                                                 <p class="card-text d-inline-block mb-3"
                                                     [innerHTML]="collection.descripcion"></p>
                                                 <div style="display: block; text-align: center;">
-                                                    <div>
-                                                        <label>{{'Derechos.PiePagina'|translate}}</label>
+                                                    <div class="container" style="display: flex; justify-content:center;">
+                                                    
+                                                        <div >  
+                                                            <label>{{'Derechos.PiePagina'|translate}}</label>
+                                                        </div>
+                                                    
+                                                        <div class="share ">
+                                                            <a class="click"
+                                                                [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'superior-collection/'+collection.id)"
+                                                                target="_blank">
+                                                                <i class="fa fa-facebook-official"> {{'TextComponent.Compartir'|translate}}</i>
+                                                            </a>
+                                                        </div>
+                                                
+                                                
                                                     </div>
                                                     <div class="pagefirm">
                                                         <img src="assets/img/Final.png" alt="">

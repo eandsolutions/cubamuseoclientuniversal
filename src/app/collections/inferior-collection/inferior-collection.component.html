@@ -37,8 +37,21 @@
                                                 <p class="card-text d-inline-block mb-3"
                                                     [innerHTML]="collection.descripcion"></p>
                                                 <div style="display: block; text-align: center;">
-                                                    <div>
-                                                        <label>{{'Derechos.PiePagina'|translate}}</label>
+                                                    <div class="container" style="display: flex; justify-content:center;">
+                                                    
+                                                        <div >  
+                                                            <label>{{'Derechos.PiePagina'|translate}}</label>
+                                                        </div>
+                                                    
+                                                        <div class="share">
+                                                            <a class="click"
+                                                                [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'inferior-collection/'+collection.id)"
+                                                                target="_blank">
+                                                                <i class="fa fa-facebook-oficial" >{{'TextComponent.Compartir'|translate}}</i>
+                                                            </a>
+                                                        </div>
+                                                
+                                                
                                                     </div>
                                                     <div class="pagefirm">
                                                         <img src="assets/img/Final.png" alt="">
@@ -89,7 +102,7 @@
     </div>
 </div>
 
-<jw-modal id="custom-modal-1">
+<jw-modal id="custom-modal-1" onmousedown='return false;' onselectstart='return false;'>
     <div class="main-content">
         <div class="container-fluid center">
             <div class="row">
@@ -225,7 +238,7 @@
 
 </jw-modal>
 
-<jw-modal id="custom-modal-zoom">
+<jw-modal id="custom-modal-zoom" onmousedown='return false;' onselectstart='return false;'>
     <div class="container-fluid center" style="width: max-content;">
         <div class="row" style="justify-content: center; display: block;">
 

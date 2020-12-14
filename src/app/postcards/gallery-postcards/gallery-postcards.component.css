@@ -47,6 +47,14 @@
   color: #f52c2c;
 }
 
+.social-btns .btn.edit .fa {
+  color: #66bb6a;
+}
+.social-btns .btn.edit:before {
+  background-color:  #66bb6a;
+}
+
+
 .social-btns .btn.envelope:before {
     background-color: #425df5;
   }
@@ -114,3 +122,97 @@
     margin-top: 0 !important;
   }
 }
+.btn-group{
+  margin: 10px 25px;
+}
+
+#textBox{
+  z-index:1000;
+}
+
+@font-face {
+  font-family: Dancing Script;
+  src: url(../../../assets/css/Dancing_Script/DancingScript-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: East_Sea;
+  src: url(../../../assets/css/East_Sea_Dokdo/EastSeaDokdo-Regular.ttf);
+}
+
+@font-face {
+  font-family: Nerko_One;
+  src: url(../../../assets/css/Nerko_One/NerkoOne-Regular.ttf);
+}
+
+#handle:hover
+{
+    cursor: move;
+}
+#cui_box_paint textarea
+{
+    color: #fff; font-size: 30pt; width: 100%; float: left; height: 100%; background-color: transparent; position: relative; border: none;
+}
+.cui_postales_mensajes
+{
+	width:100%; float:left; font-style: italic;
+}
+.cui_postales_box
+{
+	background-color: #dedede; padding: 20px; margin-bottom: 20px;
+}
+.cui_postales_notif
+{
+	margin: 10px 0; text-align: center;
+}
+.cui_postales_input
+{
+    width:100%;
+}
+.cui_postales_height
+{
+	height: 150px;
+}
+
+#moveable {
+  position: absolute;
+  z-index: 9;
+  background-color: transparent;
+  text-align: center;
+}
+
+
+#moveable_header {
+  width: 34px; 
+  height: 34px; 
+  background-color:transparent; 
+  background-image: url(../../../assets/img/move-32.png); 
+  background-position: center center; 
+  background-repeat: no-repeat;  
+  position: absolute; 
+  top: -35px; 
+  right: 0; 
+  border-radius: 10px 10px 0 0;
+  cursor: move;
+}
+
+#textBox{
+  background-color: transparent;
+  resize: both;
+  overflow: auto;
+}
+
+#buttons .btn-outline-primary {
+border-style: none ;
+background-color: transparent;
+min-height: 42px;
+}
+
+
+.dropdown-toggle{
+color: transparent;
+}
+
+.dropdown-toggle :active:hover{
+  color: transparent;
+  }

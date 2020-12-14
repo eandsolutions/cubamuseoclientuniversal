@@ -36,9 +36,23 @@
                                                 <p class="card-text d-inline-block mb-3" style="margin-top: 22px;"
                                                     [innerHTML]="samples.descripcion"></p>
                                                 <div style="display: block; text-align: center;">
-                                                    <div *ngIf="!(samples.nombre.includes('Alfabetizacion')|| samples.nombre.includes('Alfabetización'))">
-                                                        <label>{{'Derechos.PiePagina'|translate}}</label>
+                                                    <div class="container" style="display: flex; justify-content:center;">
+                                                    
+                                                        <div *ngIf="!(samples.nombre.includes('Alfabetizacion')|| samples.nombre.includes('Alfabetización'))">
+                                                            <label>{{'Derechos.PiePagina'|translate}}</label>
+                                                        </div>
+                                                    
+                                                        <div class="share ">
+                                                            <a class="click"
+                                                                [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'inferior-samples/'+samples.id)"
+                                                                target="_blank">
+                                                                <i class="fa fa-facebook-official"> {{'TextComponent.Compartir'|translate}}</i>
+                                                            </a>
+                                                        </div>
+                                                
+                                                
                                                     </div>
+                                                    
                                                     <div class="pagefirm">
                                                         <img src="assets/img/Final.png" alt="">
                                                     </div>
@@ -87,7 +101,7 @@
     </div>
 </div>
 
-<jw-modal id="custom-modal-1">
+<jw-modal id="custom-modal-1" onmousedown='return false;' onselectstart='return false;'>
     <div class="main-content">
         <div class="container-fluid center">
             <div class="row">

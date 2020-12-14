@@ -52,7 +52,8 @@
     "TextComponent":{
         "Texto":"Texto",
         "SuperiorGallery":"Galería de Páginas",
-        "InferiorGallery":"Galería de Imágenes"
+        "InferiorGallery":"Galería de Imágenes",
+        "Compartir": "Compartir"
     },
     "GalleryComponent":{
         "Title":"Todas las Páginas de la Sección",
