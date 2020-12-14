@@ -70,11 +70,11 @@
                         <div class="container tab-pane active" id="text">
                             <div class="card-group vgr-cards">
                                 <div class="card" *ngFor="let item of collectionList | slice:0:limitCollection">
-                                    <div class="card-img-body">
+                                    <!-- <div class="card-img-body">
                                         <img class="card-img"
                                             src="{{config.serverNodeLocation}}images/imageInAllDirectory/{{item.imagen}}"
                                             alt="Card image cap">
-                                    </div>
+                                    </div> -->
                                     <div class="card-body">
                                         <h4 class="card-title"
                                             (click)="redirectCollection(item)"
@@ -94,11 +94,11 @@
                             <div class="container tab-pane active" id="text">
                                 <div class="card-group vgr-cards ">
                                     <div class="card " *ngFor="let item of stampList | slice:0:limitStamp ">
-                                        <div class="card-img-body ">
+                                        <!-- <div class="card-img-body ">
                                             <img class="card-img"
                                                 src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/stamps/none "
-                                                alt="Card image cap ">
-                                        </div>
+                                                alt="Card image cap "> 
+                                        </div> -->
                                         <div class="card-body ">
                                             <h4 class="card-title " [routerLink]="['/inferior-stamp',item.idEstampa]"
                                                 [innerHTML]="item.nombre ">
@@ -118,11 +118,11 @@
                             <div class="container tab-pane active" id="text">
                                 <div class="card-group vgr-cards ">
                                     <div class="card " *ngFor="let item of modelList | slice:0:limitModel ">
-                                        <div class="card-img-body ">
+                                        <!-- <div class="card-img-body ">
                                             <img class="card-img "
                                                 src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/samples/none "
                                                 alt="Card image cap ">
-                                        </div>
+                                        </div> -->
                                         <div class="card-body ">
                                             <h4 class="card-title " [routerLink]="['/inferior-samples',item.idMuestra]"
                                                 [innerHTML]="item.nombre ">
@@ -142,11 +142,11 @@
                             <div class="container tab-pane active" id="text">
                                 <div class="card-group vgr-cards ">
                                     <div class="card " *ngFor="let item of shopList | slice:0:limitShop ">
-                                        <div class="card-img-body ">
+                                        <!-- <div class="card-img-body ">
                                             <img class="card-img "
                                                 src="{{config.serverNodeLocation}}images/imageInAllDirectory/{{item.imagen}}"
                                                 alt="Card image cap ">
-                                        </div>
+                                        </div> -->
                                         <div class="card-body ">
                                             <h4 class="card-title "
                                                 [routerLink]="['/store', item.idItem,'none','store']"
