@@ -5,7 +5,6 @@ import { GalleryPostcardsComponent } from './gallery-postcards/gallery-postcards
 import { RouterModule } from '@angular/router';
 import { ModalModule } from 'src/app/_modal';
 import { MatIconModule } from '@angular/material/icon';
-import { ImageEditorModule } from '../image-editor/image-editor.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularCropperjsModule } from 'angular-cropperjs';

@@ -41,18 +41,7 @@ export class AdminLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
       
-=======
-
-    let data: any = this.enviromentVariable.getNew()
-      if(!data)
-        this.initInfo();
-      else {
-          this.checkIfLast();
-      } 
-  
->>>>>>> 47926c2a97b7f3240eb77da37a848efccbfafda2
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
@@ -161,11 +150,7 @@ export class AdminLayoutComponent implements OnInit {
           }
       });
       
-<<<<<<< HEAD
    
-=======
-      
->>>>>>> 47926c2a97b7f3240eb77da37a848efccbfafda2
   }
   ngAfterViewInit() {
       this.runOnRouteChange();
