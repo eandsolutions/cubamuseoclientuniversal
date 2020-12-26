@@ -5,12 +5,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-image">
-                        <img src="{{config.serverNodeLocation}}images/imageForText/{{homeData.imagen}}" alt="">
+                        <img src="{{config.serverNodeLocation}}images/imageForText/{{homeData.imagen}}" alt="Estampas">
                     </div>
                     <div class="card-body">
-                        <h5 class="title col text-center">
+                        <h1 class="title col text-center">
                             <a class="text-fiord-blue" href="#" >{{homeData.titulo}}</a>
-                        </h5>
+                        </h1>
                         <p class="card-text d-inline-block mb-3" [innerHTML]="homeData.descripcion"></p>
                         <div class="col-md-6" *ngFor="let tales of allTales">
                             <a style="color: black;" class="nav-link"   [innerHTML]="tales.nombre" 

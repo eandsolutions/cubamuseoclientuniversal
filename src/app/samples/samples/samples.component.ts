@@ -4,6 +4,7 @@ import { EnviromentVariableServiceService } from 'src/app/core/service/enviromen
 import { ConfigServiceService } from 'src/app/core/service/config-service.service';
 import { SamplesServiceService } from 'src/app/core/service/samples-service.service';
 import { MetaService } from 'src/app/core/service/meta.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-samples',
@@ -19,7 +20,8 @@ export class SamplesComponent implements OnInit {
     public enviromentVariable: EnviromentVariableServiceService,
     public config: ConfigServiceService,
     private samplesService: SamplesServiceService,
-    private metaService: MetaService
+    private metaService: MetaService,
+    private router: Router,
     ) { 
     this.allSamples=[];
     this.homeData = {
@@ -75,8 +77,13 @@ export class SamplesComponent implements OnInit {
         }
         this.metaService.setTitle(this.homeData.nombre)
         this.metaService.addTags([
+          { name: 'description', content: this.homeData.descripcion.slice(0, 500) },
+          { name: 'robots', content: 'index, follow' },
           { name: 'og:description', content: this.homeData.descripcion.slice(0,500) },
-          { name: 'og:robots', content: 'index, follow' }
+          { name: 'og:robots', content: 'index, follow' },
+          { name: 'keywords', content:  this.homeData.nombre},
+          { name: 'og:keywords', content: this.homeData.nombre},
+          { name: 'og:url', content: 'http://cubamuseo.net' + this.router.url },
         ])
       }, err => {
 

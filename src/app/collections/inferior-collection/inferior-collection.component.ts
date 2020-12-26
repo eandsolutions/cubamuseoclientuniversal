@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigServiceService } from 'src/app/core/service/config-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
 import { CollectionServiceService } from 'src/app/core/service/collection-service.service';
 import { ModalService } from 'src/app/_modal/modal.service';
@@ -27,6 +27,7 @@ export class InferiorCollectionComponent implements OnInit {
   constructor(
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
+    private router: Router,
     public enviromentVariable: EnviromentVariableServiceService,
     private collectionService: CollectionServiceService,
     private modalService: ModalService,
@@ -105,8 +106,13 @@ export class InferiorCollectionComponent implements OnInit {
 
         this.metaService.setTitle(this.collection.titulo);
         this.metaService.addTags([
+          { name: 'description', content: this.collection.descripcion.slice(0, 500) },
+          { name: 'robots', content: 'index, follow' },
           { name: 'og:description', content: this.collection.descripcion.slice(0, 500) },
-          { name: 'og:robots', content: 'index, follow' }
+          { name: 'og:robots', content: 'index, follow' },
+          { name: 'keywords', content:  this.collection.titulo},
+          { name: 'og:keywords', content: this.collection.titulo},
+          { name: 'og:url', content: 'http://cubamuseo.net' + this.router.url },
         ])
         this.initGalery()
       }, err => {

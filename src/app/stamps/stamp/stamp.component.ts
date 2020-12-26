@@ -5,6 +5,7 @@ import { EnviromentVariableServiceService } from 'src/app/core/service/enviromen
 import { ConfigServiceService } from 'src/app/core/service/config-service.service';
 import { SamplesServiceService } from 'src/app/core/service/samples-service.service';
 import { MetaService } from 'src/app/core/service/meta.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stamp',
@@ -21,7 +22,8 @@ export class StampComponent implements OnInit {
     public config: ConfigServiceService,
     private samplesService: SamplesServiceService,
     private talesService: TalesServiceService,
-    private metaService: MetaService
+    private metaService: MetaService,
+    private router: Router
   ) {
     this.homeData = {
       titulo: '',
@@ -66,8 +68,14 @@ export class StampComponent implements OnInit {
           }
           this.metaService.setTitle(this.homeData.titulo);
           this.metaService.addTags([
-            { name: 'og:description', content: this.homeData.descripcion.slice(0,500) },
-            { name: 'og:robots', content: 'index, follow' }
+            { name: 'description', content: this.homeData.descripcion.slice(0, 500) },
+            { name: 'robots', content: 'index, follow' },
+            { name: 'og:description', content: this.homeData.descripcion.slice(0, 500) },
+            { name: 'og:robots', content: 'index, follow' },
+            { name: 'keywords', content: this.homeData.titulo },
+            { name: 'og:keywords', content: this.homeData.titulo },
+            { name: 'og:url', content: 'http://cubamuseo.net' + this.router.url },
+
           ])
         } else {
           this.homeData = {

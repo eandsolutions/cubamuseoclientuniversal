@@ -4,12 +4,12 @@
             <div class="col-md-12">
                 <div class="card" *ngIf="homeData.imagen">
                     <div class="card-header card-header-image">
-                        <img src="{{config.serverNodeLocation}}images/imageForText/{{homeData.imagen}}" alt="">
+                        <img src="{{config.serverNodeLocation}}images/imageForText/{{homeData.imagen}}" alt="Muestras">
                     </div>
                     <div class="card-body">
-                        <h5 class="title col text-center">
+                        <h1 class="title col text-center">
                             <a class="text-fiord-blue" href="#">{{homeData.titulo}}</a>
-                        </h5>
+                        </h1>
                         <p class="card-text d-inline-block mb-3" [innerHTML]="homeData.descripcion"></p>
                         <div class="col-md-6" *ngFor="let samples of allSamples">
                             <a style="color: black;" class="nav-link" [innerHTML]="samples.nombre"
