@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigServiceService } from 'src/app/core/service/config-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SamplesServiceService } from 'src/app/core/service/samples-service.service';
 import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
 import { ModalService } from 'src/app/_modal';
@@ -24,7 +24,8 @@ export class InferiorSamplesComponent implements OnInit {
     private samplesService: SamplesServiceService,
     public enviromentVariable: EnviromentVariableServiceService,
     private modalService: ModalService,
-    private metaService:MetaService
+    private metaService: MetaService,
+    private router: Router,
   ) {
     this.isHide = false;
     this.gallery = [];
@@ -46,7 +47,7 @@ export class InferiorSamplesComponent implements OnInit {
       nombre: '',
       carpeta: '',
       id: '',
-      cantImges:0
+      cantImges: 0
     }
     activateRoute.params.subscribe(
       data => {
@@ -60,12 +61,17 @@ export class InferiorSamplesComponent implements OnInit {
                 nombre: data.nombre,
                 carpeta: data.carpeta,
                 id: data.idMuestra,
-                cantImages:data.cantImagenes
+                cantImages: data.cantImagenes
               }
               this.metaService.setTitle(this.samples.titulo)
               this.metaService.addTags([
-                { name: 'og:description', content: this.samples.descripcion.slice(0,500) },
-                { name: 'og:robots', content: 'index, follow' }
+                { name: 'og:description', content: this.samples.descripcion.slice(0, 500) },
+                { name: 'og:robots', content: 'index, follow' },
+                { name: 'description', content: this.samples.descripcion.slice(0, 500) },
+                { name: 'robots', content: 'index, follow' },
+                { name: 'keywords', content: this.samples.titulo },
+                { name: 'og:keywords', content: this.samples.titulo },
+                { name: 'og:url', content: 'http://cubamuseo.net' + this.router.url },
               ])
               this.initGalery();
               this.enviromentVariable.actualPage = 'samples';
@@ -190,9 +196,9 @@ export class InferiorSamplesComponent implements OnInit {
     return this.isHide;
   }
 
-  getHeigth(){
+  getHeigth() {
     let value = document.getElementById('item').offsetWidth;
-    return value-10;
+    return value - 10;
   }
 
 }

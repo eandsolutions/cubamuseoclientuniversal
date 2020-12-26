@@ -58,16 +58,16 @@ export class SuperiorCollectionComponent implements OnInit {
                   titulo: data[0].titulo,
                   imagen: data[0].imagen,
                   nombre: data[0].nombre,
-                  nombre_es:data[0].nombre_es,
+                  nombre_es: data[0].nombre_es,
                   id: data[0].idSeccion
                 }
                 this.enviromentVariable.setSection({
-                  descripcion:data[0].descripcion,
+                  descripcion: data[0].descripcion,
                   titulo: data[0].titulo,
                   imagen: data[0].imagen,
                   imagenMenu: data[0].imagenMenu,
                   nombre: data[0].nombre,
-                  nombre_es:data[0].nombre_es,
+                  nombre_es: data[0].nombre_es,
                   orden: data[0].orden,
                   idSeccion: data[0].idSeccion,
                   publicada: data[0].publicada
@@ -75,8 +75,14 @@ export class SuperiorCollectionComponent implements OnInit {
               }
               this.metaService.setTitle(this.collection.titulo);
               this.metaService.addTags([
-                { name: 'og:description', content: this.collection.descripcion.slice(0,500) },
-                { name: 'og:robots', content: 'index, follow' }
+                { name: 'og:description', content: this.collection.descripcion.slice(0, 500) },
+                { name: 'og:robots', content: 'index, follow' },
+                { name: 'description', content: this.collection.descripcion.slice(0, 500) },
+                { name: 'robots', content: 'index, follow' },
+                { name: 'keywords', content:  this.collection.titulo},
+                { name: 'og:keywords', content: this.collection.titulo},
+                { name: 'og:url', content: 'http://cubamuseo.net' + this.router.url },
+
               ])
               this.initBreadcrumb()
               this.initGalery()
@@ -155,11 +161,11 @@ export class SuperiorCollectionComponent implements OnInit {
 
   }
 
-  getCollectionName(){
-    if(this.collection.nombre_es)
+  getCollectionName() {
+    if (this.collection.nombre_es)
       return this.collection.nombre_es;
     else
-     return this.collection.nombre
+      return this.collection.nombre
   }
 
 }

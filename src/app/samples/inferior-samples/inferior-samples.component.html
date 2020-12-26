@@ -1,16 +1,16 @@
-<div class="main-content" onmousedown='return false;' onselectstart='return false;'>
+<div class="main-content" >
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card" *ngIf="samples.carpeta != '' && samples.cantImges != 0">
                     <div class="card-header card-header-image">
                         <img src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{samples.imagen}}/samples/none"
-                            alt="">
+                            alt="{{samples.carpeta}}">
                     </div>
                     <div class="card-body">
-                        <h5 class="title">
+                        <h1 class="title">
                             <a class="text-fiord-blue" href="#" [innerHTML]="samples.titulo"></a>
-                        </h5>
+                        </h1>
                         <section id="tabs" class="project-tab">
                             <div class="container">
                                 <div class="row">
@@ -101,7 +101,7 @@
     </div>
 </div>
 
-<jw-modal id="custom-modal-1" onmousedown='return false;' onselectstart='return false;'>
+<jw-modal id="custom-modal-1" >
     <div class="main-content">
         <div class="container-fluid center">
             <div class="row">

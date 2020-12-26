@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigServiceService } from 'src/app/core/service/config-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SamplesServiceService } from 'src/app/core/service/samples-service.service';
 import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
 import { ModalService } from 'src/app/_modal';
@@ -22,7 +22,8 @@ export class InferiorStampComponent implements OnInit {
     public enviromentVariable: EnviromentVariableServiceService,
     private modalService: ModalService,
     private stampService: TalesServiceService,
-    private metaService: MetaService
+    private metaService: MetaService,
+    private router: Router
   ) {
     this.stamp = {
       descripcion: '',
@@ -46,8 +47,14 @@ export class InferiorStampComponent implements OnInit {
               }
               this.metaService.setTitle(this.stamp.titulo);
               this.metaService.addTags([
-                { name: 'og:description', content: this.stamp.descripcion.slice(0,500) },
-                { name: 'og:robots', content: 'index, follow' }
+                { name: 'description', content: this.stamp.descripcion.slice(0, 500) },
+                { name: 'robots', content: 'index, follow' },
+                { name: 'og:description', content: this.stamp.descripcion.slice(0, 500) },
+                { name: 'og:robots', content: 'index, follow' },
+                { name: 'keywords', content: this.stamp.titulo },
+                { name: 'og:keywords', content: this.stamp.titulo },
+                { name: 'og:url', content: 'http://cubamuseo.net' + this.router.url },
+
               ])
             }, err => {
 
@@ -73,14 +80,14 @@ export class InferiorStampComponent implements OnInit {
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'stamps';
-    this.enviromentVariable.sections=[];
+    this.enviromentVariable.sections = [];
     this.enviromentVariable.sections.push({
-      idCategoriaEstampa:0,
-      nombre:'Todas',
-      imagenMenu:'todas.jpg',
-      descripcion:'',
-      publicada:1,
-      orden:''
+      idCategoriaEstampa: 0,
+      nombre: 'Todas',
+      imagenMenu: 'todas.jpg',
+      descripcion: '',
+      publicada: 1,
+      orden: ''
 
 
     });
