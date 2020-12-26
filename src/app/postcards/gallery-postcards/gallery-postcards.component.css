@@ -149,30 +149,7 @@
 {
     cursor: move;
 }
-#cui_box_paint textarea
-{
-    color: #fff; font-size: 30pt; width: 100%; float: left; height: 100%; background-color: transparent; position: relative; border: none;
-}
-.cui_postales_mensajes
-{
-	width:100%; float:left; font-style: italic;
-}
-.cui_postales_box
-{
-	background-color: #dedede; padding: 20px; margin-bottom: 20px;
-}
-.cui_postales_notif
-{
-	margin: 10px 0; text-align: center;
-}
-.cui_postales_input
-{
-    width:100%;
-}
-.cui_postales_height
-{
-	height: 150px;
-}
+
 
 #moveable {
   position: absolute;
@@ -208,6 +185,22 @@ background-color: transparent;
 min-height: 42px;
 }
 
+.btn-primary {
+  background-color:#2CA8FF ;
+}
+.btn-primary ::before :hover{
+  background-color:#2CA8FF;
+}
+
+.btn-outline-primary{
+  color: #2CA8FF;
+}
+.dropdown-toggle :focus:hover::before{
+  background-color: #2CA8FF;
+}
+.dropdown-item :focus{
+  background-color: #2CA8FF;
+}
 
 .dropdown-toggle{
 color: transparent;

@@ -17,6 +17,7 @@ export class FooterComponent implements OnInit {
   new:any;
   @ViewChild(ToastContainerDirective, { static: true })
   toastContainer: ToastContainerDirective;
+  
   mail: any = {
     from: '',
     subject: '',
