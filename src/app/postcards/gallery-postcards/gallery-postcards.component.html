@@ -60,11 +60,11 @@
               target="_blank">
               <i class="fa fa-twitter"></i>
             </a>
-            <a class="btn google"
+            <!-- <a class="btn google"
               [href]="enviromentVariable.getGooglePlus(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
               target="_blank">
               <i class="fa fa-google"></i>
-            </a>
+            </a> -->
             <a class="btn linkedin"
               [href]="enviromentVariable.getLinkedIn(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
               target="_blank">
@@ -75,9 +75,9 @@
               target="_blank">
               <i class="fa fa-pinterest"></i>
             </a>
-            <!-- <a class="btn edit" target="_blank" (click)="openEditDialog('custom-modal-edition', actualItem)">
+            <a class="btn edit" target="_blank" (click)="openEditDialog('custom-modal-edition', actualItem)">
               <i class="fa fa-edit"></i>
-            </a> -->
+            </a>
 
             <!-- <a class="btn envelope" [href]="enviromentVariable.getPinterest(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none', '')" target="_blank">
                             <i class="fa fa-envelope"></i>
@@ -148,7 +148,7 @@
                 <button (click)="send()" class="btn btn-outline-primary "  style="background-position: center; background-repeat: no-repeat; background-image:url(../../../assets/img/send+icon-32.png);"></button>
               </div>
               <div class="col-2">
-                <button (click)="preview('')" class="btn btn-outline-primary ">Preview</button>
+                <button (click)="preview()" class="btn btn-outline-primary ">Preview</button>
               </div>
               <div>
 
@@ -157,13 +157,74 @@
                     <div id="moveable_header"></div>
                     <textarea [(ngModel)]="text" autocomplete="off" id="textBox"></textarea>
                   </div>
-                  <img class="img-fluid"
+                  <div id="canvas" class="img-fluid" style="display: none;">
+                   
+                      
+                    <canvas id="canvasEl" #canvasEl>
+                      <img id="img_Canvas" crossorigin="anonymous" src=""/>
+                    </canvas>
+                      
+                    <div id="mail" style="display: none;">
+                      <form (ngSubmit)='contactForm(form.value)' #form='ngForm'>
+                        <div class="row">
+                          <div class="col-6">
+                            <div class='form-group' style="display: none;">
+                              <input type="file" class='form-control' id="imagen_input"  name='image' ngModel>
+                              </div>
+                          <h2>Para</h2>
+                            <div class='form-group'>
+                              <label>Nombre</label>
+                              <input type='text' class='form-control' name='nombre_d' ngModel>
+                              </div>
+                              <div class='form-group'>
+                              <label>E-mail</label>
+                              <input type='email' class='form-control' name='email_d' ngModel>
+                              </div>
+                          </div>
+                          <div class="col-6">
+                          <h2>De</h2>
+                            <div class='form-group'>
+                              <label>Nombre</label>
+                              <input type='text' class='form-control' name='nombre' ngModel>
+                              </div>
+                              <div class='form-group'>
+                              <label>E-mail</label>
+                              <input type='email' class='form-control' name='email' ngModel>
+                              </div>
+                          </div>  
+                        </div>
+                      <div class='form-group'>
+                      <label>Mensaje</label>
+                      <textarea class='form-control' cols='30' rows='6' name='mensaje' ngModel></textarea>
+                      </div>
+                      
+                      <button type='submit' class='btn btn-primary'>Enviar</button>
+                      
+                      </form> 
+                      <!-- <div id="share" class="col-8" style="margin-left: 200px;">
+                        <a  id="face" class="btn facebook"
+                        [href]="enviromentVariable.getFacebook(imageToSend.src)"
+                        target="_blank">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                      <a  class="btn twitter"
+                        [href]="enviromentVariable.getTwitter('',imageToSend.src)"
+                        target="_blank">
+                        <i class="fa fa-twitter"></i>
+                      </a>
+                      </div> -->
+                    </div>
+                  
+                   
+                  </div>
+                 
+                  <img class="img-fluid" id="img"
                     src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{actualItem.imagen}}/postcards/none"
                     alt="">
                 </div>
-                <canvas class="img-fluid" #canvasEl style="display: none;">
-                  <img *ngIf="downloadLink" [src]="downloadLink" />
-                </canvas>
+          
+                
+                
               </div>
             </div>
           </div>

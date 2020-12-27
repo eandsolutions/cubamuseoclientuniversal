@@ -1,36 +1,39 @@
-import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { ConfigServiceService } from 'src/app/core/service/config-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
 import { VpostServiceService } from 'src/app/core/service/vpost-service.service';
 import { ModalService } from 'src/app/_modal';
+import { MessageService } from 'src/app/core/service/message.service';
 
 @Component({
   selector: 'app-gallery-postcards',
   templateUrl: './gallery-postcards.component.html',
   styleUrls: ['./gallery-postcards.component.css']
 })
-export class GalleryPostcardsComponent implements OnInit {
+export class GalleryPostcardsComponent implements OnInit, AfterViewInit {
  
-  @ViewChild("canvasEl") canvasEl: ElementRef;
+  @ViewChild("canvasEl") canvasEl: ElementRef<HTMLCanvasElement>;
   private context: CanvasRenderingContext2D;
- 
-  cropperRes: string;
+
   text = '';
   downloadLink = '';
   gallery: any[];
-  height :any;
-  width: any;
   actualItem: any;
   section:any;
   imageURL:any;
+  imageToSend:any;
+  pre:boolean;
   constructor(
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
     public enviromentVariable: EnviromentVariableServiceService,
     private postalService: VpostServiceService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private MessageService: MessageService
   ) {
+    this.imageToSend = new Image;
+    this.pre = false;
     this.actualItem = {
       imagen: '',
     }
@@ -111,6 +114,13 @@ export class GalleryPostcardsComponent implements OnInit {
   closeModal(id: string) {
     if (!this.modalService.widht)
       this.modalService.widht = '900px';
+    if(id==='custom-modal-edition'){
+      this.text=''
+      document.getElementById('canvas').style.display = 'none'
+      document.getElementById('img').style.display = 'block'
+      document.getElementById('moveable').style.display = 'block'
+      document.getElementById('mail').style.display = 'none';
+    }
     this.modalService.close(id);
   }
 
@@ -131,9 +141,9 @@ export class GalleryPostcardsComponent implements OnInit {
     } else {
       this.modalService.widht = null
     }
+    this.imageToSend = new Image;
     this.modalService.open(id);
     this.imageURL=this.config.serverNodeLocation+'images/2/'+this.getSection()+'/'+this.actualItem.imagen+'/postcards/none';
-    console.log(this.imageURL)
   }
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'postcards';
@@ -143,14 +153,11 @@ export class GalleryPostcardsComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.context = (this.canvasEl
-      .nativeElement as HTMLCanvasElement).getContext("2d");
-    
+    this.context = this.canvasEl.nativeElement.getContext("2d");  
   }
 
 
   fontType(type:string){
-
     switch(type){
       case "Nerko_One":
         return document.getElementById('textBox').style.fontFamily="Nerko_One";
@@ -246,34 +253,72 @@ export class GalleryPostcardsComponent implements OnInit {
   }
 
  reset(){
-   document.getElementById('textBox').removeAttribute('style');
-   
+   this.text= '';
+   document.getElementById('canvas').style.display = 'none';
+   document.getElementById('img').style.display = 'block';
+   document.getElementById('moveable').style.display = 'block';
+   document.getElementById('moveable').style.overflowX = '0';
+   document.getElementById('moveable').style.overflowY = '0';
+   document.getElementById('mail').style.display = 'none';
  }
 
- preview(src: string){
-  this.context.clearRect(0, 0, (this.canvasEl.nativeElement as HTMLCanvasElement).width, (this.canvasEl.nativeElement as HTMLCanvasElement).height);
-    const img = new Image();
-  img.src = src;
-  img.onload = () => {
-    const newW = img.width > 700 && img.height > 700 ? img.width / 3 : img.width;
-    const newH = img.height > 700 && img.width > 700 ? img.height / 3 : img.height;
-    (this.canvasEl.nativeElement as HTMLCanvasElement).width = newW;
-    (this.canvasEl.nativeElement as HTMLCanvasElement).height = newH;
-    this.context.font = "30px Arial";
-    this.context.textBaseline = "middle";
-    this.context.textAlign = "center";
-    this.context.drawImage(img, 0, 0, newW, newH);
-    this.context.fillText(this.text, newW / 2, newH / 2);
-    this.downloadLink = this.canvasEl.nativeElement.toDataURL("image/jpg");
-    }
-    console.log(this.text)
-    }
+ preview(){
+  const font = document.getElementById('textBox').style.fontSize.valueOf() + ' ' + document.getElementById('textBox').style.fontFamily.valueOf();
+  const img = new Image();
+  img.src = this.imageURL;
+  img.crossOrigin= 'anonymous'
+  const newW =  document.getElementById('img').offsetWidth;
+  const newH = document.getElementById('img').offsetHeight;
+  // clear canvas
+  this.context.clearRect(0, 0, newW,newH);
+  // styles
+  const w = document.getElementById('moveable').offsetLeft;
+  const h = document.getElementById('moveable').offsetTop;
+  document.getElementById('canvas').style.display = 'block';
+  document.getElementById('img').style.display = 'none';
+  document.getElementById('moveable').style.overflowX = '0';
+  document.getElementById('moveable').style.overflowY = '0';
+  document.getElementById('moveable').style.display = 'none';
+  // canvas
+  this.canvasEl.nativeElement.height = newH;
+  this.canvasEl.nativeElement.width = newW;
+  this.context.font = font;
+  const t = this.text;
+  const ctx = this.context;
+  const cvs=this.canvasEl;
+  img.onload = function() {
+    ctx.drawImage(img, 0, 0, newW, newH);
+    ctx.fillText(t, w, h);
+    var imgTag = document.getElementById('img_Canvas') as HTMLImageElement;
+    var dataURL = cvs.nativeElement.toDataURL('image/jpeg');
+    imgTag.src = dataURL;
+    //document.getElementById('face').innerHTML= '  <a  id="face" class="btn facebook" [href]="enviromentVariable.getFacebook('+imgTag.src+')" target="_blank"> <i class="fa fa-facebook"></i> </a>'
+  }
+  this.pre = true;
+}
  
-    saveImg() {
-      this.preview(this.cropperRes);
-    }
- send(){
 
- }
+  send(){
+    document.getElementById('mail').style.display = 'block';
+    console.log(!this.pre)
+    if(this.pre == false){
+      this.preview();
+    }
+    
+
+     }
+
+ 
+ contactForm(form) {
+   form.image=this.canvasEl.nativeElement.toDataURL('image/jpeg'); 
+  this.MessageService.sendMessage(form).subscribe(
+    data => {
+      if (data)
+        alert('Se ha enviado el correo exitosamente')
+    }, err => {
+      alert('Error al enviar el correo')
+    }
+  );
+  }
 
 }
