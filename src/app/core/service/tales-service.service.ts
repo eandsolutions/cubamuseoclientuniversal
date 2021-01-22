@@ -9,7 +9,8 @@ export class TalesServiceService {
   taleList: any;
   taleCategoryList: any;
 
-  constructor(public http: HttpClient, private config: ConfigServiceService) {
+  constructor(public http: HttpClient,
+     private config: ConfigServiceService) {
     this.taleCategoryList = [];
     this.taleList = [];
   }
