@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConfigServiceService } from './config-service.service';
+import { EnviromentVariableServiceService } from './enviroment-variable-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,12 @@ import { ConfigServiceService } from './config-service.service';
 export class VpostServiceService {
   vpostList: any;
   vpostCategoryList: any;
-
-  constructor(public http: HttpClient, private config: ConfigServiceService) {
+  lang: any;
+  constructor(public enviromentVariable: EnviromentVariableServiceService,
+    public http: HttpClient, private config: ConfigServiceService) {
     this.vpostCategoryList = [];
     this.vpostList = [];
+    this.lang = enviromentVariable.getLanguage();
    }
 
    getVpostHome(id) {
@@ -38,6 +41,6 @@ export class VpostServiceService {
   }
 
   getVpostCategories() {
-    return this.http.get(this.config.serverNodeLocation + 'category-postal');
+    return this.http.get(this.config.serverNodeLocation + 'category-postal/byLang/' + this.lang );
   }
 }

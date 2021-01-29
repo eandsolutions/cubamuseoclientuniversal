@@ -20,7 +20,7 @@ export class TalesServiceService {
   }
 
   getTaleById(id) {
-    return this.http.get(this.config.serverNodeLocation + 'stamp/' + id);
+    return this.http.get(this.config.serverNodeLocation + 'stamp/' + id + '/' + this.lang);
   }
 
 

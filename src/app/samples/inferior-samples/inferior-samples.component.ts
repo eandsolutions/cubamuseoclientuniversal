@@ -54,15 +54,31 @@ export class InferiorSamplesComponent implements OnInit {
         if (data.id)
           this.samplesService.getSampleById(data.id).subscribe(
             (data: any) => {
-              this.samples = {
-                descripcion: data.descripcion,
-                titulo: data.titulo,
-                imagen: data.imagen,
-                nombre: data.nombre,
-                carpeta: data.carpeta,
-                id: data.idMuestra,
-                cantImages: data.cantImagenes
+              if (data.nombre){
+                this.samples = {
+                  descripcion: data.descripcion,
+                  titulo: data.titulo,
+                  imagen: data.imagen,
+                  nombre: data.nombre,
+                  carpeta: data.carpeta,
+                  id: data.idMuestra,
+                  cantImages: data.cantImagenes
+                }
+              }else{
+                this.samples = {
+                  descripcion: data[0].descripcion,
+                  titulo: data[0].titulo,
+                  imagen: data[0].imagen,
+                  nombre: data[0].nombre,
+                  nombre_es: data[0].nombre_es,
+                  carpeta: data[0].carpeta,
+                  id: data[0].idMuestra,
+                  cantImages: data[0].cantImagenes
+                }
               }
+             
+              console.log(data)
+              console.log(this.samples)
               this.metaService.setTitle(this.samples.titulo)
               this.metaService.addTags([
                 { name: 'og:description', content: this.samples.descripcion.slice(0, 500) },
