@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConfigServiceService } from './config-service.service';
+import { EnviromentVariableServiceService } from './enviroment-variable-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +10,21 @@ export class SamplesServiceService {
   samplesList: any;
   samplesCategoryList: any;
   samplesGalleryList: any;
+  lang: any;
 
-  constructor(public http: HttpClient, private config: ConfigServiceService) {
+  constructor(public http: HttpClient, 
+    private config: ConfigServiceService,
+    public enviromentVariable: EnviromentVariableServiceService) {
     this.samplesCategoryList = [];
     this.samplesGalleryList = [];
     this.samplesList = [];
+    this.lang = enviromentVariable.getLanguage();
    }
    getSamplesHome(id) {
     return this.http.get(this.config.serverNodeLocation + 'api/sample/getHome/' + id);
   }
    getSampleById(id) {
-    return this.http.get(this.config.serverNodeLocation + 'model/' + id);
+    return this.http.get(this.config.serverNodeLocation + 'model/' + id + '/' + this.lang);
   }
 
   getItem(id){
@@ -31,7 +36,7 @@ export class SamplesServiceService {
    }
 
   getSamplesCategory(id) {
-    return this.http.get(this.config.serverNodeLocation + 'clasification-model/byCategory/'+id);
+    return this.http.get(this.config.serverNodeLocation + 'clasification-model/byCategory/'+id + '/' + this.lang);
   }
 
   getSamplesGalleryById(id) {
@@ -39,18 +44,18 @@ export class SamplesServiceService {
  }
 
  getSamplesGalleries(id) {
-   return this.http.get(this.config.serverNodeLocation + 'model-item/byModelId/' + id);
+   return this.http.get(this.config.serverNodeLocation + 'model-item/byModelId/' + id + '/' + this.lang);
  }
 
  getSamplesCategoryById(id) {
-   return this.http.get(this.config.serverNodeLocation + 'category-stamp/' + id);
+   return this.http.get(this.config.serverNodeLocation + 'category-stamp/' + id );
  }
 
  getSamplesCategories() {
-   return this.http.get(this.config.serverNodeLocation + 'category-stamp');
+   return this.http.get(this.config.serverNodeLocation + 'category-stamp/byLang/'+ this.lang);
  }
 
  getAllSamples() {
-  return this.http.get(this.config.serverNodeLocation + 'model/');
+  return this.http.get(this.config.serverNodeLocation + 'model/' + this.lang);
 }
 }

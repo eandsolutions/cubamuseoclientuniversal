@@ -101,6 +101,7 @@ export class EnviromentVariableServiceService {
 
   setLanguage(lang:any){
     this.localStorage.setItem('lang', JSON.stringify(lang));
+    this.lang = lang;
   }
   getLanguage() {
     if (this.localStorage.getItem('lang'))
