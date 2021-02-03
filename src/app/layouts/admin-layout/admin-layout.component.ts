@@ -11,7 +11,6 @@ import { NewsServiceService } from 'src/app/core/service/news-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { VisitServiceService } from 'src/app/core/service/visit.service.service';
 import * as moment from 'moment';
-import { LocalStorageService } from 'src/app/core/service/local-storage.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -37,12 +36,11 @@ export class AdminLayoutComponent implements OnInit {
     public location: Location, 
     private router: Router,
     private cookieService: CookieService,
-    private visitService: VisitServiceService,
-    private localStorage: LocalStorageService
+    private visitService: VisitServiceService
     ) {
     translate.addLangs(['en', 'es']);
-    if(localStorage.getItem('lang')){
-        this.translate.use(JSON.parse(localStorage.getItem('lang')));
+    if(window.localStorage.getItem('lang')){
+        this.translate.use(JSON.parse(window.localStorage.getItem('lang')));
     }
     else {
         translate.setDefaultLang('es');
@@ -80,9 +78,9 @@ export class AdminLayoutComponent implements OnInit {
          } else if (event instanceof NavigationEnd) {
              if (event.url == this.lastPoppedUrl) {
                  this.lastPoppedUrl = undefined;
-                 //window.scrollTo(0, this.yScrollStack.pop());
-             } /* else
-                 window.scrollTo(0, 0); */
+                 window.scrollTo(0, this.yScrollStack.pop());
+             } else
+                 window.scrollTo(0, 0);
          }
       });
       this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
