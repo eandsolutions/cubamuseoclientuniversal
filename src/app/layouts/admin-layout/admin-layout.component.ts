@@ -39,8 +39,8 @@ export class AdminLayoutComponent implements OnInit {
     private visitService: VisitServiceService
     ) {
     translate.addLangs(['en', 'es']);
-    if(localStorage.getItem('lang')){
-        this.translate.use(JSON.parse(localStorage.getItem('lang')));
+    if(window.localStorage.getItem('lang')){
+        this.translate.use(JSON.parse(window.localStorage.getItem('lang')));
     }
     else {
         translate.setDefaultLang('es');
