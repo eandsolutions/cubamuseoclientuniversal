@@ -18,6 +18,8 @@ import { StampsModule } from 'src/app/stamps/stamps.module';
 import { PostcardsModule } from 'src/app/postcards/postcards.module';
 import { StoreModule } from 'src/app/store/store.module';
 import { SearchModule } from 'src/app/search/search.module' 
+import { LocalStorageService } from 'src/app/core/service/local-storage.service';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
@@ -38,12 +40,13 @@ import { SearchModule } from 'src/app/search/search.module'
     PostcardsModule,
     StoreModule,
     SearchModule,
+    CoreModule
     //MatGridListModule
      ],
   declarations: [
     HomeComponent
     
-  ],
+  ],providers: [LocalStorageService]
  
 })
 

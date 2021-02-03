@@ -2,13 +2,16 @@ import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Location, PopStateEvent } from '@angular/common';
 import 'rxjs/add/operator/filter';
-
+import { ToastService } from 'ng-uikit-pro-standard';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from "jquery";
 import { NewsServiceService } from 'src/app/core/service/news-service.service';
-
+import { CookieService } from 'ngx-cookie-service';
+import { VisitServiceService } from 'src/app/core/service/visit.service.service';
+import * as moment from 'moment';
+import { LocalStorageService } from 'src/app/core/service/local-storage.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -16,6 +19,9 @@ import { NewsServiceService } from 'src/app/core/service/news-service.service';
   styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements OnInit {
+
+  private cookieValue : number;
+  visit:any
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
@@ -25,13 +31,18 @@ export class AdminLayoutComponent implements OnInit {
   }
   
   constructor(
+    public toastrService: ToastService,
     public newsService: NewsServiceService,
     public translate: TranslateService, 
     public location: Location, 
-    private router: Router) {
+    private router: Router,
+    private cookieService: CookieService,
+    private visitService: VisitServiceService,
+    private localStorage: LocalStorageService
+    ) {
     translate.addLangs(['en', 'es']);
-    if(window.localStorage.getItem('lang')){
-        this.translate.use(JSON.parse(window.localStorage.getItem('lang')));
+    if(localStorage.getItem('lang')){
+        this.translate.use(JSON.parse(localStorage.getItem('lang')));
     }
     else {
         translate.setDefaultLang('es');
@@ -41,6 +52,11 @@ export class AdminLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.visit = 0;
+      if(!(this.cookieService.check('visit'))){
+        this.setVisit();
+      }
+      
       
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
@@ -64,9 +80,9 @@ export class AdminLayoutComponent implements OnInit {
          } else if (event instanceof NavigationEnd) {
              if (event.url == this.lastPoppedUrl) {
                  this.lastPoppedUrl = undefined;
-                 window.scrollTo(0, this.yScrollStack.pop());
-             } else
-                 window.scrollTo(0, 0);
+                 //window.scrollTo(0, this.yScrollStack.pop());
+             } /* else
+                 window.scrollTo(0, 0); */
          }
       });
       this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
@@ -149,9 +165,41 @@ export class AdminLayoutComponent implements OnInit {
               $sidebar_responsive.css('background-image','url("' + new_image + '")');
           }
       });
-      
+      this.cookieService.set('visit','1', 1);
+
    
+    
   }
+
+  setVisit(){
+      this.visitService.getOne().subscribe(
+          (data)=>{
+              this.visit=data;
+                  const cant = this.visit[0].cantidad +1;
+                  const date:Date = this.visit[0].fecha;
+                  const dateActual:Date = new Date(Date.now())
+                  console.log(moment(date).format('YYYY MM DD'), moment(dateActual).format('YYYY MM DD'))
+                  console.log(this.visit)
+                 
+                  if(moment(date).format('YYYY MM DD') === moment(dateActual).format('YYYY MM DD') ){
+                    this.visitService.update(this.visit[0].id,{cantidad:cant}).subscribe(
+                      )
+                  }
+                  else{
+                      const visitNew ={
+                          id: this.visit.id+1,
+                          cantidad: 1,
+                          fecha:dateActual
+                      }
+                      this.visitService.create(visitNew).subscribe(
+
+                      )
+                  }
+              
+          }
+      )
+  }
+
   ngAfterViewInit() {
       this.runOnRouteChange();
   }

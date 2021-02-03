@@ -38,13 +38,25 @@ export class InferiorStampComponent implements OnInit {
         if (data.id)
           this.stampService.getTaleById(data.id).subscribe(
             (data: any) => {
-              this.stamp = {
-                descripcion: data.texto,
-                titulo: data.titulo,
-                nombre: data.nombre,
-                carpeta: data.carpeta,
-                id: data.idEstampa
+              if(data.nombre){
+                this.stamp = {
+                  descripcion: data.texto,
+                  titulo: data.titulo,
+                  nombre: data.nombre,
+                  carpeta: data.carpeta,
+                  id: data.idEstampa
+                }
+              }else{
+                this.stamp = {
+                  descripcion: data[0].texto,
+                  titulo: data[0].titulo,
+                  nombre: data[0].nombre,
+                  nombre_es: data[0].nombre_es,
+                  carpeta: data[0].carpeta,
+                  id: data[0].idEstampa
+                }
               }
+           
               this.metaService.setTitle(this.stamp.titulo);
               this.metaService.addTags([
                 { name: 'description', content: this.stamp.descripcion.slice(0, 500) },

@@ -72,8 +72,7 @@
                                                                 style="text-align: center;"
                                                                 (click)="openModal('custom-modal-1', item)">
                                                                 <img class="img-fluid img-thumbnail" [ngStyle]="{'max-height': getHeigth()+'px'}"
-                                                                    style="cursor: pointer;"
-                                                                    [title]="item.titulo"
+                                                                    style="cursor: pointer;"             
                                                                     src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{item.imagen}}/samples/none"
                                                                     alt="">
                                                                 <p [innerHTML]="item.titulo"></p>

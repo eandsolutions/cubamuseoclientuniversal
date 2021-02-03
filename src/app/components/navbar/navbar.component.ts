@@ -32,14 +32,10 @@ export class NavbarComponent implements OnInit {
         this.query = ''
     }
 
-    resize(){
-        this.width = window.screen.width
-    }
-
     change(language) {
         this.translate.use(language);
         this.enviromentVariable.setLanguage(language);
-        window.location.reload();
+        //window.location.reload();
 
     }
     ngOnInit() {
