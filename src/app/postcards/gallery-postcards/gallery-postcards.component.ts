@@ -5,6 +5,7 @@ import { EnviromentVariableServiceService } from 'src/app/core/service/enviromen
 import { VpostServiceService } from 'src/app/core/service/vpost-service.service';
 import { ModalService } from 'src/app/_modal';
 import { MessageService } from 'src/app/core/service/message.service';
+import { LocalStorageService } from 'src/app/core/service/local-storage.service';
 
 @Component({
   selector: 'app-gallery-postcards',
@@ -30,7 +31,8 @@ export class GalleryPostcardsComponent implements OnInit, AfterViewInit {
     public enviromentVariable: EnviromentVariableServiceService,
     private postalService: VpostServiceService,
     private modalService: ModalService,
-    private MessageService: MessageService
+    private MessageService: MessageService,
+    private localStorage: LocalStorageService
   ) {
     this.imageToSend = new Image;
     this.pre = false;
@@ -42,7 +44,7 @@ export class GalleryPostcardsComponent implements OnInit, AfterViewInit {
       data => {
         if (data.id) {
           this.initGallery(data.id)
-          this.section = JSON.parse(window.localStorage.getItem('section'));
+          this.section = JSON.parse(localStorage.getItem('section'));
           
         }
       }

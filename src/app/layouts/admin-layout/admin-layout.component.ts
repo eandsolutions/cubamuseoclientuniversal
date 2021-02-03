@@ -39,8 +39,8 @@ export class AdminLayoutComponent implements OnInit {
     private visitService: VisitServiceService
     ) {
     translate.addLangs(['en', 'es']);
-    if(window.localStorage.getItem('lang')){
-        this.translate.use(JSON.parse(window.localStorage.getItem('lang')));
+    if(localStorage.getItem('lang')){
+        this.translate.use(JSON.parse(localStorage.getItem('lang')));
     }
     else {
         translate.setDefaultLang('es');
@@ -78,9 +78,9 @@ export class AdminLayoutComponent implements OnInit {
          } else if (event instanceof NavigationEnd) {
              if (event.url == this.lastPoppedUrl) {
                  this.lastPoppedUrl = undefined;
-                 window.scrollTo(0, this.yScrollStack.pop());
-             } else
-                 window.scrollTo(0, 0);
+                 //window.scrollTo(0, this.yScrollStack.pop());
+             } /* else
+                 window.scrollTo(0, 0); */
          }
       });
       this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
