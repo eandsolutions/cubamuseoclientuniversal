@@ -78,9 +78,9 @@ export class AdminLayoutComponent implements OnInit {
          } else if (event instanceof NavigationEnd) {
              if (event.url == this.lastPoppedUrl) {
                  this.lastPoppedUrl = undefined;
-                 //window.scrollTo(0, this.yScrollStack.pop());
-             } /* else
-                 window.scrollTo(0, 0); */
+                 window.scrollTo(0, this.yScrollStack.pop());
+             } else
+                 window.scrollTo(0, 0);
          }
       });
       this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {

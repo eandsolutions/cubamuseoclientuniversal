@@ -34,7 +34,6 @@ export class EnviromentVariableServiceService {
   }
 
   setSections(sections: any[]) {
-    console.log('Sections: '+ sections)
     this.sections = sections;
   }
 

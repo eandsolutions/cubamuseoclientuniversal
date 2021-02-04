@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   initSections() {
     this.collectionService.getCollectionsSections().subscribe(
       (data: any[]) => {
-        this.enviromentVariable.setSections(data);
+        this.enviromentVariable.sections = data;
         this.enviromentVariable.link = { path: '/superior-collection' }
       }, err => {
         console.log(err)

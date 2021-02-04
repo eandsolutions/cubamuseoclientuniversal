@@ -84,7 +84,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /* window.addEventListener('scroll', this.scroll, true) */
+    window.addEventListener('scroll', this.scroll, true)
   }
 
   initSections() {
