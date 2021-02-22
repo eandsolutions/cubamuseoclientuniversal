@@ -124,24 +124,30 @@ export class InferiorCollectionComponent implements OnInit {
   initGalery() {
     this.collectionService.getCollectionItemByCategory(this.collection.id).subscribe(
       (data: any[]) => {
-        var mapped = data.map(function(el, i) {
-          return { index: i, value: el.nombre.toLowerCase().replace(" ","") };
-        })
+        let result = [];
+        if(isNaN(+data[0].nombre)){
+          var mapped = data.map(function(el, i) {
+            return { index: i, value: el.nombre.toLowerCase().replace(" ","") };
+          })
+          console.log("entro mal")
+          // sorting the mapped array containing the reduced values
+          mapped.sort(function(a, b) {
+            if (a.value > b.value) {
+              return 1;
+            }
+            if (a.value < b.value) {
+              return -1;
+            }
+            return 0;
+          });
+  
+          result = mapped.map(function(el){
+            return data[el.index];
+          });
+        }else{
+          result = data.sort();
+        }
         
-        // sorting the mapped array containing the reduced values
-        mapped.sort(function(a, b) {
-          if (a.value > b.value) {
-            return 1;
-          }
-          if (a.value < b.value) {
-            return -1;
-          }
-          return 0;
-        });
-
-        var result = mapped.map(function(el){
-          return data[el.index];
-        });
         this.gallery = result
         console.log(result)
 
