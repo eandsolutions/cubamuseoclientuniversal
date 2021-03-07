@@ -3,15 +3,15 @@
         "TITLE": "Cuba Museo"
     },
     "About": {
-        "TITLE": "About Us",
+        "TITLE": "About us",
         "TEXT": " This space has been conceived by a Cuban collector, Eng. Luis Díaz Mijares, who has spent decades bringing together the pieces shown in their different thematic sections and making the corresponding pages. All its content is your sole responsibility and authorship. <br> <br><b> Design and development of the site: </b> <br>Lic. Yoel de la Noval Denis <br>Ing. Sandy Cordoví González <br>Ing. Anabel Andrés Costa <br> <br><b> Spanish / English Translation: </b> <br>Degree in English Language Mayen Vincench Pereira <br> <br>If with our work we contribute something to the dissemination and knowledge of Cuban culture and identity, we will feel satisfied."
     },
     "News": {
-        "TITLE": "News",
+        "TITLE": "Last news",
         "TEXT": " Here, you will be able to find the most recent information of interest related to our website, the new sections that are included, the additions to existing sections, etc…Also, any news regarding the Cuban collecting world where we will make reference to new findings, events, publications, and so forth."
     },
     "Contact": {
-        "TITLE": "Contact Us",
+        "TITLE": "Contact us",
         "Questions": "Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within a matter of hours to help you.",
         "NAME":"Name",
         "EMAIL":"Email",
@@ -22,7 +22,7 @@
     },
 
     "RelatedSites": {
-        "TITLE": "Related Sites",
+        "TITLE": "Related sites",
         "GO_SITE": "Go to site",
         "TEXT": " Memorias is a small bookstore and memorabilia store. It is located close to Central Park in Old Havana and one block away from the Fine Arts Museum, more specifically next to the famous bar Sloppy Joe’s. Besides commercializing a wide variety of articles destined for lovers of antiques, they also offer a nice space for visitors by recreating the Cuban past.  On the walls you can enjoy vintage posters, photos and advertisements which portray the value of the Cuban culture."
     },

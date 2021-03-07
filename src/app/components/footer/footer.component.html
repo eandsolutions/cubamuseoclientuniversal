@@ -5,26 +5,49 @@
 
         <nav class="pull-left">
             <ul>
+                
                 <li>
-                    <a (click)="openModal('custom-modal-contact')">
-                        {{'Contact.TITLE'|translate}}
-                    </a>
-                </li>
-                <li>
+                    <div class="links">
+                        <img  
+                        src="../../../assets/img/somos.png"
+                        alt="">
                     <a (click)="openModal('custom-modal-company-description')">
                         {{'About.TITLE'|translate}}
                     </a>
+                    </div>
                 </li>
                 <li>
-                    <a (click)="openModal('custom-modal-related-sites')">
+                    <div class="links">
+                        <img  
+                        src="../../../assets/img/vendedor.png"
+                        alt="">
+                    <a (click)="openModal('custom-modal-contact')">
+                        {{'Contact.TITLE'|translate}}
+                    </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="links">
+                        <img  
+                        src="../../../assets/img/noticias.png"
+                        alt="">
+                        <a (click)="openModal('custom-modal-news')">
+                            {{'News.TITLE'|translate}}
+                        </a>
+                    </div>
+                  
+                </li>
+                <li>
+                    <div class="links">
+                        <img  
+                        src="../../../assets/img/relacionados.png"
+                        alt="">
+                    <a  (click)="openModal('custom-modal-related-sites')">
                         {{'RelatedSites.TITLE'|translate}}
                     </a>
+                    </div>
                 </li>
-                <li>
-                    <a (click)="openModal('custom-modal-news')">
-                        {{'News.TITLE'|translate}}
-                    </a>
-                </li>
+              
             </ul>
         </nav>
         <div class="copyright pull-right" style="font-size: 12px;">

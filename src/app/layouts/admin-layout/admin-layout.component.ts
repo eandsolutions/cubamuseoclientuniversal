@@ -178,9 +178,9 @@ export class AdminLayoutComponent implements OnInit {
                   const dateActual:Date = new Date(Date.now())
                   console.log(moment(date).format('YYYY MM DD'), moment(dateActual).format('YYYY MM DD'))
                   console.log(this.visit)
-                 
                   if(moment(date).format('YYYY MM DD') === moment(dateActual).format('YYYY MM DD') ){
                     this.visitService.update(this.visit[0].id,{cantidad:cant}).subscribe(
+                        
                       )
                   }
                   else{

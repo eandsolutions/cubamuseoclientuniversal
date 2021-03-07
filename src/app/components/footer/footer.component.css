@@ -35,3 +35,35 @@
 }
 
 }
+
+@font-face {
+    font-family: 'Baskerville';
+    src: url(../../../assets/css/Libre_Baskerville/LibreBaskerville-Regular.ttf);
+  }
+
+.footer ul li a{
+    text-transform: none !important;
+    font-family: 'Baskerville';
+    text-align: justify;
+}
+.footer ul li{
+    vertical-align: middle;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+}
+
+
+.links img{
+max-width: 50px;
+max-height: 50px;
+}
+
+.links a{
+    max-width: min-content;
+    font-size: x-small;
+    align-items: center;
+
+}
