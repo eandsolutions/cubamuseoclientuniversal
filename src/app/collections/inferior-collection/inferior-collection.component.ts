@@ -19,7 +19,7 @@ export class InferiorCollectionComponent implements OnInit {
   prevSection: any;
   actualItem: any;
   isHide: boolean;
-  isHideTitle:boolean;
+  isHideTitle: boolean;
   widht: string = '900px'
   maxheigth: number;
   id: number;
@@ -110,8 +110,8 @@ export class InferiorCollectionComponent implements OnInit {
           { name: 'robots', content: 'index, follow' },
           { name: 'og:description', content: this.collection.descripcion.slice(0, 500) },
           { name: 'og:robots', content: 'index, follow' },
-          { name: 'keywords', content:  this.collection.titulo},
-          { name: 'og:keywords', content: this.collection.titulo},
+          { name: 'keywords', content: this.collection.titulo },
+          { name: 'og:keywords', content: this.collection.titulo },
           { name: 'og:url', content: 'http://cubamuseo.net' + this.router.url },
         ])
         this.initGalery()
@@ -124,7 +124,33 @@ export class InferiorCollectionComponent implements OnInit {
   initGalery() {
     this.collectionService.getCollectionItemByCategory(this.collection.id).subscribe(
       (data: any[]) => {
-        this.gallery = data;
+        let result = [];
+        if(isNaN(+data[0].nombre)){
+          var mapped = data.map(function(el, i) {
+            return { index: i, value: el.nombre.toLowerCase().replace(" ","") };
+          })
+          console.log("entro mal")
+          // sorting the mapped array containing the reduced values
+          mapped.sort(function(a, b) {
+            if (a.value > b.value) {
+              return 1;
+            }
+            if (a.value < b.value) {
+              return -1;
+            }
+            return 0;
+          });
+  
+          result = mapped.map(function(el){
+            return data[el.index];
+          });
+        }else{
+          result = data.sort();
+        }
+        
+        this.gallery = result
+        console.log(result)
+
       }, err => {
 
       }
@@ -226,7 +252,7 @@ export class InferiorCollectionComponent implements OnInit {
     this.modalService.close(id);
   }
 
-  checkLenghtTitle(title: string){
+  checkLenghtTitle(title: string) {
     let isLarge: boolean;
     isLarge = false;
     title = title.trim()
