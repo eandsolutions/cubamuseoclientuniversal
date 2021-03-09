@@ -86,7 +86,7 @@ p span {
     margin-left: 0px !important;
   }
 
-  strong>img {
+  p>strong>img {
     width: 100% !important;
     margin-left: 0px !important;
   }
@@ -110,6 +110,9 @@ p span {
 }
 
 p>img {
+  width: 100%;
+}
+strong>img {
   width: 100%;
 }
 
