@@ -85,6 +85,11 @@ p span {
     width: 100% !important;
     margin-left: 0px !important;
   }
+
+  strong>img {
+    width: 100% !important;
+    margin-left: 0px !important;
+  }
   .container-fluid{
     padding: 0;
   }
