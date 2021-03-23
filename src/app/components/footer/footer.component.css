@@ -1,5 +1,7 @@
 .pull-left ul li {
     cursor: pointer;
+    vertical-align: middle;
+    margin: auto;
 }
 
 .btn-primary {
@@ -34,6 +36,7 @@
  width: 100%;
 }
 
+
 }
 
 @font-face {
@@ -43,15 +46,15 @@
 
 .footer ul li a{
     text-transform: none !important;
-    font-family: 'Baskerville';
     text-align: justify;
 }
-.footer ul li{
-    vertical-align: middle;
-}
+/* .item{
+    padding-left: 50px;
+} */
 
 .links{
     display: flex;
+    padding: 20px;
     align-items: center;
 }
 

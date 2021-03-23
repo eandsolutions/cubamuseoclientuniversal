@@ -91,10 +91,18 @@ export class StampComponent implements OnInit {
   }
   initBreadcrumb() {
     let data: any = this.enviromentVariable.getSection();
-    this.enviromentVariable.breadcrumbList[1] = {
-      name: 'Estampas',
-      path: '/stamps'
-    };
+    if(this.enviromentVariable.getLanguage()=='es'){
+      this.enviromentVariable.breadcrumbList[1] = {
+        name: 'Estampas',
+        path: '/stamps'
+      };
+    }else{
+      this.enviromentVariable.breadcrumbList[1] = {
+        name: 'Tales',
+        path: '/stamps'
+      };
+    }
+   
     this.enviromentVariable.breadcrumbList.splice(2, 2);
     this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
   }

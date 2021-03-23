@@ -39,7 +39,7 @@
       
       <a class="nav-link" [routerLink]="[enviromentVariables.link.path,section.idCategoriaEstampa]"
         (click)='setSection(section)' >
-        <span *ngIf="section.nombre == 'Todas las páginas de la sección'" style="color: black; font-family: 'Baskerville';text-align: center; max-width: 150px; font-weight: bold;" >{{('GalleryComponent.Title'|translate)}}</span>
+        <span *ngIf="section.nombre == 'Todas las páginas de la sección'" style="color: black;text-align: center; max-width: 150px; font-weight: bold;" >{{('GalleryComponent.Title'|translate)}}</span>
         <img   (click)='setBreadcrumb(section)'
           src="{{config.serverNodeLocation}}images/imageForCategory/{{section.imagenMenu}}/{{enviromentVariables.actualPage}}"
           alt="">

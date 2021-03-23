@@ -92,10 +92,17 @@ export class SamplesComponent implements OnInit {
   }
   initBreadcrumb(){
     let data:any = this.enviromentVariable.getSection();
-    this.enviromentVariable.breadcrumbList[1]={
-      name:'Muestras',
-      path:'/samples'
-    };
+    if(this.enviromentVariable.getLanguage()=='es'){
+      this.enviromentVariable.breadcrumbList[1]={
+        name:'Muestras',
+        path:'/samples'
+      };
+    }else{
+      this.enviromentVariable.breadcrumbList[1]={
+        name:'Samples',
+        path:'/samples'
+      };
+    }
     this.enviromentVariable.breadcrumbList.splice(2,2);
     this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
   }
