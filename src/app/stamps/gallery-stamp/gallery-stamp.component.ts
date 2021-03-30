@@ -102,10 +102,17 @@ export class GalleryStampComponent implements OnInit {
       this.section = JSON.parse(data);
       console.log(this.section)
       this.metaService.setTitle(JSON.stringify(data.nombre))
-      this.enviromentVariable.breadcrumbList[1] = {
-        name: 'Estampas',
-        path: '/samples'
-      };
+      if(this.enviromentVariable.getLanguage()=='es'){
+        this.enviromentVariable.breadcrumbList[1] = {
+          name: 'Estampas',
+          path: '/stamps'
+        };
+      }else{
+        this.enviromentVariable.breadcrumbList[1] = {
+          name: 'Tales',
+          path: '/stamps'
+        };
+      }
 
       this.enviromentVariable.breadcrumbList[2] = {
         name: JSON.parse(data).nombre,

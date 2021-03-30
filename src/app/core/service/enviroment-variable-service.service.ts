@@ -24,13 +24,25 @@ export class EnviromentVariableServiceService {
     this.sections = [];
     this.link = { path: '' };
     this.actualPage = 'collection';
-    this.breadcrumbList =[];
-    this.breadcrumbList[0]={
+    this.breadcrumbList =[]; 
+    if(!this.getLanguage()){
+      this.setLanguage('es');
+      this.breadcrumbList[0]={
         name:'Inicio',
         path:'/home'
-    };   
-    if(!this.getLanguage())
-      this.setLanguage('es');
+    };
+    }else if(this.getLanguage() == 'es') {
+      this.breadcrumbList[0]={
+        name:'Inicio',
+        path:'/home'
+    };
+    }else{
+      this.breadcrumbList[0]={
+        name:'Home',
+        path:'/home'
+    };
+    }
+       
   }
 
   setSections(sections: any[]) {

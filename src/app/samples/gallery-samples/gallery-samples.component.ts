@@ -88,10 +88,18 @@ export class GallerySamplesComponent implements OnInit {
       this.section = JSON.parse(data);
       this.enviromentVariable.breadcrumbList.splice(3, 1);
       this.metaService.setTitle(JSON.stringify(this.section.nombre))
-      this.enviromentVariable.breadcrumbList[1] = {
-        name: 'Muestras',
-        path: '/samples'
-      };
+      if(this.enviromentVariable.getLanguage()=='es'){
+        this.enviromentVariable.breadcrumbList[1] = {
+          name: 'Muestras',
+          path: '/samples'
+        };
+      }else{
+        this.enviromentVariable.breadcrumbList[1] = {
+          name: 'Samples',
+          path: '/samples'
+        };
+      }
+     
 
       this.enviromentVariable.breadcrumbList[2] = {
         name: JSON.parse(data).nombre,

@@ -7,6 +7,7 @@ import { EnviromentVariableServiceService } from 'src/app/core/service/enviromen
 import { data } from 'jquery';
 import { ToastContainerDirective } from 'ng-uikit-pro-standard';
 import { ToastService } from 'ng-uikit-pro-standard';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -27,6 +28,35 @@ export class FooterComponent implements OnInit {
 
   sites: any[];
   news: any[];
+  mySlideImages=[
+    '../../../assets/img/somos.png',
+    '../../../assets/img/vendedor.png',
+    '../../../assets/img/noticias.png',
+    '../../../assets/img/relacionados.png'];
+ 
+    mySlideOptions={
+     items: 1, 
+     dots: false, 
+     autoplay:true,
+     autoplayTimeout:2000,
+     autoplayHoverPause:true,
+     loop:true,
+     responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    }
+  };
+
 
   constructor( public toastrService: ToastService,
     private modalService: ModalService,
@@ -56,6 +86,18 @@ export class FooterComponent implements OnInit {
         console.log(err)
       }
     )
+  }
+
+  fixOwlCurrentIdx(event) {
+    console.log('entrooo')
+    let current = (event.item.index + 1) - event.relatedTarget._clones.length / 2;
+    let itemsCount = event.item.count;
+  
+    if (current > itemsCount || current == 0) {
+      current = itemsCount - (current % itemsCount);
+    }
+    
+    return current - 1;
   }
 
   initNews(){
