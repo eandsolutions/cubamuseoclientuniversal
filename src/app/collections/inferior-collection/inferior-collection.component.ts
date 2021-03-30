@@ -125,6 +125,8 @@ export class InferiorCollectionComponent implements OnInit {
     this.collectionService.getCollectionItemByCategory(this.collection.id).subscribe(
       (data: any[]) => {
         let result = [];
+        var collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+
         if(isNaN(+data[0].nombre)){
           var mapped = data.map(function(el, i) {
             return { index: i, value: el.nombre.toLowerCase().replace(" ","") };
@@ -148,7 +150,8 @@ export class InferiorCollectionComponent implements OnInit {
           result = data.sort();
         }
         
-        this.gallery = result
+        
+        this.gallery = result.sort(collator.compare)
         console.log(result)
 
       }, err => {
