@@ -75,7 +75,7 @@ export class InferiorCollectionComponent implements OnInit {
             descripcion: data.descripcion,
             titulo: data.titulo,
             imagen: data.imagen,
-            nombre: data.nombre,
+            nombre: data.imagen.replace(".jpg",""),
             carpeta: data.carpeta,
             id: data.idCategoria,
             cantImages: data.cantImagenesFila
@@ -86,7 +86,7 @@ export class InferiorCollectionComponent implements OnInit {
             descripcion: data[0].descripcion,
             titulo: data[0].titulo,
             imagen: data[0].imagen,
-            nombre: data[0].nombre,
+            nombre: data.imagen.replace(".jpg",""),
             carpeta: data[0].carpeta,
             id: data[0].idCategoria,
             cantImages: data[0].cantImagenesFila
@@ -96,8 +96,8 @@ export class InferiorCollectionComponent implements OnInit {
             titulo: data[0].titulo,
             imagen: data[0].imagen,
             imagenMenu: data[0].imagenMenu,
-            nombre: data[0].nombre,
-            nombre_es: data[0].nombre_es,
+            nombre: data.imagen.replace(".jpg",""),
+            nombre_es: data.imagen.replace(".jpg",""),
             orden: data[0].orden,
             idSeccion: data[0].idSeccion,
             publicada: data[0].publicada
@@ -127,9 +127,9 @@ export class InferiorCollectionComponent implements OnInit {
         let result = [];
         var collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
-        if(isNaN(+data[0].nombre)){
+        if(isNaN(+data[0].imagen)){
           var mapped = data.map(function(el, i) {
-            return { index: i, value: el.nombre.toLowerCase().replace(" ","") };
+            return { index: i, value: el.imagen.toLowerCase().replace(" ","") };
           })
           console.log("entro mal")
           // sorting the mapped array containing the reduced values
