@@ -151,7 +151,7 @@ export class InferiorCollectionComponent implements OnInit {
         }
         
         
-        this.gallery = result.sort(collator.compare)
+        this.gallery = data
         console.log(result)
 
       }, err => {
