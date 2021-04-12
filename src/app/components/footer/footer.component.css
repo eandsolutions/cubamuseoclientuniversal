@@ -84,3 +84,12 @@ max-height: 50px;
 #carouselExampleSlidesOnly{
     display: none;
 }
+
+.carousel-item{
+    max-height: 73px;
+}
+
+.carousel-item img{
+    max-width: 50px;
+max-height: 50px;
+}
