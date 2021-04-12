@@ -79,7 +79,7 @@
                                                                     alt="">
                                                                 <p [innerHTML]="item.titulo"></p>
                                                             </a>
-                                                            <p [innerHTML]="item.nombre"
+                                                            <p [innerHTML]="item.imagen.replace('.jpg', '')"
                                                                 style="font-size: smaller; text-align: center;"></p>
                                                         </div>
                                                     </div>
@@ -118,11 +118,11 @@
 
                         <div *ngIf="isHideTitle || !checkLenghtTitle(actualItem.titulo)" class="card-title"
                             style="font-weight: 800; height: 80px;"
-                            [innerHTML]="actualItem.nombre+' | '+ actualItem.titulo">
+                            [innerHTML]="actualItem.imagen.replace('.jpg','')+' | '+ actualItem.titulo">
                         </div>
                         <div class="card-title" style="font-weight: 800;"
                             *ngIf="!isHideTitle && checkLenghtTitle(actualItem.titulo)"
-                            [innerHTML]="actualItem.nombre+' | '+ sliceTitle(actualItem.titulo)">
+                            [innerHTML]="actualItem.imagen.replace('.jpg','')+' | '+ sliceTitle(actualItem.titulo)">
 
                         </div>
                         <div style="text-align: right; position: absolute;top: 90px;right: 25px;"
@@ -250,11 +250,11 @@
                 </button>
                 <div *ngIf="isHideTitle || !checkLenghtTitle(actualItem.titulo)" class="card-title"
                     style="font-weight: 800; position: absolute; top: 17px;text-align: center;"
-                    [innerHTML]="actualItem.nombre+' | '+ actualItem.titulo">
+                    [innerHTML]="actualItem.imagen.replace('.jpg','')+' | '+ actualItem.titulo">
                 </div>
                 <div class="card-title" style="font-weight: 800;position: absolute; top: 17px;text-align: center;"
                     *ngIf="!isHideTitle && checkLenghtTitle(actualItem.titulo)"
-                    [innerHTML]="actualItem.nombre+' | '+ sliceTitle(actualItem.titulo)">
+                    [innerHTML]="actualItem.imagen.replace('.jpg','')+' | '+ sliceTitle(actualItem.titulo)">
 
                 </div>
                 <div style="text-align: right; position: absolute;top: 90px;right: 25px;"

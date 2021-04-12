@@ -76,9 +76,7 @@ export class InferiorSamplesComponent implements OnInit {
                   cantImages: data[0].cantImagenes
                 }
               }
-             
-              console.log(data)
-              console.log(this.samples)
+
               this.metaService.setTitle(this.samples.titulo)
               this.metaService.addTags([
                 { name: 'og:description', content: this.samples.descripcion.slice(0, 500) },
@@ -99,7 +97,6 @@ export class InferiorSamplesComponent implements OnInit {
                 descripcion: '',
                 publicada: 1,
                 orden: ''
-
 
               });
               this.initSections();
