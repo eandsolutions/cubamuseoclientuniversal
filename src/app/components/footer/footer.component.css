@@ -36,6 +36,13 @@
  width: 100%;
 }
 
+#carouselExampleSlidesOnly{
+    display: block !important;
+}
+
+.pull-left{
+    display: none !important;
+}
 
 }
 
@@ -69,4 +76,11 @@ max-height: 50px;
     font-size: x-small;
     align-items: center;
 
+}
+.pull-left{
+    display: block;
+}
+
+#carouselExampleSlidesOnly{
+    display: none;
 }

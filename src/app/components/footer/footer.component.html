@@ -1,5 +1,44 @@
 <footer class="footer " style="background-color: #fff;">
     <div class="container-fluid" style="display: grid;">
+
+
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img  
+                src="../../../assets/img/somos.png"
+                alt="">
+            <a (click)="openModal('custom-modal-company-description')">
+                {{'About.TITLE'|translate}}
+            </a>
+              </div>
+              <div class="carousel-item">
+                <img  
+                        src="../../../assets/img/vendedor.png"
+                        alt="">
+                    <a (click)="openModal('custom-modal-contact')">
+                        {{'Contact.TITLE'|translate}}
+                    </a>
+              </div>
+              <div class="carousel-item">
+                <img  
+                src="../../../assets/img/noticias.png"
+                alt="">
+                <a (click)="openModal('custom-modal-news')">
+                    {{'News.TITLE'|translate}}
+                </a>
+              </div>
+              <div class="carousel-item">
+                <img  
+                        src="../../../assets/img/relacionados.png"
+                        alt="">
+                    <a  (click)="openModal('custom-modal-related-sites')">
+                        {{'RelatedSites.TITLE'|translate}}
+                    </a>
+              </div>
+            </div>
+          </div>
+
         <!-- <div toastContainer onclick="openModal('custom-modal-news')">
         </div> -->
         <!-- <owl-carousel class="carousel" [options]="mySlideOptions"  [carouselClasses]="['owl-theme', 'sliding']" >
