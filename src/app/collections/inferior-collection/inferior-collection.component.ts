@@ -127,7 +127,7 @@ export class InferiorCollectionComponent implements OnInit {
         let result = [];
         var collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
-        if(isNaN(+data[0].imagen)){
+        /* if(isNaN(+data[0].imagen)){
           var mapped = data.map(function(el, i) {
             return { index: i, value: el.imagen.toLowerCase().replace(" ","") };
           })
@@ -148,7 +148,7 @@ export class InferiorCollectionComponent implements OnInit {
           });
         }else{
           result = data.sort();
-        }
+        } */
         
         
         this.gallery = data
