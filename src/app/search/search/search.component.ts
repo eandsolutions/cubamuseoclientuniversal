@@ -32,17 +32,21 @@ export class SearchComponent implements OnInit {
   isStamp: boolean;
   isVPost: boolean;
   isShop: boolean;
+  isItem: boolean;
 
   shopList: any[];
   collectionList: any[];
   modelList: any[];
   stampList: any[];
   vpostList: any[];
+  itemList: any[];
+  itemCategoryList: any[];
 
   limitCollection: number;
   limitStamp: number;
   limitModel: number;
   limitShop: number;
+  limitItem: number;
 
   actualTab: string;
 
@@ -59,17 +63,21 @@ export class SearchComponent implements OnInit {
     this.isStamp = true;
     this.isVPost = false;
     this.isShop = false;
+    this.isItem = true;
 
     this.shopList = [];
     this.collectionList = [];
     this.modelList = [];
     this.stampList = [];
     this.vpostList = [];
+    this.itemList = [];
+    this.itemCategoryList = [];
 
     this.limitCollection = 10;
     this.limitModel = 10;
     this.limitStamp = 10;
     this.limitShop = 10;
+    this.limitItem = 10;
 
     this.actualTab = 'collection';
 
@@ -104,10 +112,11 @@ export class SearchComponent implements OnInit {
 
   search() {
     if (this.query != '') {
-      this.searchInShop();
+      //this.searchInShop();
       this.searchInStamp();
       this.searchInModel();
       this.searchIInCollectionsSection();
+      this.searchInItems();
     }
 
   }
@@ -172,6 +181,32 @@ export class SearchComponent implements OnInit {
           data.forEach(element => {
             this.collectionList.push(element)
           });
+        }, error => {
+
+        }
+      )
+  }
+
+  searchInItems() {
+    this.itemList = [];
+    if (this.isItem)
+      this.searchService.findInItem(this.query).subscribe(
+        (data: any[]) => {
+          data.forEach(element => {
+            this.itemList.push(element)
+          });
+          if (this.itemList.length > 0) {
+            this.itemCategoryList = [];
+            this.itemList.forEach(element => {
+              this.searchService.findCollectionByItem(element.idItem).subscribe(
+                (data: any) => {
+                  this.itemCategoryList = data;
+                }, error => {
+
+                }
+              )
+            });
+          }
         }, error => {
 
         }
@@ -299,6 +334,17 @@ export class SearchComponent implements OnInit {
 
   scroll = (event: any): void => {
     this.doSomethingOnWindowsScroll(event)
+  }
+
+  routeItem(idItem) {
+    let id = 0;
+    for (let i = 0; i < this.itemCategoryList.length; i++) {
+      const element = this.itemCategoryList[i];
+      if (element.idItem == idItem)
+        id = element.idCategoria
+    }
+    if (id != 0)
+      this.route.navigate(['/inferior-collection/', id, idItem])
   }
 
 
