@@ -18,6 +18,7 @@ export class InferiorCollectionComponent implements OnInit {
   gallery: any[];
   prevSection: any;
   actualItem: any;
+  actualIdItem: any;
   isHide: boolean;
   isHideTitle: boolean;
   widht: string = '900px'
@@ -37,6 +38,7 @@ export class InferiorCollectionComponent implements OnInit {
     this.isHideTitle = false;
     this.gallery = [];
     this.maxheigth = 0;
+    this.actualIdItem = -1;
     this.actualItem = {
       imagen: '',
       descripcion: '',
@@ -63,6 +65,9 @@ export class InferiorCollectionComponent implements OnInit {
       data => {
         if (data.id)
           this.id = data.id;
+          if(data.item){
+            this.actualIdItem = data.item
+          }
       }
     )
   }
@@ -152,7 +157,17 @@ export class InferiorCollectionComponent implements OnInit {
         
         
         this.gallery = data
-        console.log(result)
+        
+        if(this.actualIdItem != -1){
+          for (let i = 0; i < this.gallery.length; i++) {
+            const element = this.gallery[i];
+            if(element.idItem == this.actualIdItem){
+              this.actualItem = element;
+              this.openModal('custom-modal-1', this.actualItem);
+              break;
+            }
+          }
+        }
 
       }, err => {
 

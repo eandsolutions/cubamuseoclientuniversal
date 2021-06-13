@@ -33,7 +33,8 @@
         "Estampas":"Estampas",
         "Muestras":"Muestras",
         "Postales":"Postales Virtuales",
-        "Tienda":"Tienda"
+        "Tienda":"Tienda",
+        "Item": "Items"
     },
     "Derechos":{
         "Derechos":"Todos los derechos reservados | Diseño y desarrollo",

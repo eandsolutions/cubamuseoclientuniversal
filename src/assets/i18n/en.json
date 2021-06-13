@@ -33,7 +33,8 @@
         "Estampas":"Tales",
         "Muestras":"Samples",
         "Postales":"Virtual Posts",
-        "Tienda":"Store"
+        "Tienda":"Store",
+        "Item": "Items"
     },
     "Derechos":{
         "Derechos":"All right reserved | Development and Design",

@@ -31,8 +31,16 @@ export class SearchServiceService {
     return this.http.get(this.config.serverNodeLocation + 'search/inCollectionCategory/' + query)
   }
 
+  findInItem(query) {
+    return this.http.get(this.config.serverNodeLocation + 'search/inItems/' + query)
+  }
+
   findInCollectionsSection(query) {
     return this.http.get(this.config.serverNodeLocation + 'search/inCollectionSection/' + query)
+  }
+
+  findCollectionByItem(itemId) {
+    return this.http.get(this.config.serverNodeLocation + 'search/getColletionByItem/' + itemId)
   }
   
 }
