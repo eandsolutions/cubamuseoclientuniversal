@@ -13,7 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { OwlModule } from 'ngx-owl-carousel';
-
+import { MatCarouselModule } from '@ngbmodule/material-carousel'; 
+import { CarouselModule, WavesModule } from 'angular-bootstrap-md'
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +24,10 @@ import { OwlModule } from 'ngx-owl-carousel';
     TranslateModule,
     MatButtonModule,
     MatTabsModule,
-    OwlModule
+    OwlModule,
+    CarouselModule,
+    WavesModule,
+    MatCarouselModule.forRoot(),
     //BreadcrumbModule
   ],
   declarations: [

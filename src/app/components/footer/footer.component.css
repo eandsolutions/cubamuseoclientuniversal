@@ -85,14 +85,31 @@ max-height: 50px;
     display: none;
 }
 
-.carousel-item{
+.carousel-item-footer{
     height: 50px;
     max-height: 50px;
 }
 
-.carousel-item img{
+.carousel-item-footer img{
     max-width: 50px;
     max-height: 50px;
     
 
+}
+
+.content{
+    width: 710px;
+    height: 265.3;
+}
+
+#car-notice .carousel{
+    height: 550px !important;
+}
+.carousel-slide{
+    height: unset;
+    width: unset;
+}
+
+mdb-carousel-item{
+    height: 100% !important;
 }
