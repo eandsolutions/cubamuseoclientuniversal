@@ -200,7 +200,8 @@ export class SearchComponent implements OnInit {
             this.itemList.forEach(element => {
               this.searchService.findCollectionByItem(element.idItem).subscribe(
                 (data: any) => {
-                  this.itemCategoryList = data;
+                  if (data.length > 0)
+                    this.itemCategoryList.push(data[0]);
                 }, error => {
 
                 }
