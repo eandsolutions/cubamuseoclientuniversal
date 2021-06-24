@@ -79,9 +79,9 @@ export class InferiorSamplesComponent implements OnInit {
 
               this.metaService.setTitle(this.samples.titulo)
               this.metaService.addTags([
-                { name: 'og:description', content: this.samples.descripcion.slice(0, 500) },
+                { name: 'og:description', content: this.samples.descripcion },
                 { name: 'og:robots', content: 'index, follow' },
-                { name: 'description', content: this.samples.descripcion.slice(0, 500) },
+                { name: 'description', content: this.samples.descripcion },
                 { name: 'robots', content: 'index, follow' },
                 { name: 'keywords', content: this.samples.titulo },
                 { name: 'og:keywords', content: this.samples.titulo },

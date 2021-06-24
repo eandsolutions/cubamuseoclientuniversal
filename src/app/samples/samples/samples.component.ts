@@ -77,9 +77,9 @@ export class SamplesComponent implements OnInit {
         }
         this.metaService.setTitle(this.homeData.nombre)
         this.metaService.addTags([
-          { name: 'description', content: this.homeData.descripcion.slice(0, 500) },
+          { name: 'description', content: this.homeData.descripcion },
           { name: 'robots', content: 'index, follow' },
-          { name: 'og:description', content: this.homeData.descripcion.slice(0,500) },
+          { name: 'og:description', content: this.homeData.descripcion },
           { name: 'og:robots', content: 'index, follow' },
           { name: 'keywords', content:  this.homeData.nombre},
           { name: 'og:keywords', content: this.homeData.nombre},
