@@ -19,7 +19,8 @@
                       <div class="filter__found">
                         <h6>
                           <span>{{collectionList.length + modelList.length + stampList.length + vpostList.length + shopList.length + itemList.length}}</span>
-                          {{'Search.Results'|translate}}</h6>
+                          {{'Search.Results'|translate}}
+                        </h6>
                       </div>
                     </div>
                   </div>
@@ -27,25 +28,25 @@
                 <div class="card-nav">
                   <ul class="nav nav-tabs">
                     <li class="nav-item">
-                      <a (click)="actualTab = 'collection'" class="nav-link active" data-toggle="tab"
-                        style="color: darkgray;">{{'Search.Colecciones'|translate}}</a>
+                      <a (click)="actualTab = 'collection'" class="nav-link " data-toggle="tab"
+                        [ngClass]="{'selected-tab-search':collectionList.length>0,'active': actualTab === 'collection'}">{{'Search.Colecciones'|translate}}</a>
 
                     </li>
                     <li class="nav-item">
                       <a (click)="actualTab = 'model'" class="nav-link" data-toggle="tab"
-                        style="color: darkgray;">{{'Menu.Muestras'|translate}}</a>
+                        [ngClass]="{'selected-tab-search':modelList.length>0,'active': actualTab === 'model' }">{{'Menu.Muestras'|translate}}</a>
 
                     </li>
 
                     <li class="nav-item">
                       <a (click)="actualTab = 'stamp'" class="nav-link" data-toggle="tab"
-                        style="color: darkgray;">{{'Menu.Estampas'|translate}}</a>
+                        [ngClass]="{'selected-tab-search':stampList.length>0,'active': actualTab === 'stamp' }">{{'Menu.Estampas'|translate}}</a>
 
                     </li>
 
                     <li class="nav-item">
                       <a (click)="actualTab = 'item'" class="nav-link" data-toggle="tab"
-                        style="color: darkgray;">{{'Menu.Item'|translate}}</a>
+                        [ngClass]="{'selected-tab-search':itemList.length>0,'active': actualTab === 'item'}">{{'Menu.Item'|translate}}</a>
 
                     </li>
 

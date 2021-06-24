@@ -151,6 +151,8 @@ export class SearchComponent implements OnInit {
     if (this.isModel)
       this.searchService.findInModel(this.query).subscribe(
         (data: any[]) => {
+          if(data.length >0)
+            this.actualTab = 'model'
           data.forEach(element => {
             this.modelList.push(element);
           });
@@ -165,6 +167,8 @@ export class SearchComponent implements OnInit {
     if (this.isStamp)
       this.searchService.findInStamp(this.query).subscribe(
         (data: any[]) => {
+          if(data.length >0)
+            this.actualTab = 'stamp'
           data.forEach(element => {
             this.stampList.push(element);
           });
@@ -178,6 +182,8 @@ export class SearchComponent implements OnInit {
     if (this.isCollection)
       this.searchService.findInCollectionsCategory(this.query).subscribe(
         (data: any[]) => {
+          if(data.length >0)
+            this.actualTab = 'collection'
           data.forEach(element => {
             this.collectionList.push(element)
           });
@@ -192,6 +198,8 @@ export class SearchComponent implements OnInit {
     if (this.isItem)
       this.searchService.findInItem(this.query).subscribe(
         (data: any[]) => {
+          if(data.length >0)
+            this.actualTab = 'item'
           data.forEach(element => {
             this.itemList.push(element)
           });
@@ -219,6 +227,8 @@ export class SearchComponent implements OnInit {
     if (this.isCollection)
       this.searchService.findInCollectionsSection(this.query).subscribe(
         (data: any[]) => {
+          if(data.length >0)
+            this.actualTab = 'collection'
           data.forEach(element => {
             this.collectionList.push(element);
           });
@@ -348,5 +358,11 @@ export class SearchComponent implements OnInit {
       this.route.navigate(['/inferior-collection/', id, idItem])
   }
 
+  equalLength(arr:any[]){
+    console.log(arr.length);
+    if(arr.length == 0)
+      return false;
+    return true;
+  }
 
 }
