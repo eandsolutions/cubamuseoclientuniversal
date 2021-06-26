@@ -88,6 +88,8 @@ max-height: 50px;
 .carousel-item-footer{
     height: 50px;
     max-height: 50px;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-item-footer img{
