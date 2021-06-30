@@ -249,7 +249,7 @@
                            
                           </div>
                           <h3 class="h3-responsive" style="text-align: center;">{{site.nombre}}</h3>
-                          <h5>{{'RelatedSites.URL'|translate}} <a href="{{site.url}}" style="color: #26c6da;">{{site.url}}</a></h5>
+                          <h5>{{'RelatedSites.URL'|translate}} <a href="{{site.url}}" style="color: #26c6da;"target="_blank" >{{site.url}}</a></h5>
                           <p class="card-text " [innerHTML]="site.descripcion"></p>
                         </mdb-carousel-item>
                       </mdb-carousel>
@@ -281,7 +281,7 @@
         </div>
     </div>
 </jw-modal>
-
+<!-- //notice modal -->
 <jw-modal id="custom-modal-news">
     <div class="container-fluid center">
         <div class="row" style="justify-content: center;">
@@ -291,10 +291,11 @@
             <div class="card">
                 <div class="card-header card-header-info">
                     {{'News.TITLE'|translate}}
+                    <p [innerHTML]="'News.TEXT'|translate" style="font-size: 18px;">
+                    </p>
                 </div>
                 <div class="card-body">
-                    <!-- <p [innerHTML]="'News.TEXT'|translate">
-                    </p> -->
+                   
                     <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
                         <mdb-carousel-item  *ngFor="let new of news; let i = index" >
                           <div class="view w-100">
