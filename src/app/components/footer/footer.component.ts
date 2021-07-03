@@ -7,6 +7,7 @@ import { EnviromentVariableServiceService } from 'src/app/core/service/enviromen
 import { data } from 'jquery';
 import { ToastContainerDirective } from 'ng-uikit-pro-standard';
 import { ToastService } from 'ng-uikit-pro-standard';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-footer',
@@ -106,11 +107,18 @@ export class FooterComponent implements OnInit {
         data.forEach(element => {
             this.news.push(element); 
         });
-        console.log(data);
+        this.processLink()
       }, err => {
         console.log(err)
       }
     )
+  }
+
+  processLink(){
+    this.news.forEach(element=>{
+      element.descripcion = element.descripcion.replace('<a','<a target="_blank"')
+    })
+    console.log(this.news)
   }
 
   initInfo() {
