@@ -13,45 +13,42 @@
     background-color: #26c6da;
 }
 
-@media(max-width: 1024px) {
+@media (max-width: 1024px) {
     .pull-right {
         float: none;
     }
 }
 
-.card-body p{
-    max-width:900px;
-}
-
-@media(max-width: 768px){
-.card {
-    width:150%;
-
-}
-.card-body {
-    width:100%;
-    
-}
 .card-body p {
- width: 100%;
+    max-width: 900px;
 }
 
-#carouselExampleSlidesOnly{
-    display: block !important;
-}
+@media (max-width: 768px) {
+    .card {
+        width: 150%;
+    }
+    .card-body {
+        width: 100%;
+    }
+    .card-body p {
+        width: 100%;
+    }
 
-.pull-left{
-    display: none !important;
-}
+    #carouselExampleSlidesOnly {
+        display: block !important;
+    }
 
+    .pull-left {
+        display: none !important;
+    }
 }
 
 @font-face {
-    font-family: 'Baskerville';
+    font-family: "Baskerville";
     src: url(../../../assets/css/Libre_Baskerville/LibreBaskerville-Regular.ttf);
-  }
+}
 
-.footer ul li a{
+.footer ul li a {
     text-transform: none !important;
     text-align: justify;
 }
@@ -59,59 +56,56 @@
     padding-left: 50px;
 } */
 
-.links{
+.links {
     display: flex;
     padding: 20px;
     align-items: center;
 }
 
-
-.links img{
-max-width: 50px;
-max-height: 50px;
+.links img {
+    max-width: 50px;
+    max-height: 50px;
 }
 
-.links a{
+.links a {
     max-width: min-content;
     font-size: x-small;
     align-items: center;
-
 }
-.pull-left{
+.pull-left {
     display: block;
 }
 
-#carouselExampleSlidesOnly{
+#carouselExampleSlidesOnly {
     display: none;
 }
 
-.carousel-item-footer{
+.carousel-item-footer {
     height: 50px;
     max-height: 50px;
     align-items: center;
     justify-content: center;
 }
 
-.carousel-item-footer img{
+.carousel-item-footer img {
     max-width: 50px;
     max-height: 50px;
-    
-
 }
 
-.content{
+.content {
     width: 710px;
     height: 265.3;
 }
 
-#car-notice .carousel{
+#car-notice .carousel {
     height: 550px !important;
 }
-.carousel-slide{
+.carousel-slide {
     height: unset;
     width: unset;
 }
 
-mdb-carousel-item{
+mdb-carousel-item {
     height: 100% !important;
 }
+

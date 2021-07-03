@@ -72,30 +72,33 @@
                 
                 <li>
                     <div class="links">
-                        <img  
+                        
+                    <a style="display: flex;" (click)="openModal('custom-modal-company-description')">
+                        <img  style="margin-right: 10px;"
                         src="../../../assets/img/somos.png"
                         alt="">
-                    <a (click)="openModal('custom-modal-company-description')">
                         {{'About.TITLE'|translate}}
                     </a>
                     </div>
                 </li>
                 <li>
                     <div class="links">
-                        <img  
+                       
+                    <a style="display: flex;" (click)="openModal('custom-modal-contact')">
+                        <img style="margin-right: 10px;" 
                         src="../../../assets/img/vendedor.png"
                         alt="">
-                    <a (click)="openModal('custom-modal-contact')">
                         {{'Contact.TITLE'|translate}}
                     </a>
                     </div>
                 </li>
                 <li>
                     <div class="links">
-                        <img  
-                        src="../../../assets/img/noticias.png"
-                        alt="">
-                        <a (click)="openModal('custom-modal-news')">
+                       
+                        <a style="display: flex;" (click)="openModal('custom-modal-news')">
+                            <img  style="margin-right: 10px;"
+                            src="../../../assets/img/noticias.png"
+                            alt="">
                             {{'News.TITLE'|translate}}
                         </a>
                     </div>
@@ -103,10 +106,11 @@
                 </li>
                 <li>
                     <div class="links">
-                        <img  
+                       
+                    <a style="display: flex;" (click)="openModal('custom-modal-related-sites')">
+                        <img  style="margin-right: 10px;"
                         src="../../../assets/img/relacionados.png"
                         alt="">
-                    <a  (click)="openModal('custom-modal-related-sites')">
                         {{'RelatedSites.TITLE'|translate}}
                     </a>
                     </div>

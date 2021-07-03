@@ -12,7 +12,7 @@ import { element } from 'protractor';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css','./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
   test: Date = new Date();
