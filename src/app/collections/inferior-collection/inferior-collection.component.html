@@ -19,11 +19,11 @@
                                         <nav>
                                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"
                                                 style="max-width: 350px;width: max-content;padding: 0;">
-                                                <a style="font-size: 15px;" class="nav-item nav-link active"
+                                                <a style="font-size: 15px;" class="nav-item nav-link " [ngClass]="{'active': !galleryActive}"
                                                     id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
                                                     aria-controls="nav-home"
                                                     aria-selected="true">{{'TextComponent.Texto'|translate}}</a>
-                                                <a style="font-size: 15px;" class="nav-item nav-link"
+                                                <a style="font-size: 15px;" class="nav-item nav-link" [ngClass]="{'active': galleryActive}"
                                                     id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
                                                     role="tab" aria-controls="nav-profile"
                                                     aria-selected="false">{{'TextComponent.InferiorGallery'|translate}}</a>
@@ -31,7 +31,7 @@
                                         </nav>
 
                                         <div class="tab-content" id="nav-tabContent">
-                                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                            <div class="tab-pane fade" [ngClass]="{'show active': !galleryActive}" id="nav-home" role="tabpanel"
                                                 aria-labelledby="nav-home-tab">
 
                                                 <p class="card-text d-inline-block mb-3"
@@ -59,7 +59,7 @@
 
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                            <div class="tab-pane fade" [ngClass]="{'show active': galleryActive}" id="nav-profile" role="tabpanel"
                                                 aria-labelledby="nav-profile-tab">
                                                 <div class="container" style="margin-top: 22px;">
                                                     <div *ngIf="collection.carpeta && collection.cantImges != 0"

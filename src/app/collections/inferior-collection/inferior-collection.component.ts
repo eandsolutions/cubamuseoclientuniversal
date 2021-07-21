@@ -24,6 +24,7 @@ export class InferiorCollectionComponent implements OnInit {
   widht: string = '900px'
   maxheigth: number;
   id: number;
+  galleryActive:boolean = false;
 
   constructor(
     public config: ConfigServiceService,
@@ -66,7 +67,9 @@ export class InferiorCollectionComponent implements OnInit {
         if (data.id)
           this.id = data.id;
           if(data.item){
+            this.galleryActive = true;
             this.actualIdItem = data.item
+            
           }
       }
     )
