@@ -25,7 +25,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="card-nav">
+                <!-- <div class="card-nav">
                   <ul class="nav nav-tabs">
                     <li class="nav-item">
                       <a (click)="actualTab = 'collection'" class="nav-link " data-toggle="tab"
@@ -49,12 +49,6 @@
                         [ngClass]="{'selected-tab-search':itemList.length>0,'active': actualTab === 'item'}">{{'Menu.Item'|translate}}</a>
 
                     </li>
-
-                    <!-- <li class="nav-item">
-                                            <a (click)="actualTab = 'shop'" class="nav-link" data-toggle="tab"
-                                                style="color: darkgray;">Tienda</a>
-
-                                        </li> -->
                   </ul>
                   <div *ngIf="actualTab == 'collection' then collection">
 
@@ -69,127 +63,133 @@
 
                   </div>
 
-                  <div *ngIf="actualTab == 'item' then item">
+                </div> -->
+              </div>
+              <div class="row">
+                <div class="container tab-pane active" id="text">
+                  <div class="card-group vgr-cards">
+                    <div class="card" *ngFor="let item of collectionList | slice:0:limitCollection">
+                      <!-- <div class="card-img-body">
+                                              <img class="card-img"
+                                                  src="{{config.serverNodeLocation}}images/imageInAllDirectory/{{item.imagen}}"
+                                                  alt="Card image cap">
+                                          </div> -->
+                      <div class="card-body">
+                        <h4 class="card-title" (click)="redirectCollection(item)" [innerHTML]="item.nombre"></h4>
+                        <p class="card-text " [innerHTML]='cleanString(item.descripcion) + "... "'>..
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="card-group vgr-cards ">
+                    <div class="card " *ngFor="let item of modelList | slice:0:limitModel ">
+                      <!-- <div class="card-img-body ">
+                                                <img class="card-img "
+                                                    src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/samples/none "
+                                                    alt="Card image cap ">
+                                            </div> -->
+                      <div class="card-body ">
+                        <h4 class="card-title " [routerLink]="['/inferior-samples',item.idMuestra]"
+                          [innerHTML]="item.nombre ">
+                        </h4>
+                        <p class="card-text " [innerHTML]='cleanString(item.descripcion) + "... "'>
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="card-group vgr-cards ">
+                    <div class="card " *ngFor="let item of stampList | slice:0:limitStamp ">
+                      <!-- <div class="card-img-body ">
+                                                <img class="card-img"
+                                                    src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/stamps/none "
+                                                    alt="Card image cap "> 
+                                            </div> -->
+                      <div class="card-body ">
+                        <h4 class="card-title " [routerLink]="['/inferior-stamp',item.idEstampa]"
+                          [innerHTML]="item.nombre ">
+                        </h4>
+                        <p class="card-text " [innerHTML]="cleanString(item.texto) "></p>
+
+                      </div>
+                    </div>
 
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <ng-template #collection>
-
+        </div>
+        <ng-template #stamp>
+          <div class="tab-content">
             <div class="container tab-pane active" id="text">
-              <div class="card-group vgr-cards">
-                <div class="card" *ngFor="let item of collectionList | slice:0:limitCollection">
-                  <!-- <div class="card-img-body">
-                                        <img class="card-img"
-                                            src="{{config.serverNodeLocation}}images/imageInAllDirectory/{{item.imagen}}"
-                                            alt="Card image cap">
-                                    </div> -->
-                  <div class="card-body">
-                    <h4 class="card-title" (click)="redirectCollection(item)" [innerHTML]="item.nombre"></h4>
-                    <p class="card-text " [innerHTML]='cleanString(item.descripcion) + "... "'>..
+              <div class="card-group vgr-cards ">
+                <div class="card " *ngFor="let item of stampList | slice:0:limitStamp ">
+                  <!-- <div class="card-img-body ">
+                                            <img class="card-img"
+                                                src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/stamps/none "
+                                                alt="Card image cap "> 
+                                        </div> -->
+                  <div class="card-body ">
+                    <h4 class="card-title " [routerLink]="['/inferior-stamp',item.idEstampa]"
+                      [innerHTML]="item.nombre ">
+                    </h4>
+                    <p class="card-text " [innerHTML]="cleanString(item.texto) "></p>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template #model>
+          <div class="tab-content">
+            <div class="container tab-pane active" id="text">
+              <div class="card-group vgr-cards ">
+                <div class="card " *ngFor="let item of modelList | slice:0:limitModel ">
+                  <!-- <div class="card-img-body ">
+                                            <img class="card-img "
+                                                src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/samples/none "
+                                                alt="Card image cap ">
+                                        </div> -->
+                  <div class="card-body ">
+                    <h4 class="card-title " [routerLink]="['/inferior-samples',item.idMuestra]"
+                      [innerHTML]="item.nombre ">
+                    </h4>
+                    <p class="card-text " [innerHTML]='cleanString(item.descripcion) + "... "'>
                     </p>
                   </div>
                 </div>
 
               </div>
             </div>
+          </div>
+        </ng-template>
 
-          </ng-template>
-
-          <ng-template #stamp>
-            <div class="tab-content">
-              <div class="container tab-pane active" id="text">
-                <div class="card-group vgr-cards ">
-                  <div class="card " *ngFor="let item of stampList | slice:0:limitStamp ">
-                    <!-- <div class="card-img-body ">
-                                            <img class="card-img"
-                                                src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/stamps/none "
-                                                alt="Card image cap "> 
-                                        </div> -->
-                    <div class="card-body ">
-                      <h4 class="card-title " [routerLink]="['/inferior-stamp',item.idEstampa]"
-                        [innerHTML]="item.nombre ">
-                      </h4>
-                      <p class="card-text " [innerHTML]="cleanString(item.texto) "></p>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </ng-template>
-
-          <ng-template #model>
-            <div class="tab-content">
-              <div class="container tab-pane active" id="text">
-                <div class="card-group vgr-cards ">
-                  <div class="card " *ngFor="let item of modelList | slice:0:limitModel ">
-                    <!-- <div class="card-img-body ">
-                                            <img class="card-img "
-                                                src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/samples/none "
-                                                alt="Card image cap ">
-                                        </div> -->
-                    <div class="card-body ">
-                      <h4 class="card-title " [routerLink]="['/inferior-samples',item.idMuestra]"
-                        [innerHTML]="item.nombre ">
-                      </h4>
-                      <p class="card-text " [innerHTML]='cleanString(item.descripcion) + "... "'>
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </ng-template>
-
-          <ng-template #shop>
-            <div class="tab-content">
-              <div class="container tab-pane active" id="text">
-                <div class="card-group vgr-cards ">
-                  <div class="card " *ngFor="let item of shopList | slice:0:limitShop ">
-                    <!-- <div class="card-img-body ">
+        <ng-template #shop>
+          <div class="tab-content">
+            <div class="container tab-pane active" id="text">
+              <div class="card-group vgr-cards ">
+                <div class="card " *ngFor="let item of shopList | slice:0:limitShop ">
+                  <!-- <div class="card-img-body ">
                                             <img class="card-img "
                                                 src="{{config.serverNodeLocation}}images/imageInAllDirectory/{{item.imagen}}"
                                                 alt="Card image cap ">
                                         </div> -->
-                    <div class="card-body ">
-                      <h4 class="card-title " [routerLink]="['/store', item.idItem,'none','store']"
-                        [innerHTML]="item.nombre "></h4>
-                      <p class="card-text " [innerHTML]="cleanString(item.descripcion)"></p>
-                    </div>
+                  <div class="card-body ">
+                    <h4 class="card-title " [routerLink]="['/store', item.idItem,'none','store']"
+                      [innerHTML]="item.nombre "></h4>
+                    <p class="card-text " [innerHTML]="cleanString(item.descripcion)"></p>
                   </div>
-
                 </div>
+
               </div>
             </div>
-          </ng-template>
-
-          <ng-template #item>
-            <div class="tab-content">
-              <div class="container tab-pane active" id="text">
-                <div class="card-group vgr-cards ">
-                  <div class="card " *ngFor="let item of itemList | slice:0:limitItem ">
-                    <!-- <div class="card-img-body ">
-                                            <img class="card-img "
-                                                src="{{config.serverNodeLocation}}images/imageInAllDirectory/{{item.imagen}}"
-                                                alt="Card image cap ">
-                                        </div> -->
-                    <div class="card-body ">
-                      <h4 class="card-title " (click)='routeItem(item.idItem)' [innerHTML]="item.titulo "></h4>
-                      <p class="card-text " [innerHTML]="cleanString(item.descripcion)"></p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </ng-template>
-        </div>
+          </div>
+        </ng-template>
 
       </div>
     </div>

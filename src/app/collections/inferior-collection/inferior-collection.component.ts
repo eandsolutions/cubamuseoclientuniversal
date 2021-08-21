@@ -221,7 +221,7 @@ export class InferiorCollectionComponent implements OnInit {
 
   openModal(id: string, actual: any) {
     if (actual) {
-      this.router.navigate(['inferior-collection',this.id, actual.idItem])
+      //this.router.navigate(['inferior-collection',this.id, actual.idItem])
       this.actualItem = actual;
       this.modalService.widht = '900px'
     } else {
