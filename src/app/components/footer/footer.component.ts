@@ -90,7 +90,6 @@ export class FooterComponent implements OnInit {
   }
 
   fixOwlCurrentIdx(event) {
-    console.log('entrooo')
     let current = (event.item.index + 1) - event.relatedTarget._clones.length / 2;
     let itemsCount = event.item.count;
   
@@ -131,7 +130,7 @@ export class FooterComponent implements OnInit {
             descripcion: news_s[0].descripcion,
             imagen: news_s[0].imagen
           }
-          this.toastrService.info(this.new.titulo); 
+          //this.toastrService.info(this.new.titulo); 
           this.enviromentVariableService.setNew(this.new)    
         }
       }, err => {
@@ -157,7 +156,7 @@ export class FooterComponent implements OnInit {
                     imagen: news_s[0].imagen
                   }
                 this.enviromentVariableService.setNew(this.new)
-                this.toastrService.info(this.new.titulo); 
+                //this.toastrService.info(this.new.titulo); 
             }
           }
         }, err => { 

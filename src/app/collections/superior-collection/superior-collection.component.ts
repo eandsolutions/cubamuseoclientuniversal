@@ -6,6 +6,7 @@ import { ConfigServiceService } from 'src/app/core/service/config-service.servic
 import { CollectionServiceService } from 'src/app/core/service/collection-service.service';
 import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
 import { MetaService } from 'src/app/core/service/meta.service';
+import { param } from 'jquery';
 //import { CollectionServiceService } from 'src/app/core/service/collection-service.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class SuperiorCollectionComponent implements OnInit {
   collection: any;
   gallery: any[];
   galleryXX: any[];
+  query: string;
   constructor(
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
@@ -33,16 +35,19 @@ export class SuperiorCollectionComponent implements OnInit {
       nombre: '',
       id: ''
     }
+    this.query = ''
     this.gallery = [];
     this.galleryXX = [];
 
     if (this.enviromentVariable.sections.length == 0)
       this.initSections()
     activateRoute.params.subscribe(
-      data => {
-        if (data.id)
-          this.collectionService.getSectionById(data.id).subscribe(
+      param => {
+        console.log(param)
+        if (param.id)
+          this.collectionService.getSectionById(param.id).subscribe(
             (data: any) => {
+
               if (data.nombre) {
                 this.collection = {
                   descripcion: data.descripcion,
@@ -51,6 +56,7 @@ export class SuperiorCollectionComponent implements OnInit {
                   nombre: data.nombre,
                   id: data.idSeccion
                 }
+
                 this.enviromentVariable.setSection(data)
               } else {
                 this.collection = {
@@ -73,14 +79,19 @@ export class SuperiorCollectionComponent implements OnInit {
                   publicada: data[0].publicada
                 })
               }
+              if (param.query) {
+                this.query = param.query
+                this.highlight()
+              }
+
               this.metaService.setTitle(this.collection.titulo);
               this.metaService.addTags([
                 { name: 'og:description', content: this.collection.descripcion },
                 { name: 'og:robots', content: 'index, follow' },
                 { name: 'description', content: this.collection.descripcion },
                 { name: 'robots', content: 'index, follow' },
-                { name: 'keywords', content:  this.collection.titulo},
-                { name: 'og:keywords', content: this.collection.titulo},
+                { name: 'keywords', content: this.collection.titulo },
+                { name: 'og:keywords', content: this.collection.titulo },
                 { name: 'og:url', content: 'http://cubamuseo.net' + this.router.url },
 
               ])
@@ -94,6 +105,25 @@ export class SuperiorCollectionComponent implements OnInit {
     )
   }
 
+  highlight() {
+    setTimeout(() => {
+      let el = document.getElementById('text-desc')
+      el.childNodes.forEach(element => {
+        let e = element as HTMLElement
+        if (e.innerText) {
+          let html = e.innerHTML
+          let i = html.indexOf(this.query)
+          if(i>1){
+            html = html.substring(0, i) + "<mark class='my-mark'>" + html.substring(i, i + this.query.length) + "</mark>" + html.substring(i + this.query.length);
+            e.innerHTML = html;
+          }
+
+        }
+
+      });
+    }, 200);
+
+  }
 
   initSections() {
     this.collectionService.getCollectionsSections().subscribe(

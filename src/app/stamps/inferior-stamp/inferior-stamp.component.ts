@@ -15,6 +15,7 @@ import { MetaService } from 'src/app/core/service/meta.service';
 export class InferiorStampComponent implements OnInit {
 
   stamp: any;
+  query: string;
   constructor(
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
@@ -32,11 +33,12 @@ export class InferiorStampComponent implements OnInit {
       carpeta: '',
       id: 0
     }
+    this.query = ''
 
     activateRoute.params.subscribe(
-      data => {
-        if (data.id)
-          this.stampService.getTaleById(data.id).subscribe(
+      param => {
+        if (param.id)
+          this.stampService.getTaleById(param.id).subscribe(
             (data: any) => {
               if(data.nombre){
                 this.stamp = {
@@ -56,6 +58,10 @@ export class InferiorStampComponent implements OnInit {
                   id: data[0].idEstampa
                 }
               }
+              if (param.query) {
+                this.query = param.query
+                this.highlight()
+              }
            
               this.metaService.setTitle(this.stamp.titulo);
               this.metaService.addTags([
@@ -74,6 +80,26 @@ export class InferiorStampComponent implements OnInit {
           )
       }
     )
+
+  }
+
+  highlight() {
+    setTimeout(() => {
+      let el = document.getElementById('text-desc-stamp')
+      el.childNodes.forEach(element => {
+        let e = element as HTMLElement
+        if (e.innerText) {
+          let html = e.innerHTML
+          let i = html.indexOf(this.query)
+          if(i>1){
+            html = html.substring(0, i) + "<mark class='my-mark'>" + html.substring(i, i + this.query.length) + "</mark>" + html.substring(i + this.query.length);
+            e.innerHTML = html;
+          }
+
+        }
+
+      });
+    }, 600);
 
   }
 

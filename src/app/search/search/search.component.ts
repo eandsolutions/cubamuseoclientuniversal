@@ -241,21 +241,21 @@ export class SearchComponent implements OnInit {
 
   redirectCollection(item) {
     if (item.idSeccion) {
-      this.route.navigate(['/superior-collection', item.idSeccion])
+      this.route.navigate(['/superior-collection/search', item.idSeccion, this.query])
     }
 
     if (item.idCategoria) {
-      this.route.navigate(['/inferior-collection', item.idCategoria])
+      this.route.navigate(['/inferior-collection/search', item.idCategoria, this.query])
     }
 
   }
 
   redirectSamples(item) {
-
+    this.route.navigate(['/inferior-samples/search', item.idMuestra, this.query])
   }
 
   redirectStamp(item) {
-
+    this.route.navigate(['/inferior-stamp/search', item.idEstampa, this.query])
   }
 
   cleanString(data: string) {

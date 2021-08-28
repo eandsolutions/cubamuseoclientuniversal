@@ -90,7 +90,7 @@
                                                     alt="Card image cap ">
                                             </div> -->
                       <div class="card-body ">
-                        <h4 class="card-title " [routerLink]="['/inferior-samples',item.idMuestra]"
+                        <h4 class="card-title " (click)="redirectSamples(item)"
                           [innerHTML]="item.nombre ">
                         </h4>
                         <p class="card-text " [innerHTML]='cleanString(item.descripcion) + "... "'>
@@ -107,7 +107,7 @@
                                                     alt="Card image cap "> 
                                             </div> -->
                       <div class="card-body ">
-                        <h4 class="card-title " [routerLink]="['/inferior-stamp',item.idEstampa]"
+                        <h4 class="card-title " (click)="redirectStamp(item)"
                           [innerHTML]="item.nombre ">
                         </h4>
                         <p class="card-text " [innerHTML]="cleanString(item.texto) "></p>
@@ -132,7 +132,7 @@
                                                 alt="Card image cap "> 
                                         </div> -->
                   <div class="card-body ">
-                    <h4 class="card-title " [routerLink]="['/inferior-stamp',item.idEstampa]"
+                    <h4 class="card-title " (click)="redirectStamp(item)"
                       [innerHTML]="item.nombre ">
                     </h4>
                     <p class="card-text " [innerHTML]="cleanString(item.texto) "></p>
@@ -156,7 +156,7 @@
                                                 alt="Card image cap ">
                                         </div> -->
                   <div class="card-body ">
-                    <h4 class="card-title " [routerLink]="['/inferior-samples',item.idMuestra]"
+                    <h4 class="card-title " (click)="redirectSamples(item)"
                       [innerHTML]="item.nombre ">
                     </h4>
                     <p class="card-text " [innerHTML]='cleanString(item.descripcion) + "... "'>

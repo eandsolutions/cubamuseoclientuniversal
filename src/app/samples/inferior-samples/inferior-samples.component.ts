@@ -18,6 +18,7 @@ export class InferiorSamplesComponent implements OnInit {
   actualItem: any;
   isHide: boolean;
   widht: string = '900px'
+  query: string;
   constructor(
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
@@ -40,6 +41,7 @@ export class InferiorSamplesComponent implements OnInit {
       procedencia: '',
       precio: ''
     }
+    this.query = ''
     this.samples = {
       descripcion: '',
       titulo: '',
@@ -50,9 +52,9 @@ export class InferiorSamplesComponent implements OnInit {
       cantImges: 0
     }
     activateRoute.params.subscribe(
-      data => {
-        if (data.id)
-          this.samplesService.getSampleById(data.id).subscribe(
+      param => {
+        if (param.id)
+          this.samplesService.getSampleById(param.id).subscribe(
             (data: any) => {
               if (data.nombre){
                 this.samples = {
@@ -76,7 +78,10 @@ export class InferiorSamplesComponent implements OnInit {
                   cantImages: data[0].cantImagenes
                 }
               }
-
+              if (param.query) {
+                this.query = param.query
+                this.highlight()
+              }
               this.metaService.setTitle(this.samples.titulo)
               this.metaService.addTags([
                 { name: 'og:description', content: this.samples.descripcion },
@@ -106,6 +111,27 @@ export class InferiorSamplesComponent implements OnInit {
           )
       }
     )
+  }
+
+
+  highlight() {
+    setTimeout(() => {
+      let el = document.getElementById('text-desc-samp')
+      el.childNodes.forEach(element => {
+        let e = element as HTMLElement
+        if (e.innerText) {
+          let html = e.innerHTML
+          let i = html.indexOf(this.query)
+          if(i>1){
+            html = html.substring(0, i) + "<mark class='my-mark'>" + html.substring(i, i + this.query.length) + "</mark>" + html.substring(i + this.query.length);
+            e.innerHTML = html;
+          }
+
+        }
+
+      });
+    }, 600);
+
   }
 
   ngOnInit(): void {

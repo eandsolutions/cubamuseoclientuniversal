@@ -17,6 +17,7 @@ import { ModalModule } from './_modal/modal.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastModule } from 'ng-uikit-pro-standard';
 import { CookieService } from 'ngx-cookie-service';
+import { HighlightModule } from './core/highlight/highlight.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
@@ -32,6 +33,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     ComponentsModule,
     RouterModule,
+    HighlightModule,
     AppRoutingModule,
     ToastModule.forRoot({
       timeOut: 5000,

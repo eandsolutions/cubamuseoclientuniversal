@@ -34,7 +34,7 @@ export class ScrollTopComponent implements OnInit {
     }
 
     example() {
-        console.log('asd')
+
         window.scrollTo(0, 0)
     }
 
@@ -44,7 +44,7 @@ export class ScrollTopComponent implements OnInit {
     }
 
     scroll = (event: any): void => {
-        console.log('asd')
+      
         this.onScrollHost(event)
     }
 }

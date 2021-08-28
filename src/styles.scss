@@ -30,3 +30,7 @@ $empty-theme: mat-light-theme($empty-primary, $empty-accent, $empty-warn);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mark.my-mark{
+    background-color: yellow !important;
+}

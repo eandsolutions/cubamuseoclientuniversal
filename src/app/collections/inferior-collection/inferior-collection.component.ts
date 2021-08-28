@@ -25,7 +25,7 @@ export class InferiorCollectionComponent implements OnInit {
   maxheigth: number;
   id: number;
   galleryActive:boolean = false;
-
+  query: string;
   constructor(
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
@@ -52,6 +52,7 @@ export class InferiorCollectionComponent implements OnInit {
       precio: ''
     }
 
+    this.query = ''
     this.collection = {
       descripcion: '',
       titulo: '',
@@ -70,6 +71,10 @@ export class InferiorCollectionComponent implements OnInit {
             this.galleryActive = true;
             this.actualIdItem = data.item
             
+          }
+          if (data.query) {
+            this.query = data.query
+            this.highlight()
           }
       }
     )
@@ -127,6 +132,27 @@ export class InferiorCollectionComponent implements OnInit {
 
       }
     )
+  }
+
+  highlight() {
+    setTimeout(() => {
+      let el = document.getElementById('text-desc-inf')
+      //console.log(el)
+      el.childNodes.forEach(element => {
+        let e = element as HTMLElement
+        if (e.innerText) {
+          let html = e.innerHTML
+          let i = html.indexOf(this.query)
+          if(i>1){
+            html = html.substring(0, i) + "<mark class='my-mark'>" + html.substring(i, i + this.query.length) + "</mark>" + html.substring(i + this.query.length);
+            e.innerHTML = html;
+          }
+
+        }
+
+      });
+    }, 600);
+
   }
 
   initGalery() {

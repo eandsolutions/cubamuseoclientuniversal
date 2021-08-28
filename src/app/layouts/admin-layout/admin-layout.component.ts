@@ -26,7 +26,7 @@ export class AdminLayoutComponent implements OnInit {
   private yScrollStack: number[] = [];
   @HostListener('window:scroll')
   onScrollHost(e:Event) {
-      console.log('hello')
+      
   }
   
   constructor(

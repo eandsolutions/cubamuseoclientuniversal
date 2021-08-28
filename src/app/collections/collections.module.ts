@@ -6,6 +6,7 @@ import { InferiorCollectionComponent } from './inferior-collection/inferior-coll
 import { RouterModule } from '@angular/router';
 import { ModalModule } from 'src/app/_modal/modal.module';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { HighlightModule } from '../core/highlight/highlight.module';
 
 @NgModule({
   declarations: [SuperiorCollectionComponent, InferiorCollectionComponent],
@@ -14,7 +15,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     RouterModule,
     ModalModule,
     TranslateModule,
-    MatGridListModule
+    MatGridListModule,
+    HighlightModule
   ]
 })
 export class CollectionsModule { }

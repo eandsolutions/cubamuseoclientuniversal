@@ -8,7 +8,8 @@ import { StoreServiceService } from './service/store-service.service';
 import { ConfigServiceService } from './service/config-service.service';
 import { EnviromentVariableServiceService } from './service/enviroment-variable-service.service';
 import { LocalStorageService } from './service/local-storage.service'
-import { MetaService } from './service/meta.service'
+import { MetaService } from './service/meta.service';
+
 
 @NgModule({
   declarations: [],
