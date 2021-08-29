@@ -116,7 +116,7 @@ export class SearchComponent implements OnInit {
       this.searchInStamp();
       this.searchInModel();
       this.searchIInCollectionsSection();
-      this.searchInItems();
+      //this.searchInItems();
     }
 
   }

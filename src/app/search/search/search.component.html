@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-body">
-            <div class="container" (window:scroll)="doSomethingOnWindowsScroll($event)">
+            <div class="container">
               <div class="search-content">
 
                 <input type="search" class="search" [(ngModel)]="query" placeholder="{{'Search.Placeholder'|translate}}"
@@ -18,7 +18,7 @@
                     <div class="col-12">
                       <div class="filter__found">
                         <h6>
-                          <span>{{collectionList.length + modelList.length + stampList.length + vpostList.length + shopList.length + itemList.length}}</span>
+                          <span>{{collectionList.length + modelList.length + stampList.length + vpostList.length + shopList.length}}</span>
                           {{'Search.Results'|translate}}
                         </h6>
                       </div>
@@ -68,7 +68,7 @@
               <div class="row">
                 <div class="container tab-pane active" id="text">
                   <div class="card-group vgr-cards">
-                    <div class="card" *ngFor="let item of collectionList | slice:0:limitCollection">
+                    <div class="card" *ngFor="let item of collectionList">
                       <!-- <div class="card-img-body">
                                               <img class="card-img"
                                                   src="{{config.serverNodeLocation}}images/imageInAllDirectory/{{item.imagen}}"
@@ -83,7 +83,7 @@
 
                   </div>
                   <div class="card-group vgr-cards ">
-                    <div class="card " *ngFor="let item of modelList | slice:0:limitModel ">
+                    <div class="card " *ngFor="let item of modelList">
                       <!-- <div class="card-img-body ">
                                                 <img class="card-img "
                                                     src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/samples/none "
@@ -100,7 +100,7 @@
 
                   </div>
                   <div class="card-group vgr-cards ">
-                    <div class="card " *ngFor="let item of stampList | slice:0:limitStamp ">
+                    <div class="card " *ngFor="let item of stampList">
                       <!-- <div class="card-img-body ">
                                                 <img class="card-img"
                                                     src="{{config.serverNodeLocation}}images/none/{{item.carpeta}}/{{item.imagenGaleria}}/stamps/none "
