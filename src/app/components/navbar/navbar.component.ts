@@ -4,6 +4,9 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { Router } from '@angular/router';
 import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ModalService } from '../../_modal';
+import { ConfigServiceService } from '../../core/service/config-service.service';
+import { RelatedSitesServiceService } from '../../core/service/related-sites-service.service';
 
 @Component({
     selector: 'app-navbar',
@@ -19,18 +22,47 @@ export class NavbarComponent implements OnInit {
     toogleButton: boolean;
     query: string;
     width: number;
+
+    mail: any = {
+        from: '',
+        subject: '',
+        text: '',
+        name: ''
+      }
+
+      sites: any[];
+
     constructor(
         location: Location,
         private element: ElementRef,
         private router: Router,
         public enviromentVariable: EnviromentVariableServiceService,
-        public translate: TranslateService
+        public translate: TranslateService,
+        private modalService: ModalService,
+        private enviromentVariableService: EnviromentVariableServiceService,
+        public config: ConfigServiceService,
+        private sitesService: RelatedSitesServiceService
     ) {
         this.location = location;
         this.toggleButton = false;
         this.sidebarVisible = false;
-        this.query = ''
+        this.query = '';
+        this.sites = [];
     }
+
+    initSites(){
+        this.sitesService.getAllSites().subscribe(
+          (data: any[]) => {
+            data.forEach(element => {
+                this.sites.push(element); 
+            });
+            console.log(data);
+          }, err => {
+            console.log(err)
+          }
+        )
+      }
+      
 
     resize(){
         this.width = window.screen.width
@@ -43,6 +75,7 @@ export class NavbarComponent implements OnInit {
 
     }
     ngOnInit() {
+        this.initSites();
         //this.listTitles = ROUTES.filter(listTitle => listTitle);
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
@@ -148,4 +181,25 @@ export class NavbarComponent implements OnInit {
     //   }
     //   return 'Dashboard';
     // }
+
+    openModal(id: string) {
+        this.modalService.open(id);
+      }
+
+      closeModal(id: string) {
+        if (!this.modalService.widht)
+          this.modalService.widht = '900px';
+        this.modalService.close(id);
+      }
+
+      send() {
+        this.enviromentVariableService.sendMail(this.mail).subscribe(
+          data => {
+            if (data)
+              alert('Se ha enviado el correo exitosamente')
+          }, err => {
+            alert('Error al enviar el correo')
+          }
+        )
+      }
 }

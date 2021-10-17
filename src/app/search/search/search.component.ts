@@ -179,11 +179,12 @@ export class SearchComponent implements OnInit {
   }
 
   searchInCollectionsCategory() {
+    console.log('entro a category')
     if (this.isCollection)
       this.searchService.findInCollectionsCategory(this.query).subscribe(
         (data: any[]) => {
-          if(data.length >0)
-            this.actualTab = 'collection'
+          console.log('data is here');
+          console.log(data)
           data.forEach(element => {
             this.collectionList.push(element)
           });
@@ -198,8 +199,6 @@ export class SearchComponent implements OnInit {
     if (this.isItem)
       this.searchService.findInItem(this.query).subscribe(
         (data: any[]) => {
-          if(data.length >0)
-            this.actualTab = 'item'
           data.forEach(element => {
             this.itemList.push(element)
           });
@@ -227,8 +226,6 @@ export class SearchComponent implements OnInit {
     if (this.isCollection)
       this.searchService.findInCollectionsSection(this.query).subscribe(
         (data: any[]) => {
-          if(data.length >0)
-            this.actualTab = 'collection'
           data.forEach(element => {
             this.collectionList.push(element);
           });

@@ -11,7 +11,7 @@
                         <h1 class="title col text-center">
                             <a class="text-fiord-blue" href="#" >{{homeData.titulo}}</a>
                         </h1>
-                        <p class="card-text d-inline-block mb-3" [innerHTML]="homeData.descripcion"></p>
+                        <p class="card-text d-inline-block mb-3" id="text-desc-inf" [innerHTML]="homeData.descripcion"></p>
                         <div class="col-md-6" *ngFor="let tales of allTales">
                             <a style="color: black;" class="nav-link"   [innerHTML]="tales.nombre" 
                                 [routerLink]="['/inferior-stamp',tales.idEstampa]">

@@ -137,6 +137,7 @@ export class InferiorCollectionComponent implements OnInit {
   highlight() {
     setTimeout(() => {
       let el = document.getElementById('text-desc-inf')
+      let id = 0;
       //console.log(el)
       el.childNodes.forEach(element => {
         let e = element as HTMLElement
@@ -144,14 +145,16 @@ export class InferiorCollectionComponent implements OnInit {
           let html = e.innerHTML
           let i = html.indexOf(this.query)
           if(i>1){
-            html = html.substring(0, i) + "<mark class='my-mark'>" + html.substring(i, i + this.query.length) + "</mark>" + html.substring(i + this.query.length);
+            html = html.substring(0, i) + "<mark id='"+id+"' class='my-mark'>" + html.substring(i, i + this.query.length) + "</mark>" + html.substring(i + this.query.length);
             e.innerHTML = html;
+            id++;
           }
 
         }
 
       });
-    }, 600);
+      document.getElementById('0').scrollIntoView();
+    }, 2000);
 
   }
 
