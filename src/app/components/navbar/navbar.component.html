@@ -14,13 +14,13 @@
                 <a class="nav-link" [routerLink]="['/postcards']" [ngClass]="{'nav-item active': enviromentVariable.actualPage === 'postcards'}">{{'Menu.Postales'|translate}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="cursor: pointer;" (click)="openModal('custom-modal-contact')">
-                    {{'Contact.TITLE'|translate}}
+                <a class="nav-link" style="cursor: pointer;" (click)="openModal('custom-modal-company-description')">
+                    {{'About.TITLE'|translate}}
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="cursor: pointer;" (click)="openModal('custom-modal-news')">
-                    {{'News.TITLE'|translate}}
+                <a class="nav-link" style="cursor: pointer;" (click)="openModal('custom-modal-contact')">
+                    {{'Contact.TITLE'|translate}}
                 </a>
             </li>
         </ul>
@@ -248,6 +248,27 @@
                         </mat-tab>
                     </mat-tab-group> -->
 
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>
+
+<jw-modal id="custom-modal-company-description">
+    <div class="container-fluid center">
+        <div class="row" style="justify-content: center;">
+            <button class="btn btn-white btn-round btn-just-icon"
+                (click)="closeModal('custom-modal-company-description');">
+                <i class="material-icons">close</i>
+            </button>
+            <div class="card">
+                <div class="card-header card-header-info">
+                    {{'About.TITLE'|translate}}
+                </div>
+                <div class="card-body" style="width: auto;">
+                    <p [innerHTML]="'About.TEXT'|translate">
+
+                    </p>
                 </div>
             </div>
         </div>
