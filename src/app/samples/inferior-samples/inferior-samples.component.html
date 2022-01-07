@@ -37,11 +37,11 @@
                                                     [innerHTML]="samples.descripcion"></p>
                                                 <div style="display: block; text-align: center;">
                                                     <div class="container" style="display: flex; justify-content:center;">
-                                                    
+
                                                         <div *ngIf="!(samples.nombre.includes('Alfabetizacion')|| samples.nombre.includes('Alfabetización'))">
-                                                            <label>{{'Derechos.PiePagina'|translate}}</label>
+                                                            <label><a href="mailto:luis.dias.cubamuseo@gmail.com" style="color: blue; text-transform: none;">{{'Derechos.PiePagina'|translate}}</a></label>
                                                         </div>
-                                                    
+
                                                         <div class="share ">
                                                             <a class="click"
                                                                 [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'inferior-samples/'+samples.id)"
@@ -49,10 +49,10 @@
                                                                 <i class="fa fa-facebook-official"> {{'TextComponent.Compartir'|translate}}</i>
                                                             </a>
                                                         </div>
-                                                
-                                                
+
+
                                                     </div>
-                                                    
+
                                                     <div class="pagefirm">
                                                         <img src="assets/img/Final.png" alt="">
                                                     </div>
@@ -72,7 +72,7 @@
                                                                 style="text-align: center;"
                                                                 (click)="openModal('custom-modal-1', item)">
                                                                 <img class="img-fluid img-thumbnail" [ngStyle]="{'max-height': getHeigth()+'px'}"
-                                                                    style="cursor: pointer;"             
+                                                                    style="cursor: pointer;"
                                                                     src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{item.imagen}}/samples/none"
                                                                     alt="">
                                                                 <p [innerHTML]="item.titulo"></p>

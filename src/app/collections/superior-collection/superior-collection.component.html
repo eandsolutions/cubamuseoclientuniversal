@@ -30,29 +30,29 @@
                                         <div class="tab-content" id="nav-tabContent">
                                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                                 aria-labelledby="nav-home-tab">
-                                                <p id="text-desc" class="card-text d-inline-block mb-3" 
+                                                <p id="text-desc" class="card-text d-inline-block mb-3"
                                                 [innerHTML]="collection.descripcion"></p>
                                                 <div style="display: block; text-align: center;">
                                                     <div class="container" style="display: flex; justify-content:center;">
-                                                    
-                                                        <div >  
-                                                            <label>{{'Derechos.PiePagina'|translate}}</label>
+
+                                                        <div class="row col-12">
+                                                            <label><a href="mailto:luis.dias.cubamuseo@gmail.com" style="color: blue; text-transform: none;">{{'Derechos.PiePagina'|translate}}</a></label>
                                                         </div>
-                                                    
-                                                        <div class="share ">
+
+                                                        <div class="share col-12">
                                                             <a class="click"
                                                                 [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'superior-collection/'+collection.id)"
                                                                 target="_blank">
                                                                 <i class="fa fa-facebook-official"> {{'TextComponent.Compartir'|translate}}</i>
                                                             </a>
                                                         </div>
-                                                
-                                                
+
+
                                                     </div>
                                                     <div class="pagefirm">
                                                         <img src="assets/img/Final.png" alt="">
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
