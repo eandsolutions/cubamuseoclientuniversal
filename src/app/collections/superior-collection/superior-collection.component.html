@@ -33,14 +33,14 @@
                                                 <p id="text-desc" class="card-text d-inline-block mb-3"
                                                 [innerHTML]="collection.descripcion"></p>
                                                 <div style="display: block; text-align: center;">
-                                                    <div class="container" style="display: flex; justify-content:center;">
+                                                    <div class="container row" style="justify-content:center;">
 
                                                         <div class="row col-12" style="display: grid;">
                                                           <label>{{'Derechos.PiePagina'|translate}}</label>
-                                                          <label><a href="mailto:luis.diaz.cubamuseo@gmail.com" style="color: blue; text-transform: none;">Presione aquí Contactarlo</a></label>
+                                                          <label><a href="mailto:luis.diaz.cubamuseo@gmail.com" style="color: blue; text-transform: none;">Contactarlo</a></label>
                                                         </div>
 
-                                                        <div class="share col-12">
+                                                        <div class="share">
                                                             <a class="click"
                                                                 [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'superior-collection/'+collection.id)"
                                                                 target="_blank">

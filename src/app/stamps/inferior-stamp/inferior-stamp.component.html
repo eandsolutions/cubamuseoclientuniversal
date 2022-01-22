@@ -11,14 +11,14 @@
                     <div class="card-body">
                         <p id="text-desc-stamp"  class="card-text d-inline-block mb-3" [innerHTML]="stamp.descripcion"></p>
                         <div style="display: block; text-align: center;">
-                            <div class="container" style="display: flex; justify-content:center;">
+                            <div class="container row" style="justify-content:center;">
 
                               <div class="row col-12" style="display: grid;">
                                 <label>{{'Derechos.PiePagina'|translate}}</label>
-                                <label><a href="mailto:luis.diaz.cubamuseo@gmail.com" style="color: blue; text-transform: none;">Presione aquí Contactarlo</a></label>
+                                <label><a href="mailto:luis.diaz.cubamuseo@gmail.com" style="color: blue; text-transform: none;">Contactarlo</a></label>
                               </div>
 
-                                <div class="share ">
+                                <div class="share">
                                     <a class="click"
                                         [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'inferior-stamp/'+stamp.id)"
                                         target="_blank">
