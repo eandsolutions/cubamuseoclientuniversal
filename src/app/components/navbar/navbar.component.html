@@ -5,6 +5,9 @@
                 <a class="nav-link" [routerLink]="['/home']" [ngClass]="{'nav-item active': enviromentVariable.actualPage === 'collection'}">{{'Menu.Colecciones'|translate}}</a>
             </li>
             <li class="nav-item" >
+                <a class="nav-link" [routerLink]="['/superior-collection/25']" [ngClass]="{'nav-item active': enviromentVariable.actualPage === 'library'}">{{'Menu.Biblioteca'|translate}}</a>
+            </li>
+            <li class="nav-item" >
                 <a class="nav-link" [routerLink]="['/samples']" [ngClass]="{'nav-item active': enviromentVariable.actualPage === 'samples'}">{{'Menu.Muestras'|translate}}</a>
             </li>
             <li class="nav-item">

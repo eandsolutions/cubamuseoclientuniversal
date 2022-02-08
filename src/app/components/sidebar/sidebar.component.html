@@ -20,10 +20,10 @@
       </span>
     </form>
   </div>
-  <ul class="nav" *ngIf="enviromentVariables.actualPage == 'collection'">
+  <ul class="nav" *ngIf="enviromentVariables.actualPage == 'collection' || enviromentVariables.actualPage == 'library'">
     <li (click)='setBreadcrumb(section)' class="nav-item" *ngFor="let section of enviromentVariables.sections"
       [ngClass]="{'nav-item active': getSection().idSeccion === section.idSeccion}">
-      <a class="nav-link" [routerLink]="[enviromentVariables.link.path,section.idSeccion]"
+      <a *ngIf="section.nombre != 'Biblioteca Virtual' && section.nombre != 'Virtual Library'" class="nav-link" [routerLink]="[enviromentVariables.link.path,section.idSeccion]"
         (click)='setSection(section)'>
         <img 
           src="{{config.serverNodeLocation}}images/imageForCategory/{{section.imagenMenu}}/{{enviromentVariables.actualPage}}"

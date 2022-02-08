@@ -33,7 +33,7 @@
               "src/assets/scss/material-dashboard.scss",
               "src/assets/css/demo.css",
               "./node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
-            "./node_modules/owl.carousel/dist/assets/owl.theme.default.min.css"
+              "./node_modules/owl.carousel/dist/assets/owl.theme.default.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -185,6 +185,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "empty"
+    }
+  },
+  "defaultProject": "empty",
+  "cli": {
+    "analytics": "0474703d-b323-4674-9223-2c92d166c930"
+  }
 }
