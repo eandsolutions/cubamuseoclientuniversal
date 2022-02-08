@@ -162,12 +162,10 @@ export class SuperiorCollectionComponent implements OnInit {
       return 0
     } else {
       if (this.enviromentVariable.getLanguage() === 'es') {
-        if(JSON.parse(data).nombre.includes("Virtual"))
-          this.enviromentVariable.actualPage = 'library'
+       
         return JSON.parse(data).nombre
       } else {
-        if(JSON.parse(data).nombre.includes("Biblioteca"))
-          this.enviromentVariable.actualPage = 'library'
+
         return JSON.parse(data).nombre_es
       }
     }

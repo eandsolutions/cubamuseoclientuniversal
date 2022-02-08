@@ -20,7 +20,7 @@
       </span>
     </form>
   </div>
-  <ul class="nav" *ngIf="enviromentVariables.actualPage == 'collection' || enviromentVariables.actualPage == 'library'">
+  <ul class="nav" *ngIf="enviromentVariables.actualPage == 'collection'">
     <li (click)='setBreadcrumb(section)' class="nav-item" *ngFor="let section of enviromentVariables.sections"
       [ngClass]="{'nav-item active': getSection().idSeccion === section.idSeccion}">
       <a *ngIf="section.nombre != 'Biblioteca Virtual' && section.nombre != 'Virtual Library'" class="nav-link" [routerLink]="[enviromentVariables.link.path,section.idSeccion]"
