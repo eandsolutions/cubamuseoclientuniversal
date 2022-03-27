@@ -88,18 +88,19 @@ export class InferiorCollectionComponent implements OnInit {
             descripcion: data.descripcion,
             titulo: data.titulo,
             imagen: data.imagen,
-            nombre: data.imagen.replace(".jpg",""),
+            nombre: data.imagen ? data.imagen.replace(".jpg","") : data.nombre,
             carpeta: data.carpeta,
             id: data.idCategoria,
             cantImages: data.cantImagenesFila
           }
           this.enviromentVariable.setSection(data)
         } else {
+          console.log(data)
           this.collection = {
             descripcion: data[0].descripcion,
             titulo: data[0].titulo,
             imagen: data[0].imagen,
-            nombre: data.imagen.replace(".jpg",""),
+            nombre: data.imagen ? data.imagen.replace(".jpg","") : data.nombre,
             carpeta: data[0].carpeta,
             id: data[0].idCategoria,
             cantImages: data[0].cantImagenesFila
@@ -109,8 +110,8 @@ export class InferiorCollectionComponent implements OnInit {
             titulo: data[0].titulo,
             imagen: data[0].imagen,
             imagenMenu: data[0].imagenMenu,
-            nombre: data.imagen.replace(".jpg",""),
-            nombre_es: data.imagen.replace(".jpg",""),
+            nombre: data.imagen ? data.imagen.replace(".jpg","") : data.nombre,
+            nombre_es: data.imagen ? data.imagen.replace(".jpg","") : data.nombre_es,
             orden: data[0].orden,
             idSeccion: data[0].idSeccion,
             publicada: data[0].publicada

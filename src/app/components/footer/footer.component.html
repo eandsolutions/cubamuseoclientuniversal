@@ -1,264 +1,325 @@
-<footer class="footer " style="background-color: #fff;">
-    <div class="container-fluid" style="display: grid;">
-
-
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item carousel-item-footer active">
-                <img
-                src="../../../assets/img/somos.png"
-                alt="">
-            <a (click)="openModal('custom-modal-company-description')">
-                {{'About.TITLE'|translate}}
-            </a>
-              </div>
-              <div class="carousel-item carousel-item-footer">
-                <img
-                        src="../../../assets/img/vendedor.png"
-                        alt="">
-                    <a (click)="openModal('custom-modal-contact')">
-                        {{'Contact.TITLE'|translate}}
-                    </a>
-              </div>
-              <div class="carousel-item carousel-item-footer">
-               <img
-                        src="../../../assets/img/noticias.png"
-                        alt="">
-                        <a (click)="openModal('custom-modal-news')">
-                            {{'News.TITLE'|translate}}
-                        </a>
-              </div>
-              <div class="carousel-item carousel-item-footer">
-                <img
-                        src="../../../assets/img/relacionados.png"
-                        alt="">
-                    <a  (click)="openModal('custom-modal-related-sites')">
-                        {{'RelatedSites.TITLE'|translate}}
-                    </a>
-              </div>
-            </div>
-          </div>
-
-        <!-- <div toastContainer onclick="openModal('custom-modal-news')">
-        </div> -->
-        <!-- <owl-carousel class="carousel" [options]="mySlideOptions"  [carouselClasses]="['owl-theme', 'sliding']" >
-            <div class="item">
-                <div class="links">
-                    <img src='../../../assets/img/somos.png'/>
-                    <span (click)="openModal('custom-modal-company-description')">{{'About.TITLE'|translate}}</span>
-                </div>
-            </div>
-            <div class="item">
-                <div class="links">
-                    <img src='../../../assets/img/vendedor.png'/>
-                    <span (click)="openModal('custom-modal-contact')"> {{'Contact.TITLE'|translate}}</span>
-                </div>
-            </div>
-            <div class="item">
-                <div class="links">
-                    <img src='../../../assets/img/noticias.png'/>
-                    <span (click)="openModal('custom-modal-news')">{{'News.TITLE'|translate}}</span>
-                </div>
-            </div>
-            <div class="item">
-                <div class="links">
-                    <img src='../../../assets/img/relacionados.png'/>
-                    <span (click)="openModal('custom-modal-related-sites')">{{'RelatedSites.TITLE'|translate}}</span>
-                </div>
-            </div>
-        </owl-carousel> -->
-        <nav class="pull-left">
-            <ul>
-
-                <li>
-                    <div class="links">
-
-                    <a style="display: flex;" (click)="openModal('custom-modal-company-description')">
-                        <img  style="margin-right: 10px;"
-                        src="../../../assets/img/somos.png"
-                        alt="">
-                        {{'About.TITLE'|translate}}
-                    </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="links">
-
-                    <a style="display: flex;" (click)="openModal('custom-modal-contact')">
-                        <img style="margin-right: 10px;"
-                        src="../../../assets/img/vendedor.png"
-                        alt="">
-                        {{'Contact.TITLE'|translate}}
-                    </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="links">
-
-                        <a style="display: flex;" (click)="openModal('custom-modal-news')">
-                            <img  style="margin-right: 10px;"
-                            src="../../../assets/img/noticias.png"
-                            alt="">
-                            {{'News.TITLE'|translate}}
-                        </a>
-                    </div>
-
-                </li>
-                <li>
-                    <div class="links">
-
-                    <a style="display: flex;" (click)="openModal('custom-modal-related-sites')">
-                        <img  style="margin-right: 10px;"
-                        src="../../../assets/img/relacionados.png"
-                        alt="">
-                        {{'RelatedSites.TITLE'|translate}}
-                    </a>
-                    </div>
-                </li>
-
-            </ul>
-        </nav>
-        <div class="copyright pull-right" style="font-size: 12px;">
-            &copy;
-            {{test | date: 'yyyy'}} {{'Derechos.Derechos'|translate}}
-            <a href="https://eandsolutions.com" target="_blank">E&Solutions</a>
+<footer class="footer" style="background-color: #fff">
+  <div class="container-fluid" style="display: grid">
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item carousel-item-footer active">
+          <img src="../../../assets/img/somos.png" alt="" />
+          <a (click)="openModal('custom-modal-company-description')">
+            {{ "About.TITLE" | translate }}
+          </a>
         </div>
+        <div class="carousel-item carousel-item-footer">
+          <img src="../../../assets/img/vendedor.png" alt="" />
+          <a (click)="openModal('custom-modal-contact')">
+            {{ "Contact.TITLE" | translate }}
+          </a>
+        </div>
+        <div class="carousel-item carousel-item-footer">
+          <img src="../../../assets/img/noticias.png" alt="" />
+          <a (click)="openModal('custom-modal-news')">
+            {{ "News.TITLE" | translate }}
+          </a>
+        </div>
+        <div class="carousel-item carousel-item-footer">
+          <img src="../../../assets/img/relacionados.png" alt="" />
+          <a (click)="openModal('custom-modal-related-sites')">
+            {{ "RelatedSites.TITLE" | translate }}
+          </a>
+        </div>
+      </div>
     </div>
+
+    <nav class="pull-left">
+      <ul>
+        <li>
+          <div class="links">
+            <a
+              style="display: flex"
+              (click)="openModal('custom-modal-company-description')"
+            >
+              <img
+                style="margin-right: 10px"
+                src="../../../assets/img/somos.png"
+                alt=""
+              />
+              {{ "About.TITLE" | translate }}
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="links">
+            <a
+              style="display: flex"
+              (click)="openModal('custom-modal-contact')"
+            >
+              <img
+                style="margin-right: 10px"
+                src="../../../assets/img/vendedor.png"
+                alt=""
+              />
+              {{ "Contact.TITLE" | translate }}
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="links">
+            <a style="display: flex" (click)="openModal('custom-modal-news')">
+              <img
+                style="margin-right: 10px"
+                src="../../../assets/img/noticias.png"
+                alt=""
+              />
+              {{ "News.TITLE" | translate }}
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="links">
+            <a
+              style="display: flex"
+              (click)="openModal('custom-modal-related-sites')"
+            >
+              <img
+                style="margin-right: 10px"
+                src="../../../assets/img/relacionados.png"
+                alt=""
+              />
+              {{ "RelatedSites.TITLE" | translate }}
+            </a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="copyright pull-right" style="font-size: 12px">
+      <ul style="height: 50px;">
+        <li>
+          <div class="links">
+            <a style="display: flex" (click)="openModal('custom-modal-legal')">
+              <p style="width: max-content;">Información legal</p>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="links">
+            <a
+              style="display: flex"
+              (click)="openModal('custom-modal-privacy')"
+            >
+              <p style="width: max-content;">Políticas de privacidad</p>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="links">
+            <a
+              style="display: flex"
+              (click)="openModal('custom-modal-cookies')"
+            >
+              <p style="width: max-content;">Políticas de cookies</p>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="copyright pull-right" style="font-size: 12px">
+      &copy;
+      {{ test | date: "yyyy" }} {{ "Derechos.Derechos" | translate }}
+      <a href="https://eandsolutions.com" target="_blank">E&Solutions</a>
+    </div>
+  </div>
 </footer>
 
-<jw-modal id="custom-modal-contact" style="padding: 0;">
-    <div class="container-fluid center" style="padding: 0;">
-        <div class="row" style="justify-content: center;">
-            <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-contact');">
-                <i class="material-icons">close</i>
-            </button>
-            <div class="card" style="width: auto;">
-                <div class="card-header card-header-info">
-                    {{'Contact.TITLE'|translate}}
-                </div>
-                <div class="card-body">
-                    <section class="mb-4">
-                        <!--Section description-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-md-12 mb-md-0 mb-12">
-                                <div id="contact-form" name="contact-form" action="mail.php" method="POST">
-
-                                    <!--Grid row-->
-                                    <div class="row">
-
-                                        <!--Grid column-->
-                                        <div class="col-md-6">
-                                            <div class="md-form mb-0">
-                                                <input type="text" [(ngModel)]="mail.name" id="name" name="name"
-                                                    class="form-control">
-                                                <label for="name" class=""> {{'Contact.NAME'|translate}}</label>
-                                            </div>
-                                        </div>
-                                        <!--Grid column-->
-
-                                        <!--Grid column-->
-                                        <div class="col-md-6">
-                                            <div class="md-form mb-0">
-                                                <input type="text" [(ngModel)]="mail.from" id="email" name="email"
-                                                    class="form-control">
-                                                <label for="email" class="">{{'Contact.EMAIL'|translate}}</label>
-                                            </div>
-                                        </div>
-                                        <!--Grid column-->
-
-                                    </div>
-                                    <!--Grid row-->
-
-                                    <!--Grid row-->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="md-form mb-0">
-                                                <input type="text" [(ngModel)]="mail.subject" id="subject"
-                                                    name="subject" class="form-control">
-                                                <label for="subject" class="">{{'Contact.SUBJECT'|translate}}</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Grid row-->
-
-                                    <!--Grid row-->
-                                    <div class="row">
-
-                                        <!--Grid column-->
-                                        <div class="col-md-12">
-
-                                            <div class="md-form">
-                                                <textarea type="text" [(ngModel)]="mail.text" id="message"
-                                                    name="message" rows="2" class="form-control md-textarea"></textarea>
-                                                <label for="message">{{'Contact.TEXT'|translate}}</label>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!--Grid row-->
-
-                                </div>
-
-                                <div class="text-center text-md-left">
-                                    <a class="btn btn-primary" (click)="send()">{{'Contact.SEND'|translate}}</a>
-                                </div>
-                                <div class="status"></div>
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class=" col-md-12 text-center mt-5">
-                                <ul class="list-unstyled mb-0 row">
-                                    <li class="col-md-6"><i class="fa fa-map-marker fa-2x"></i>
-                                        <p>{{'Contact.Direction'|translate}}</p>
-                                    </li>
-
-                                    <li class="col-md-6"><i class="fa fa-envelope fa-2x"></i>
-                                        <p>luis.diaz.cubamuseo@gmail.com</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--Grid column-->
-
-                        </div>
-
-                    </section>
-                </div>
-            </div>
+<jw-modal id="custom-modal-contact" style="padding: 0">
+  <div class="container-fluid center" style="padding: 0">
+    <div class="row" style="justify-content: center">
+      <button
+        class="btn btn-white btn-round btn-just-icon"
+        (click)="closeModal('custom-modal-contact')"
+      >
+        <i class="material-icons">close</i>
+      </button>
+      <div class="card" style="width: auto">
+        <div class="card-header card-header-info">
+          {{ "Contact.TITLE" | translate }}
         </div>
+        <div class="card-body">
+          <section class="mb-4">
+            <!--Section description-->
+            <div class="row">
+              <!--Grid column-->
+              <div class="col-md-12 mb-md-0 mb-12">
+                <div
+                  id="contact-form"
+                  name="contact-form"
+                  action="mail.php"
+                  method="POST"
+                >
+                  <!--Grid row-->
+                  <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <input
+                          type="text"
+                          [(ngModel)]="mail.name"
+                          id="name"
+                          name="name"
+                          class="form-control"
+                        />
+                        <label for="name" class="">
+                          {{ "Contact.NAME" | translate }}</label
+                        >
+                      </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <input
+                          type="text"
+                          [(ngModel)]="mail.from"
+                          id="email"
+                          name="email"
+                          class="form-control"
+                        />
+                        <label for="email" class="">{{
+                          "Contact.EMAIL" | translate
+                        }}</label>
+                      </div>
+                    </div>
+                    <!--Grid column-->
+                  </div>
+                  <!--Grid row-->
+
+                  <!--Grid row-->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="md-form mb-0">
+                        <input
+                          type="text"
+                          [(ngModel)]="mail.subject"
+                          id="subject"
+                          name="subject"
+                          class="form-control"
+                        />
+                        <label for="subject" class="">{{
+                          "Contact.SUBJECT" | translate
+                        }}</label>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Grid row-->
+
+                  <!--Grid row-->
+                  <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-12">
+                      <div class="md-form">
+                        <textarea
+                          type="text"
+                          [(ngModel)]="mail.text"
+                          id="message"
+                          name="message"
+                          rows="2"
+                          class="form-control md-textarea"
+                        ></textarea>
+                        <label for="message">{{
+                          "Contact.TEXT" | translate
+                        }}</label>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Grid row-->
+                </div>
+
+                <div class="text-center text-md-left">
+                  <a class="btn btn-primary" (click)="send()">{{
+                    "Contact.SEND" | translate
+                  }}</a>
+                </div>
+                <div class="status"></div>
+              </div>
+              <!--Grid column-->
+
+              <!--Grid column-->
+              <div class="col-md-12 text-center mt-5">
+                <ul class="list-unstyled mb-0 row">
+                  <li class="col-md-6">
+                    <i class="fa fa-map-marker fa-2x"></i>
+                    <p>{{ "Contact.Direction" | translate }}</p>
+                  </li>
+
+                  <li class="col-md-6">
+                    <i class="fa fa-envelope fa-2x"></i>
+                    <p>luis.diaz.cubamuseo@gmail.com</p>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
+  </div>
 </jw-modal>
 
 <jw-modal id="custom-modal-related-sites">
-    <div class="container-fluid center">
-        <div class="row" style="justify-content: center;">
-            <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-related-sites');">
-                <i class="material-icons">close</i>
-            </button>
-            <div class="card">
-                <div class="card-header card-header-info">
-                    {{'RelatedSites.TITLE'|translate}}
-                </div>
-                <div class="card-body" >
-                    <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
-                        <mdb-carousel-item  *ngFor="let site of sites; let i = index" >
-                          <div class="view w-100">
-                            <img class="d-block w-100" src="{{config.serverNodeLocation}}images/imageInNotice/{{site.nombre}}/{{site.imagen}}" alt="First slide">
+  <div class="container-fluid center">
+    <div class="row" style="justify-content: center">
+      <button
+        class="btn btn-white btn-round btn-just-icon"
+        (click)="closeModal('custom-modal-related-sites')"
+      >
+        <i class="material-icons">close</i>
+      </button>
+      <div class="card">
+        <div class="card-header card-header-info">
+          {{ "RelatedSites.TITLE" | translate }}
+        </div>
+        <div class="card-body">
+          <mdb-carousel
+            class="carousel slide carousel-fade"
+            [animation]="'fade'"
+          >
+            <mdb-carousel-item *ngFor="let site of sites; let i = index">
+              <div class="view w-100">
+                <img
+                  class="d-block w-100"
+                  src="{{ config.serverNodeLocation }}images/imageInNotice/{{
+                    site.nombre
+                  }}/{{ site.imagen }}"
+                  alt="First slide"
+                />
 
-                            <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
-                          </div>
-                          <div class="carousel-caption">
+                <div
+                  class="mask rgba-black-light waves-light"
+                  mdbWavesEffect
+                ></div>
+              </div>
+              <div class="carousel-caption"></div>
+              <h3 class="h3-responsive" style="text-align: center">
+                {{ site.nombre }}
+              </h3>
+              <h5>
+                {{ "RelatedSites.URL" | translate }}
+                <a
+                  href="{{ site.url }}"
+                  style="color: #26c6da"
+                  target="_blank"
+                  >{{ site.url }}</a
+                >
+              </h5>
+              <p class="card-text" [innerHTML]="site.descripcion"></p>
+            </mdb-carousel-item>
+          </mdb-carousel>
 
-                          </div>
-                          <h3 class="h3-responsive" style="text-align: center;">{{site.nombre}}</h3>
-                          <h5>{{'RelatedSites.URL'|translate}} <a href="{{site.url}}" style="color: #26c6da;"target="_blank" >{{site.url}}</a></h5>
-                          <p class="card-text " [innerHTML]="site.descripcion"></p>
-                        </mdb-carousel-item>
-                      </mdb-carousel>
-
-                    <!-- <mat-tab-group class="main-tab-group mt-2">
+          <!-- <mat-tab-group class="main-tab-group mt-2">
                         <mat-tab *ngFor="let site of sites; let i = index">
                             <ng-template mat-tab-label>{{site.nombre}}
                             </ng-template>
@@ -279,65 +340,1035 @@
                             </div>
                         </mat-tab>
                     </mat-tab-group> -->
-
-                </div>
-            </div>
         </div>
+      </div>
     </div>
+  </div>
 </jw-modal>
 <!-- //notice modal -->
 <jw-modal id="custom-modal-news">
-    <div class="container-fluid center">
-        <div class="row" style="justify-content: center;">
-            <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-news');">
-                <i class="material-icons">close</i>
-            </button>
-            <div class="card">
-                <div class="card-header card-header-info">
-                    {{'News.TITLE'|translate}}
-                    <p [innerHTML]="'News.TEXT'|translate" style="font-size: 18px;">
-                    </p>
-                </div>
-                <div class="card-body">
-
-                    <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
-                        <mdb-carousel-item  *ngFor="let new of news; let i = index" >
-                          <div class="view w-100">
-                            <img class="d-block w-100" src="{{config.serverNodeLocation}}images/imageInNotice/{{new.titulo}}/{{new.imagen}}" alt="First slide">
-                            <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
-                          </div>
-                          <div class="carousel-caption">
-
-
-                          </div>
-                          <h3 class="h3-responsive" style="text-align: center;" [innerHTML]='new.titulo'></h3>
-
-                          <p  class="card-text "  [innerHTML]='new.descripcion'></p>
-                        </mdb-carousel-item>
-                      </mdb-carousel>
-                </div>
-            </div>
+  <div class="container-fluid center">
+    <div class="row" style="justify-content: center">
+      <button
+        class="btn btn-white btn-round btn-just-icon"
+        (click)="closeModal('custom-modal-news')"
+      >
+        <i class="material-icons">close</i>
+      </button>
+      <div class="card">
+        <div class="card-header card-header-info">
+          {{ "News.TITLE" | translate }}
+          <p [innerHTML]="'News.TEXT' | translate" style="font-size: 18px"></p>
         </div>
+        <div class="card-body">
+          <mdb-carousel
+            class="carousel slide carousel-fade"
+            [animation]="'fade'"
+          >
+            <mdb-carousel-item *ngFor="let new of news; let i = index">
+              <div class="view w-100">
+                <img
+                  class="d-block w-100"
+                  src="{{ config.serverNodeLocation }}images/imageInNotice/{{
+                    new.titulo
+                  }}/{{ new.imagen }}"
+                  alt="First slide"
+                />
+                <div
+                  class="mask rgba-black-light waves-light"
+                  mdbWavesEffect
+                ></div>
+              </div>
+              <div class="carousel-caption"></div>
+              <h3
+                class="h3-responsive"
+                style="text-align: center"
+                [innerHTML]="new.titulo"
+              ></h3>
+
+              <p class="card-text" [innerHTML]="new.descripcion"></p>
+            </mdb-carousel-item>
+          </mdb-carousel>
+        </div>
+      </div>
     </div>
+  </div>
 </jw-modal>
 
 <jw-modal id="custom-modal-company-description">
-    <div class="container-fluid center">
-        <div class="row" style="justify-content: center;">
-            <button class="btn btn-white btn-round btn-just-icon"
-                (click)="closeModal('custom-modal-company-description');">
-                <i class="material-icons">close</i>
-            </button>
-            <div class="card">
-                <div class="card-header card-header-info">
-                    {{'About.TITLE'|translate}}
-                </div>
-                <div class="card-body" style="width: auto;">
-                    <p [innerHTML]="'About.TEXT'|translate">
-
-                    </p>
-                </div>
-            </div>
+  <div class="container-fluid center">
+    <div class="row" style="justify-content: center">
+      <button
+        class="btn btn-white btn-round btn-just-icon"
+        (click)="closeModal('custom-modal-company-description')"
+      >
+        <i class="material-icons">close</i>
+      </button>
+      <div class="card">
+        <div class="card-header card-header-info">
+          {{ "About.TITLE" | translate }}
         </div>
+        <div class="card-body" style="width: auto">
+          <p [innerHTML]="'About.TEXT' | translate"></p>
+        </div>
+      </div>
     </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="custom-modal-legal">
+  <div class="container-fluid center">
+    <div class="row" style="justify-content: center">
+      <button
+        class="btn btn-white btn-round btn-just-icon"
+        (click)="closeModal('custom-modal-legal')"
+      >
+        <i class="material-icons">close</i>
+      </button>
+      <div class="card">
+        <div class="articulo__envoltorio">
+          <div class="carcasa">
+            <div class="carcasa__interior">
+              <h2>Condiciones generales</h2>
+              <ol>
+                <li>
+                  <strong>OBJETO</strong>: Estas son las condiciones generales
+                  (en adelante "Condiciones Generales") que regulan el acceso,
+                  navegación y uso del portal web"elpais.com" (en adelante,
+                  "Sitio Web"), las responsabilidades derivadas de la
+                  utilización de todos sus contenidos Adicionalmente, EDICIONES
+                  EL PAIS podrá establecer condiciones particulares que regulen
+                  el acceso y/o contratación de servicios específicos ofrecidos
+                  a los usuarios del Sitio Web. A estos servicios específicos
+                  les serán de aplicación sus condiciones particulares a las que
+                  se accederá en la url de dicho servicio.
+                </li>
+                <li>
+                  <strong>USUARIOS</strong>: A estos efectos, se entenderá por
+                  usuario la persona que acceda, navegue o utilice el Sitio Web.
+                  El acceso, navegación y/o uso al Sitio Web de EDICIONES EL
+                  PAIS implica para el usuario la aceptación de estas
+                  Condiciones Generales. Por tanto, el usuario debe leer
+                  atentamente estas Condiciones Generales.
+                </li>
+                <li>
+                  <strong>USO DEL PORTAL</strong>: el Sitio Web de EDICIONES EL
+                  PAIS proporciona el acceso a multitud de informaciones,
+                  contenidos, servicios, programas o datos (en adelante, "los
+                  Contenidos") en Internet pertenecientes a Cubamuseo a
+                  sus cedentes o licenciantes . El usuario asume la
+                  responsabilidad del uso del Sitio Web. Dicha responsabilidad
+                  se extiende al registro que fuese necesario para acceder a
+                  determinados servicios o contenidos. En dicho registro el
+                  usuario será responsable de aportar información veraz y
+                  lícita. Como consecuencia de este registro, al usuario se le
+                  puede proporcionar una contraseña de la que será único
+                  responsable, comprometiéndose a hacer un uso diligente y
+                  confidencial de la misma. El usuario se compromete a hacer un
+                  uso adecuado de los Contenidos así como de determinados
+                  servicios (como por ejemplo servicios de chat, foros de
+                  discusión o grupos de noticias, suscripciones, etc.) que
+                  Cubamuseo ofrece a través de su Sitio Web y con
+                  carácter enunciativo pero no limitativo, a no emplearlos para
+                  (i) incurrir en actividades ilícitas, ilegales o contrarias a
+                  la buena fe y al orden público; (ii) difundir contenidos o
+                  propaganda de carácter racista, xenófobo, pornográfico-ilegal,
+                  de apología del terrorismo o atentatorio contra los derechos
+                  humanos; (iii) provocar daños en los sistemas físicos y
+                  lógicos de Cubamuseo, de sus proveedores o de terceras
+                  personas, introducir o difundir en la red virus informáticos o
+                  cualesquiera otros sistemas físicos o lógicos que sean
+                  susceptibles de provocar los daños anteriormente mencionados;
+                  (iv) intentar acceder y, en su caso, utilizar las cuentas de
+                  correo electrónico de otros usuarios y modificar o manipular
+                  sus mensajes. Cubamuseo se reserva el derecho de
+                  retirar todos aquellos comentarios y aportaciones que vulneren
+                  el respeto a la dignidad de la persona, que sean
+                  discriminatorios, xenófobos, racistas, pornográficos, que
+                  atenten contra la juventud o la infancia, el orden o la
+                  seguridad pública o que, a su juicio, no resultaran adecuados
+                  para su publicación. En cualquier caso, Cubamuseo no
+                  será responsable de las opiniones vertidas por los usuarios a
+                  través de los foros, chats, u otras herramientas de
+                  participación; sin perjuicio de lo cual adoptará las medidas
+                  oportunas para detectar y atender reclamaciones sobre posible
+                  actividades ilícitas por parte de los mismos, reservándose
+                  expresamente la posibilidad de interrumpir en cualquier
+                  momento y sin previo aviso, temporal o definitivamente, el
+                  servicio de participación ofrecido a cualquier usuario cuyos
+                  contenidos puedan ser considerados ilegales, prohibidos o
+                  simplemente inadecuados.
+                </li>
+                <li>
+                  <strong>PROPIEDAD INTELECTUAL E INDUSTRIAL</strong>: EDICIONES
+                  EL PAIS, autor de la obra colectiva u otras obras y
+                  prestaciones, es titular, originaria o derivativamente, de
+                  todos los derechos de propiedad intelectual e industrial del
+                  Sitio Web, así como de los elementos que forman los Contenidos
+                  (a título enunciativo, imágenes, sonido, audio, vídeo,
+                  software o textos; marcas o logotipos, combinaciones de
+                  colores, estructura y diseño, selección de materiales usados,
+                  programas de ordenador necesarios para su funcionamiento,
+                  acceso y uso, etc). Todos los derechos reservados. En virtud
+                  de lo dispuesto en la Ley de Propiedad Intelectual quedan
+                  expresamente prohibidas la reproducción, la transformación, la
+                  distribución y la comunicación pública, incluida su modalidad
+                  de puesta a disposición, de la totalidad o parte de los
+                  Contenidos cualquiera que sea su finalidad y el medio o
+                  soporte que se utilice, sin la autorización de EDICIONES EL
+                  PAIS. El usuario se compromete a respetar los derechos de
+                  Propiedad Intelectual e Industrial titularidad de EDICIONES EL
+                  PAIS. Podrá visualizar los elementos del Sitio Web siempre y
+                  cuando sea, única y exclusivamente, para su uso personal y
+                  privado. En ningún caso se entenderá que el acceso y
+                  navegación del usuario implica una renuncia, transmisión,
+                  licencia o cesión total ni parcial de dichos derechos por
+                  parte de Cubamuseo En caso de que esté interesado en
+                  una autorización o licencia para utilizar en cualquier forma
+                  los contenidos del Sitio Web diríjase a
+                  <a target="_blank" href="https://www.prisanewsservices.com/"
+                    >https://www.prisanewsservices.com/</a
+                  >. Asimismo, el usuario deberá abstenerse de suprimir,
+                  alterar, eludir o manipular cualquier dispositivo de
+                  protección o sistema de seguridad que estuviera instalado en
+                  el Sitio Web de Cubamuseo. Es obligación del usuario
+                  notificar de forma inmediata a Cubamuseo cualquier
+                  hecho que permita el uso indebido de los identificadores y/o
+                  contraseñas, tales como el robo, extravío, o el acceso no
+                  autorizado a los mismos, con el fin de proceder a su inmediata
+                  cancelación. Mientras no se comuniquen tales hechos, Cubamuseo quedará eximida de cualquier responsabilidad que
+                  pudiera derivarse del uso indebido de los identificadores o
+                  contraseñas por terceros no autorizados. Cubamuseo se
+                  reserva el derecho de cursar la baja inmediata del usuario
+                  registrado si considera, a su sola discreción, que el usuario
+                  Registrado está realizando cualquier actividad que constituya
+                  o pueda constituir un incumplimiento de estas Condiciones
+                  Generales.
+                </li>
+                <li>
+                  <strong>EXCLUSIÓN DE GARANTÍAS Y RESPONSABILIDAD</strong>:
+                  Cubamuseo no se hace responsable, en ningún caso, de
+                  los daños y perjuicios de cualquier naturaleza que pudieran
+                  ocasionar, a título enunciativo: errores u omisiones en los
+                  contenidos, falta de disponibilidad del portal o la
+                  transmisión de virus o programas maliciosos o lesivos en los
+                  Contenidos, a pesar de haber adoptado todas las medidas
+                  tecnológicas necesarias para evitarlo.
+                </li>
+                <li>
+                  <strong>MODIFICACIONES</strong>: Cubamuseo se reserva
+                  el derecho de efectuar sin previo aviso las modificaciones que
+                  considere oportunas en el Sitio Web, pudiendo cambiar,
+                  suprimir o añadir tanto los contenidos y servicios que se
+                  presten a través de la misma como la forma en la que éstos
+                  aparezcan presentados o localizados en el Sitio Web.
+                </li>
+                <li>
+                  <strong>ENLACES</strong>: En el caso de que en el Sitio Web se
+                  dispusiesen enlaces o hipervínculos hacía otros sitios de
+                  Internet, Cubamuseo no ejercerá ningún tipo de control
+                  sobre dichos sitios y contenidos. En ningún caso EDICIONES EL
+                  PAIS asumirá responsabilidad alguna por los contenidos de
+                  algún enlace perteneciente a un sitio web ajeno, ni
+                  garantizará la disponibilidad técnica, calidad, fiabilidad,
+                  exactitud, amplitud, veracidad, validez y constitucionalidad
+                  de cualquier material o información contenida en ninguno de
+                  dichos hipervínculos u otros sitios de Internet. Igualmente la
+                  inclusión de estas conexiones externas no implicará ningún
+                  tipo de asociación, fusión o participación con las entidades
+                  conectadas. Sin perjuicio de lo anterior, algunos enlaces
+                  estarán previamente negociados o consensuados con el
+                  responsable del contenido enlazado, de forma que se genere una
+                  contraprestación por las acciones realizadas libremente por el
+                  usuario. Esta situación no afectará en ningún caso a la
+                  exclusión de responsabilidad sobre el contenido enlazado ni a
+                  la independencia de este medio de comunicación.
+                </li>
+                <li>
+                  <strong>PUBLICIDAD Y OTROS CONTENIDOS O SERVICIOS</strong>: A
+                  través del Sitio Web, Cubamuseo habilita espacios para
+                  que terceros publiciten sus productos o servicios, en estos
+                  casos, será responsable del contenido publicitario el tercero
+                  titular del producto o servicio publicitado; Cubamuseo
+                  no será responsable del contenido ni mensaje transmitido por
+                  dicha publicidad. Asimismo, a través del Sitio Web, EDICIONES
+                  EL PAIS podrá habilitar a terceras entidades para que
+                  publiciten o presten sus servicios. En estos casos, EDICIONES
+                  EL PAIS no será responsable de establecer las condiciones
+                  generales y particulares a tener en cuenta en la utilización,
+                  prestación o contratación de estos servicios por terceros y,
+                  por tanto, no podrá ser considerado responsable de los mismos.
+                </li>
+                <li>
+                  <strong>CONTENIDOS GENERADOS POR EL USUARIO</strong>: En el
+                  caso de que el usuario envíe contenidos de cualquier tipo al
+                  Sitio Web, incluyendo, pero no limitado a fotografías fijas,
+                  vídeos, textos, informaciones, bases de datos, grabaciones
+                  sonoras o cualesquiera otras obras o prestaciones, el usuario
+                  garantiza y acepta que los usos de los mismos conforme a estas
+                  Condiciones Generales no infringen ningún derecho de propiedad
+                  intelectual o industrial, derecho de imagen, honor o
+                  intimidad, deber de confidencialidad, secreto comercial o
+                  cualquier otro derecho de tercero. En el caso que estos
+                  contenidos sean imágenes en las que se identifiquen, directa o
+                  indirectamente, a terceros, el usuario garantiza que la
+                  persona o personas son mayores de edad y han consentido
+                  expresa e inequívocamente la captación de su imagen, así como
+                  su reproducción y difusión pública. En caso de que la persona
+                  cuya imagen se reproduce sea menor de edad, el usuario
+                  garantiza que ha obtenido el consentimiento expreso e
+                  inequívoco para la captación, la reproducción y la difusión
+                  pública de la imagen de los titulares de la patria potestad o
+                  tutor legal del menor de edad y podrá acreditarlo en cualquier
+                  momento que sea requerido para ello. El usuario mantendrá
+                  indemne a Cubamuseo respecto a lo contenido en este
+                  apartado. Asimismo, el usuario concede a Cubamuseo una
+                  licencia no exclusiva de uso de estos contenidos para su
+                  utilización en el Sitio Web, hasta su paso al dominio público
+                  y para el territorio mundial. Las noticias contenidas en este
+                  Sitio Web podrán contener datos personales de personas
+                  noticiables por ser de relevancia pública, por su notoriedad
+                  pública o por circunstancias sobrevenidas en hechos de interés
+                  público de los que son protagonistas.
+                  <p></p>
+                </li>
+                <li>
+                  <strong>DERECHO DE EXCLUSIÓN</strong>: Cubamuseo se
+                  reserva el derecho a denegar o retirar el acceso a su Site y/o
+                  los servicios ofrecidos sin necesidad de preaviso, a instancia
+                  propia o de un tercero, a aquellos usuarios que incumplan las
+                  presentes Condiciones Generales.
+                </li>
+                <li>
+                  <strong>GENERALIDADES</strong>: Cubamuseo perseguirá
+                  el incumplimiento de las Condiciones Generales así como
+                  cualquier utilización indebida de los Contenidos y/o Sitio Web
+                  ejerciendo todas las acciones civiles y penales que le puedan
+                  corresponder en derecho.
+                </li>
+                <li>
+                  <strong
+                    >MODIFICACIÓN DE LAS PRESENTES CONDICIONES Y
+                    DURACIÓN</strong
+                  >: Cubamuseo podrá modificar en cualquier momento las
+                  Condiciones Generales, siendo debidamente publicadas como aquí
+                  aparecen. La vigencia de las Condiciones Generales irá en
+                  función de su exposición y estarán vigentes hasta que sean
+                  modificadas por otras debidamente publicadas.
+                </li>
+              </ol>
+              <p>© Cubamuseo, S.L. Miguel Yuste, 40 – 28037 Madrid.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="custom-modal-privacy">
+  <div class="container-fluid center">
+    <div class="row" style="justify-content: center">
+      <button
+        class="btn btn-white btn-round btn-just-icon"
+        (click)="closeModal('custom-modal-privacy')"
+      >
+        <i class="material-icons">close</i>
+      </button>
+      <div class="card">
+        <div class="articulo__envoltorio">
+          <div class="carcasa">
+            <div class="carcasa__interior">
+              <h2>POLÍTICA DE PRIVACIDAD DE LOS SERVICIOS EL PAÍS</h2>
+              <ol class="listado-inicial">
+                <li><a href="#introduccion">Introducción y definiciones</a></li>
+                <li>
+                  <a href="#cumplimiento"
+                    >Cumplimiento de la normativa vigente</a
+                  >
+                </li>
+                <li><a href="#responsable">Responsable del fichero</a></li>
+                <li>
+                  <a href="#tratamiento"
+                    >Finalidad del tratamiento de los datos personales de los
+                    Usuarios</a
+                  >
+                </li>
+                <li>
+                  <a href="#tipos"
+                    >Tipos de datos recogidos a través de los Servicios El
+                    País</a
+                  >
+                </li>
+                <li><a href="#terceros">Datos compartidos con terceros</a></li>
+                <li><a href="#menores">Menores de edad</a></li>
+                <li><a href="#noticiables">Personas noticiables</a></li>
+                <li><a href="#derechos">Derechos de los Usuarios</a></li>
+                <li><a href="#plazo">Plazo de Conservación de los datos</a></li>
+                <li>
+                  <a href="#legitimacion"
+                    >Legitimación para el tratamiento de los datos</a
+                  >
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <h4 id="introduccion">
+                    <strong>Introducción y definiciones</strong>
+                  </h4>
+                  <p>
+                    Tras leer y aceptar esta Política de Privacidad y
+                    Condiciones de los Servicios El País, usted podrá disfrutar
+                    de estos Servicios.
+                  </p>
+                  <p>
+                    A través de la aceptación de esta cláusula, usted acepta
+                    expresamente la Política de Privacidad de los Servicios El
+                    País como Usuario de cualquiera de los medios o Servicios
+                    y/o productos, ya sean gratuitos o de pago, que consisten en
+                    el acceso a diferentes informaciones, contenidos, programas,
+                    apps, tiendas, sitios web de ‘e-commerce’, vídeo bajo
+                    demanda o similares (en adelante, “Servicios El País”) que
+                    El País pone a disposición de los Usuarios en Internet.
+                  </p>
+                  <p>
+                    Para el correcto entendimiento de esta Política de
+                    Privacidad y las Condiciones de los Servicios El País, se
+                    realizan las siguientes
+                    <span class="sub">definiciones</span>:
+                  </p>
+                  <p>
+                    <strong>El Usuario</strong> será aquella persona física o
+                    jurídica que acceda y/o use cualquiera de los Servicios El
+                    País por cualquier medio sin necesidad de registrarse.
+                    Mediante la aceptación de esta cláusula, el Usuario acepta
+                    la Política de Privacidad y las Condiciones de los Servicios
+                    El País, reflejadas en el presente documento.
+                  </p>
+                  <p>
+                    <strong>Los Servicios El País</strong>, abarcan servicios,
+                    productos y acciones promocionales, ya sean gratuitos o de
+                    pago, que consisten en el acceso a diferentes informaciones,
+                    contenidos, comunicaciones comerciales, editoriales y
+                    corporativas, programas, aplicaciones, tiendas, sitios web,
+                    vídeo bajo demanda o similares.
+                  </p>
+                  <p>
+                    La
+                    <strong
+                      >Política de Privacidad de los Servicios El País </strong
+                    >es de aplicación a:
+                  </p>
+                  <ul>
+                    <li>
+                      La navegación como Usuario que se realice sobre cualquier
+                      página web de El País o aplicación móvil de El País.
+                    </li>
+                    <li>
+                      El acceso como Usuario a cualquiera de los contenidos a
+                      través de cualquier otro medio o Servicio de El País.
+                    </li>
+                    <li>
+                      La navegación que se pueda realizar desde cualquier
+                      dispositivo desde el que se permita el acceso a los
+                      contenidos o a los Servicios El País, como ordenadores,
+                      televisión digital, ‘Smart Tv’s’, PDA, Tabletas, ‘iPad’,
+                      ‘iPhone’, teléfonos móviles, ‘Smartphones’, suscripciones
+                      vía RSS o cualquier otro medio de acceso a los contenidos
+                      puestos a disposición en internet.
+                    </li>
+                    <li>
+                      La navegación y disfrute de los Servicios El País que se
+                      realice desde cualquier parte del mundo, ya se trate de
+                      Servicios ubicados en el país de acceso o ubicados en otro
+                      país.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <h4 id="cumplimiento">
+                    <strong>Cumplimiento de la normativa vigente</strong>
+                  </h4>
+                  <p>
+                    El País, al estar ubicado en España, está sometido al
+                    cumplimiento de la normativa española y europea en materia
+                    de protección de datos y servicios de la sociedad de la
+                    información.
+                  </p>
+                  <p>
+                    Por lo tanto, El País garantiza en todo momento el íntegro y
+                    pleno cumplimiento de las obligaciones dispuestas por la
+                    normativa de protección de datos y de servicios de la
+                    sociedad de la información, así como por cualquier otra Ley
+                    o norma que complemente o sustituya a las anteriores.
+                  </p>
+                </li>
+                <li>
+                  <h4 id="responsable">
+                    <strong>Responsable del Tratamiento</strong>
+                  </h4>
+                  <p>
+                    Los datos personales recabados a través de los Servicios El
+                    País, serán incorporados un fichero responsabilidad de
+                    Cubamuseo, S.L., empresa española con domicilio en
+                    la C/ Miguel Yuste, 40 – 28027 de Madrid, con número de
+                    N.I.F: B-85635910, inscrita en el Registro Mercantil de
+                    Madrid al tomo 26.455, folio 157, sección 8, hoja M-476760,
+                    inscripción 1 (en adelante, El País).
+                  </p>
+                  <p>
+                    El País, como empresa que forma parte del Grupo PRISA, ha
+                    designado voluntariamente un Delegado de Protección de Datos
+                    a través del cual el Usuario podrá plantear quejas,
+                    reclamaciones y sugerencias relativas al tratamiento de sus
+                    datos personales, así como ejercer sus derechos. Para ello,
+                    el Usuario podrá dirigirse a la siguiente dirección de
+                    correo electrónico:
+                    <a href="mailto:dpo@prisa.com">dpo@prisa.com.</a>
+                  </p>
+                </li>
+                <li>
+                  <h4 id="tratamiento">
+                    <strong
+                      >Finalidades del tratamiento de los datos personales de
+                      los Usuarios</strong
+                    >
+                  </h4>
+                  <p>
+                    Los datos facilitados por el Usuario de los Servicios El
+                    País son utilizados con diversas finalidades que se enumeran
+                    a continuación:
+                  </p>
+                  <ul>
+                    <li>
+                      Facilitar un Servicio personalizado para el Usuario,
+                      adecuando dichos Servicios a su perfil personal,
+                      geográfico, así como a sus preferencias y gustos.
+                    </li>
+                    <li>
+                      Definir tipologías, segmentaciones y perfiles de usuarios,
+                      así como prestar, gestionar, administrar, ampliar y
+                      mejorar los Servicios y/o contenidos ofrecidos en los
+                      Servicios El País, mediante el análisis de la utilización
+                      de los Servicios por parte de los Usuarios.
+                    </li>
+                    <li>
+                      Mostrar información editorial o comercial específicamente
+                      diseñada para el perfil inferido en función del uso de los
+                      Servicios El País por parte del Usuario, tanto en
+                      servicios propios como en servicios de terceros,
+                      pertenecientes a cualquiera de los Sectores, con los que
+                      El País llegue a acuerdos. Dicho perfil también podrá ser
+                      inferido en función de la localización geográfica del
+                      dispositivo o terminal desde que utiliza los Servicios El
+                      País; no obstante, siempre se le solicitará una
+                      autorización previa y específica para poder tratar dicha
+                      información.
+                    </li>
+                    <li>
+                      Diseñar nuevos servicios que puedan resultar de su
+                      interés.
+                    </li>
+                    <li>
+                      Gestionar las incidencias y el mantenimiento de los
+                      Servicios El País.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <h4 id="tipos">
+                    <strong
+                      >Tipos de datos recogidos a través de los Servicios El
+                      País</strong
+                    >
+                  </h4>
+                  <p>
+                    El País recogerá datos del Usuario a través del uso de los
+                    Servicios El País.
+                  </p>
+                  <p>
+                    Estos datos estarán vinculados principalmente a la dirección
+                    IP desde la que accede a los Servicios El País o a un código
+                    de usuario asignado de forma unilateral por El País. Estos
+                    datos podrán ser considerados como datos personales en la
+                    medida en que permitan identificarle o hacerle
+                    identificable.
+                  </p>
+                  <p>
+                    De esta forma, El País podrá vincular a dichos datos la
+                    siguiente información:
+                  </p>
+                  <ul>
+                    <li>
+                      Datos de uso y navegación. A efectos estadísticos y
+                      publicitarios, de control del uso de nuestras páginas, de
+                      control del acceso a servicios de terceros a través de
+                      Servicios El País y de mejorar el conocimiento sobre los
+                      intereses del Usuario, se recogerán datos de uso y
+                      navegación relativos acerca de qué Servicio utiliza el
+                      Usuario, cómo lo utiliza, cuándo, qué tipo de Usuario es,
+                      o si accede a un anuncio publicitario mostrado en
+                      cualquiera de los Servicios El País.
+                    </li>
+                    <li>
+                      Intereses y el perfil del Usuario inferidos de la
+                      navegación o uso que haga de los Servicios El País, así
+                      como información sobre el dispositivo de acceso, el modelo
+                      de equipo, la versión del sistema operativo, los
+                      identificadores únicos del dispositivo o de la conexión,
+                      datos sobre la red móvil, así como fallos, actividad del
+                      sistema, ajustes del hardware, tipo de navegador, idioma
+                      del navegador, fecha y hora de solicitud de conexión, URL
+                      de referencia, cookies y otros dispositivos de
+                      almacenamiento y recuperación de datos en equipos
+                      terminales (tal y como se explica en la
+                      <a
+                        href="https://www.prisa.com/es/info/politica-de-cookies-publi"
+                        >POLÍTICA DE COOKIES</a
+                      >), que permiten identificar el navegador y dispositivo
+                      del Usuario, así como hacer estudios analíticos y mostrar
+                      información personalizada en función del resultado de
+                      dichos estudios, tanto en servicios propios como ajenos.
+                      El registro en cualquiera de los Servicios El País implica
+                      la aceptación expresa y sin reservas de la
+                      <a
+                        href="https://www.prisa.com/es/info/politica-de-cookies-publi"
+                        >POLÍTICA DE COOKIES</a
+                      >.
+                    </li>
+                    <li>
+                      Los Servicios El País también utilizan tecnologías de
+                      identificación y seguimiento de usuarios, como por
+                      ejemplo, imágenes diminutas y transparentes insertas en
+                      páginas web y aplicaciones. Cuando el Usuario accede a uno
+                      de estos contenidos, las imágenes se descargan en su
+                      dispositivo y permiten conocer que el Usuario ha accedido
+                      al Servicio El País y reconocerle en caso de que acceda de
+                      nuevo. Esta información se utiliza para obtener
+                      estadísticas, realizar estudios analíticos sobre el uso de
+                      sus servicios por parte de los Usuarios, y mostrar
+                      información editorial o comercial personalizada en función
+                      del resultado de dichos estudios, tanto en servicios
+                      propios como ajenos.
+                    </li>
+                    <li>
+                      Los Servicios El País también pueden ofrecer enlaces a
+                      servicios de terceros que estén marcados mediante un
+                      código para que dichos terceros puedan reconocer que ese
+                      usuario procede de un Servicio El País.
+                    </li>
+                    <li>
+                      Información sobre el territorio desde el que se origina la
+                      conexión a los Servicios El País, para personalizar dichos
+                      servicios y, en su caso, verificar la disponibilidad de
+                      los derechos de visualización de determinados contenidos
+                      audiovisuales.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <h4 id="terceros">
+                    <strong>Datos compartidos con terceros</strong>
+                  </h4>
+                  <p>
+                    El País no cederá los datos personales de los Usuarios a
+                    ningún tercero sin una base jurídica que legitime este
+                    tratamiento.
+                  </p>
+                  <p>
+                    Para la medición del uso de los Servicios, El País utiliza
+                    proveedores externos que utilizan Cookies para realizar
+                    estudios analíticos del uso de los Servicios El País. El
+                    Usuario podrá consultar la
+                    <a
+                      href="https://www.prisa.com/es/info/politica-de-cookies-publi"
+                      ><strong>POLÍTICA DE COOKIES</strong></a
+                    >
+                    en todo momento.
+                  </p>
+                </li>
+                <li>
+                  <h4 id="menores"><strong>Menores de edad</strong></h4>
+                  <p>
+                    Los menores de 14 años no deberán utilizar los Servicios El
+                    País sin consentimiento de sus padres o tutores.
+                  </p>
+                  <p>
+                    En caso de que El País detecte usuarios que pudieran ser
+                    menores de 14 años, se reserva el derecho a solicitarle una
+                    copia de su DNI o documento equivalente, o, en su caso, la
+                    autorización de sus padres o tutores.
+                  </p>
+                </li>
+                <li>
+                  <h4 id="noticiables">
+                    <strong>Personas noticiables</strong>
+                  </h4>
+                  <p>
+                    Las noticias contenidas en este Sitio Web podrán contener
+                    datos personales de personas noticiables por ser de
+                    relevancia pública, por su notoriedad pública o por
+                    circunstancias sobrevenidas en hechos de interés público de
+                    los que son protagonistas.
+                  </p>
+                  <p>
+                    A través de este apartado, informamos a las personas
+                    noticiables sobre el tratamiento de sus datos conforme lo
+                    dispuesto en la normativa vigente, que establece que cuando
+                    resulte imposible o requiera un esfuerzo desproporcionado
+                    informar a los interesados sobre el tratamiento de sus datos
+                    se adopten medidas adecuadas para proteger sus derechos,
+                    libertades e intereses legítimos, inclusive haciendo publica
+                    la información, lo cual se cumple a través de la presente
+                    política de privacidad.
+                  </p>
+                  <p>
+                    Los datos personales serán obtenidos a través de la
+                    investigación y los recursos periodísticos a disposición de
+                    este medio de comunicación, consistiendo en los datos
+                    pertinentes para la elaboración de dichas noticias.
+                  </p>
+                  <p>
+                    La base jurídica que legitima el tratamiento de los datos
+                    personales de personas noticiables es la necesidad de dar
+                    cumplimiento a una misión realizada en interés público. Los
+                    datos personales se tratarán de forma indefinida en el
+                    tiempo.
+                  </p>
+                </li>
+                <li>
+                  <h4 id="derechos">
+                    <strong>Derechos de los usuarios</strong>
+                  </h4>
+                  <p>
+                    El Usuario podrá ejercer los derechos de acceso,
+                    rectificación, supresión, oposición, portabilidad y
+                    limitación, dirigiéndose a El País, a través de correo
+                    postal al domicilio de El País, acreditando su identidad con
+                    una copia escaneada de su DNI o documento equivalente, y
+                    especificando el derecho que desea ejercer. Se recomienda
+                    que el usuario facilite toda la información sobre los
+                    Servicios El País que utiliza o ha utilizado para poder
+                    atender adecuadamente su solicitud.
+                  </p>
+                  <p>
+                    El Usuario tendrá derecho a formular una queja o reclamación
+                    ante la Agencia Española de Protección de Datos (<a
+                      href="https://www.aepd.es"
+                      >www.aepd.es</a
+                    >) y ante el Delegado de Protección de Datos del Grupo Prisa
+                    (<a href="mailto:dpo@prisa.com">dpo@prisa.com</a>).
+                  </p>
+                </li>
+                <li>
+                  <h4 id="plazo">
+                    <strong>Plazo de conservación de los datos</strong>
+                  </h4>
+                  <p>
+                    Los datos personales del Usuario serán tratados de forma
+                    activa mientras ostente la condición de Usuario de los
+                    Servicios El País; es decir, mientras no ejerza su derecho
+                    de supresión.
+                  </p>
+                  <p>
+                    En caso de ejercer su derecho de supresión, sus datos serán
+                    bloqueados y conservados de forma restringida a disposición
+                    de las autoridades competentes durante un plazo de 5 años
+                    para atender a las posibles responsabilidades nacidas del
+                    tratamiento.
+                  </p>
+                </li>
+                <li>
+                  <h4 id="legitimacion">
+                    <strong
+                      >Legitimación para el tratamiento de los datos</strong
+                    >
+                  </h4>
+                  <p>
+                    La base jurídica que legitima los tratamientos indicados es
+                    el interés legítimo de El País.
+                  </p>
+                </li>
+              </ol>
+              <p>© Cubamuseo, S.L. Miguel Yuste, 40 – 28037 Madrid.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="custom-modal-cookies">
+  <div class="container-fluid center">
+    <div class="row" style="justify-content: center">
+      <button
+        class="btn btn-white btn-round btn-just-icon"
+        (click)="closeModal('custom-modal-cookies')"
+      >
+        <i class="material-icons">close</i>
+      </button>
+      <div class="card">
+        <div class="articulo__envoltorio">
+          <div class="carcasa">
+            <div class="carcasa__interior">
+              <h2>Condiciones generales</h2>
+              <ol>
+                <li>
+                  <strong>DATOS IDENTIFICATIVOS</strong>
+                  En cumplimiento con el deber de información recogido en
+                  artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de
+                  la Sociedad de la Información y de Comercio Electrónico, a
+                  continuación se reflejan los siguientes datos: La empresa
+                  titular de este sitio web (en adelante, el Site) es EDICIONES
+                  EL PAIS, S.L, con domicilio en C/Miguel Yuste, 40 - 28037
+                  Madrid, con número de C.I.F: B-85635910, inscrita en el
+                  Registro Mercantil de Madrid en el tomo 26.455, folio 157,
+                  sección 8, hoja M-476760, inscripción 1 (en adelante,
+                  Cubamuseo).
+                  <div class="apoyos estirar">
+                    <ul>
+                      <li>
+                        <a
+                          href="//elpais.com/estaticos/contacte/envio/contactoC.pl"
+                          target="_blank"
+                          >Formulario de contacto</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <strong>OBJETO</strong>: Estas son las condiciones generales
+                  (en adelante "Condiciones Generales") que regulan el acceso,
+                  navegación y uso del portal web"elpais.com" (en adelante,
+                  "Sitio Web"), las responsabilidades derivadas de la
+                  utilización de todos sus contenidos Adicionalmente, EDICIONES
+                  EL PAIS podrá establecer condiciones particulares que regulen
+                  el acceso y/o contratación de servicios específicos ofrecidos
+                  a los usuarios del Sitio Web. A estos servicios específicos
+                  les serán de aplicación sus condiciones particulares a las que
+                  se accederá en la url de dicho servicio.
+                </li>
+                <li>
+                  <strong>USUARIOS</strong>: A estos efectos, se entenderá por
+                  usuario la persona que acceda, navegue o utilice el Sitio Web.
+                  El acceso, navegación y/o uso al Sitio Web de EDICIONES EL
+                  PAIS implica para el usuario la aceptación de estas
+                  Condiciones Generales. Por tanto, el usuario debe leer
+                  atentamente estas Condiciones Generales.
+                </li>
+                <li>
+                  <strong>USO DEL PORTAL</strong>: el Sitio Web de EDICIONES EL
+                  PAIS proporciona el acceso a multitud de informaciones,
+                  contenidos, servicios, programas o datos (en adelante, "los
+                  Contenidos") en Internet pertenecientes a Cubamuseo a
+                  sus cedentes o licenciantes . El usuario asume la
+                  responsabilidad del uso del Sitio Web. Dicha responsabilidad
+                  se extiende al registro que fuese necesario para acceder a
+                  determinados servicios o contenidos. En dicho registro el
+                  usuario será responsable de aportar información veraz y
+                  lícita. Como consecuencia de este registro, al usuario se le
+                  puede proporcionar una contraseña de la que será único
+                  responsable, comprometiéndose a hacer un uso diligente y
+                  confidencial de la misma. El usuario se compromete a hacer un
+                  uso adecuado de los Contenidos así como de determinados
+                  servicios (como por ejemplo servicios de chat, foros de
+                  discusión o grupos de noticias, suscripciones, etc.) que
+                  Cubamuseo ofrece a través de su Sitio Web y con
+                  carácter enunciativo pero no limitativo, a no emplearlos para
+                  (i) incurrir en actividades ilícitas, ilegales o contrarias a
+                  la buena fe y al orden público; (ii) difundir contenidos o
+                  propaganda de carácter racista, xenófobo, pornográfico-ilegal,
+                  de apología del terrorismo o atentatorio contra los derechos
+                  humanos; (iii) provocar daños en los sistemas físicos y
+                  lógicos de Cubamuseo, de sus proveedores o de terceras
+                  personas, introducir o difundir en la red virus informáticos o
+                  cualesquiera otros sistemas físicos o lógicos que sean
+                  susceptibles de provocar los daños anteriormente mencionados;
+                  (iv) intentar acceder y, en su caso, utilizar las cuentas de
+                  correo electrónico de otros usuarios y modificar o manipular
+                  sus mensajes. Cubamuseo se reserva el derecho de
+                  retirar todos aquellos comentarios y aportaciones que vulneren
+                  el respeto a la dignidad de la persona, que sean
+                  discriminatorios, xenófobos, racistas, pornográficos, que
+                  atenten contra la juventud o la infancia, el orden o la
+                  seguridad pública o que, a su juicio, no resultaran adecuados
+                  para su publicación. En cualquier caso, Cubamuseo no
+                  será responsable de las opiniones vertidas por los usuarios a
+                  través de los foros, chats, u otras herramientas de
+                  participación; sin perjuicio de lo cual adoptará las medidas
+                  oportunas para detectar y atender reclamaciones sobre posible
+                  actividades ilícitas por parte de los mismos, reservándose
+                  expresamente la posibilidad de interrumpir en cualquier
+                  momento y sin previo aviso, temporal o definitivamente, el
+                  servicio de participación ofrecido a cualquier usuario cuyos
+                  contenidos puedan ser considerados ilegales, prohibidos o
+                  simplemente inadecuados.
+                </li>
+                <li>
+                  <strong>PROPIEDAD INTELECTUAL E INDUSTRIAL</strong>: EDICIONES
+                  EL PAIS, autor de la obra colectiva u otras obras y
+                  prestaciones, es titular, originaria o derivativamente, de
+                  todos los derechos de propiedad intelectual e industrial del
+                  Sitio Web, así como de los elementos que forman los Contenidos
+                  (a título enunciativo, imágenes, sonido, audio, vídeo,
+                  software o textos; marcas o logotipos, combinaciones de
+                  colores, estructura y diseño, selección de materiales usados,
+                  programas de ordenador necesarios para su funcionamiento,
+                  acceso y uso, etc). Todos los derechos reservados. En virtud
+                  de lo dispuesto en la Ley de Propiedad Intelectual quedan
+                  expresamente prohibidas la reproducción, la transformación, la
+                  distribución y la comunicación pública, incluida su modalidad
+                  de puesta a disposición, de la totalidad o parte de los
+                  Contenidos cualquiera que sea su finalidad y el medio o
+                  soporte que se utilice, sin la autorización de EDICIONES EL
+                  PAIS. El usuario se compromete a respetar los derechos de
+                  Propiedad Intelectual e Industrial titularidad de EDICIONES EL
+                  PAIS. Podrá visualizar los elementos del Sitio Web siempre y
+                  cuando sea, única y exclusivamente, para su uso personal y
+                  privado. En ningún caso se entenderá que el acceso y
+                  navegación del usuario implica una renuncia, transmisión,
+                  licencia o cesión total ni parcial de dichos derechos por
+                  parte de Cubamuseo En caso de que esté interesado en
+                  una autorización o licencia para utilizar en cualquier forma
+                  los contenidos del Sitio Web diríjase a
+                  <a target="_blank" href="https://www.prisanewsservices.com/"
+                    >https://www.prisanewsservices.com/</a
+                  >. Asimismo, el usuario deberá abstenerse de suprimir,
+                  alterar, eludir o manipular cualquier dispositivo de
+                  protección o sistema de seguridad que estuviera instalado en
+                  el Sitio Web de Cubamuseo. Es obligación del usuario
+                  notificar de forma inmediata a Cubamuseo cualquier
+                  hecho que permita el uso indebido de los identificadores y/o
+                  contraseñas, tales como el robo, extravío, o el acceso no
+                  autorizado a los mismos, con el fin de proceder a su inmediata
+                  cancelación. Mientras no se comuniquen tales hechos, Cubamuseo quedará eximida de cualquier responsabilidad que
+                  pudiera derivarse del uso indebido de los identificadores o
+                  contraseñas por terceros no autorizados. Cubamuseo se
+                  reserva el derecho de cursar la baja inmediata del usuario
+                  registrado si considera, a su sola discreción, que el usuario
+                  Registrado está realizando cualquier actividad que constituya
+                  o pueda constituir un incumplimiento de estas Condiciones
+                  Generales.
+                </li>
+                <li>
+                  <strong>EXCLUSIÓN DE GARANTÍAS Y RESPONSABILIDAD</strong>:
+                  Cubamuseo no se hace responsable, en ningún caso, de
+                  los daños y perjuicios de cualquier naturaleza que pudieran
+                  ocasionar, a título enunciativo: errores u omisiones en los
+                  contenidos, falta de disponibilidad del portal o la
+                  transmisión de virus o programas maliciosos o lesivos en los
+                  Contenidos, a pesar de haber adoptado todas las medidas
+                  tecnológicas necesarias para evitarlo.
+                </li>
+                <li>
+                  <strong>MODIFICACIONES</strong>: Cubamuseo se reserva
+                  el derecho de efectuar sin previo aviso las modificaciones que
+                  considere oportunas en el Sitio Web, pudiendo cambiar,
+                  suprimir o añadir tanto los contenidos y servicios que se
+                  presten a través de la misma como la forma en la que éstos
+                  aparezcan presentados o localizados en el Sitio Web.
+                </li>
+                <li>
+                  <strong>ENLACES</strong>: En el caso de que en el Sitio Web se
+                  dispusiesen enlaces o hipervínculos hacía otros sitios de
+                  Internet, Cubamuseo no ejercerá ningún tipo de control
+                  sobre dichos sitios y contenidos. En ningún caso EDICIONES EL
+                  PAIS asumirá responsabilidad alguna por los contenidos de
+                  algún enlace perteneciente a un sitio web ajeno, ni
+                  garantizará la disponibilidad técnica, calidad, fiabilidad,
+                  exactitud, amplitud, veracidad, validez y constitucionalidad
+                  de cualquier material o información contenida en ninguno de
+                  dichos hipervínculos u otros sitios de Internet. Igualmente la
+                  inclusión de estas conexiones externas no implicará ningún
+                  tipo de asociación, fusión o participación con las entidades
+                  conectadas. Sin perjuicio de lo anterior, algunos enlaces
+                  estarán previamente negociados o consensuados con el
+                  responsable del contenido enlazado, de forma que se genere una
+                  contraprestación por las acciones realizadas libremente por el
+                  usuario. Esta situación no afectará en ningún caso a la
+                  exclusión de responsabilidad sobre el contenido enlazado ni a
+                  la independencia de este medio de comunicación.
+                </li>
+                <li>
+                  <strong>PUBLICIDAD Y OTROS CONTENIDOS O SERVICIOS</strong>: A
+                  través del Sitio Web, Cubamuseo habilita espacios para
+                  que terceros publiciten sus productos o servicios, en estos
+                  casos, será responsable del contenido publicitario el tercero
+                  titular del producto o servicio publicitado; Cubamuseo
+                  no será responsable del contenido ni mensaje transmitido por
+                  dicha publicidad. Asimismo, a través del Sitio Web, EDICIONES
+                  EL PAIS podrá habilitar a terceras entidades para que
+                  publiciten o presten sus servicios. En estos casos, EDICIONES
+                  EL PAIS no será responsable de establecer las condiciones
+                  generales y particulares a tener en cuenta en la utilización,
+                  prestación o contratación de estos servicios por terceros y,
+                  por tanto, no podrá ser considerado responsable de los mismos.
+                </li>
+                <li>
+                  <strong>CONTENIDOS GENERADOS POR EL USUARIO</strong>: En el
+                  caso de que el usuario envíe contenidos de cualquier tipo al
+                  Sitio Web, incluyendo, pero no limitado a fotografías fijas,
+                  vídeos, textos, informaciones, bases de datos, grabaciones
+                  sonoras o cualesquiera otras obras o prestaciones, el usuario
+                  garantiza y acepta que los usos de los mismos conforme a estas
+                  Condiciones Generales no infringen ningún derecho de propiedad
+                  intelectual o industrial, derecho de imagen, honor o
+                  intimidad, deber de confidencialidad, secreto comercial o
+                  cualquier otro derecho de tercero. En el caso que estos
+                  contenidos sean imágenes en las que se identifiquen, directa o
+                  indirectamente, a terceros, el usuario garantiza que la
+                  persona o personas son mayores de edad y han consentido
+                  expresa e inequívocamente la captación de su imagen, así como
+                  su reproducción y difusión pública. En caso de que la persona
+                  cuya imagen se reproduce sea menor de edad, el usuario
+                  garantiza que ha obtenido el consentimiento expreso e
+                  inequívoco para la captación, la reproducción y la difusión
+                  pública de la imagen de los titulares de la patria potestad o
+                  tutor legal del menor de edad y podrá acreditarlo en cualquier
+                  momento que sea requerido para ello. El usuario mantendrá
+                  indemne a Cubamuseo respecto a lo contenido en este
+                  apartado. Asimismo, el usuario concede a Cubamuseo una
+                  licencia no exclusiva de uso de estos contenidos para su
+                  utilización en el Sitio Web, hasta su paso al dominio público
+                  y para el territorio mundial. Las noticias contenidas en este
+                  Sitio Web podrán contener datos personales de personas
+                  noticiables por ser de relevancia pública, por su notoriedad
+                  pública o por circunstancias sobrevenidas en hechos de interés
+                  público de los que son protagonistas.
+                  <p></p>
+                </li>
+                <li>
+                  <strong>DERECHO DE EXCLUSIÓN</strong>: Cubamuseo se
+                  reserva el derecho a denegar o retirar el acceso a su Site y/o
+                  los servicios ofrecidos sin necesidad de preaviso, a instancia
+                  propia o de un tercero, a aquellos usuarios que incumplan las
+                  presentes Condiciones Generales.
+                </li>
+                <li>
+                  <strong>GENERALIDADES</strong>: Cubamuseo perseguirá
+                  el incumplimiento de las Condiciones Generales así como
+                  cualquier utilización indebida de los Contenidos y/o Sitio Web
+                  ejerciendo todas las acciones civiles y penales que le puedan
+                  corresponder en derecho.
+                </li>
+                <li>
+                  <strong
+                    >MODIFICACIÓN DE LAS PRESENTES CONDICIONES Y
+                    DURACIÓN</strong
+                  >: Cubamuseo podrá modificar en cualquier momento las
+                  Condiciones Generales, siendo debidamente publicadas como aquí
+                  aparecen. La vigencia de las Condiciones Generales irá en
+                  función de su exposición y estarán vigentes hasta que sean
+                  modificadas por otras debidamente publicadas.
+                </li>
+              </ol>
+              <p>© Cubamuseo, S.L. Miguel Yuste, 40 – 28037 Madrid.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </jw-modal>

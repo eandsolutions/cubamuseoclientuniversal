@@ -109,3 +109,8 @@ mdb-carousel-item {
     height: 100% !important;
 }
 
+.articulo__envoltorio {
+    padding: 20px;
+    cursor: pointer;
+}
+
